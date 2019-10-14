@@ -13,9 +13,13 @@ antigen bundle command-not-found
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 
+# Waka time
+antigen bundle sobolevn/wakatime-zsh-plugin
+
 # Load the theme.
 # antigen theme robbyrussell
 # antigen theme geometry-zsh/geometry
+
 antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
 
 # Tell Antigen that you're done.
@@ -66,7 +70,9 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=()
+plugins=(
+	fzf
+	)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -110,4 +116,3 @@ export PATH="$NPM_PACKAGES/bin:$PATH"
 # Set Spaceship ZSH as a prompt
 autoload -U promptinit; promptinit
 prompt spaceship
-
