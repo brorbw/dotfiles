@@ -20,6 +20,7 @@ antigen bundle sobolevn/wakatime-zsh-plugin
 # antigen theme robbyrussell
 # antigen theme geometry-zsh/geometry
 
+# antigen theme denysdovhan/spaceship-prompt
 antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
 
 # Tell Antigen that you're done.
@@ -107,11 +108,6 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 alias chunkwmrc="vim ~/.chunkwmrc"
 alias rtfh="ps ux | grep -E '[F]lash Player Plugin' | awk '{ print $2; }' | xargs kill"
 alias cd..="cd ../"
-export PATH="/usr/local/sbin:$PATH"
-export PATH="$PATH:/Users/noname/Projects/depot_tools"
-
-export NPM_PACKAGES="/usr/local/Cellar/node/10.11.0"
-export PATH="$NPM_PACKAGES/bin:$PATH"
 
 # Set Spaceship ZSH as a prompt
 autoload -U promptinit; promptinit
