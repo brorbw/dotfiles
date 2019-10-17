@@ -57,6 +57,7 @@ values."
      semantic
      cscope
      plantuml
+		 syntax-checking
      (c-c++ :variables c-c++-enable-clang-support t)
      ;; (shell :variables
      ;;        shell-default-height 30
@@ -85,7 +86,9 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages
-   '()
+   '(
+		 nodejs-repl
+		 )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -182,7 +185,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Fira Code"
-                               :size 16
+                               :size 14
                                :weight Light
                                :width normal
                                :powerline-scale 1)
@@ -359,6 +362,13 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   ;; custom indent function for setting the indent in different modes
+	;; nodejs-repl
+  (spacemacs/set-leader-keys-for-major-mode 'js2-mode "one" 'nodejs-repl-send-last-expression)
+  (spacemacs/set-leader-keys-for-major-mode 'js2-mode "onj" 'nodejs-repl-send-line)
+  (spacemacs/set-leader-keys-for-major-mode 'js2-mode "onr" 'nodejs-repl-send-region)
+  (spacemacs/set-leader-keys-for-major-mode 'js2-mode "onl" 'nodejs-repl-load-file)
+  (spacemacs/set-leader-keys-for-major-mode 'js2-mode "on'" 'nodejs-repl-switch-to-repl)
+  (spacemacs/set-leader-keys-for-major-mode 'js2-mode "ons" 'nodejs-repl-switch-to-repl)
 	(global-company-mode)
 	(setq frame-resize-pixelwise t)
 	(require 'fill-column-indicator)
@@ -391,36 +401,36 @@ you should place your code here."
 
   (global-hl-line-mode -1)
   (setq org-reveal-root "file:///Users/noname/Projects/reveal.js/")
-  (with-eval-after-load 'org
-    (setq org-todo-keywords
-          '((sequence "TODO(t)" "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@)")))
-    (setq org-bullets-bullet-list '("■" "◆" "▲" "▶"))
-    (setq org-capture-templates
-          '(("l" "Global TODOS" entry (file+headline "~/org/globalTODO.org" "Tasks")
-             "* TODO %? %i\n")
-            ("f" "File location in TODOs(remember relable)" entry (file+headline (concatenate projectile-project-root org-projectile-file))
-             "* TODO %? \n %a \n")
-            ("j" "Journal" entry (file+olp+datetree "~/org/journal.org")
-             "* %?\nEntered on %U\n  %i\n")
-            ))
+  ;; (with-eval-after-load 'org
+  ;;   (setq org-todo-keywords
+  ;;         '((sequence "TODO(t)" "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@)")))
+  ;;   (setq org-bullets-bullet-list '("■" "◆" "▲" "▶"))
+    ;; (setq org-capture-templates
+    ;;       '(("l" "Global TODOS" entry (file+headline "~/org/globalTODO.org" "Tasks")
+    ;;          "* TODO %? %i\n")
+    ;;         ("f" "File location in TODOs(remember relable)" entry (file+headline (concatenate projectile-project-root org-projectile-file))
+    ;;          "* TODO %? \n %a \n")
+    ;;         ("j" "Journal" entry (file+olp+datetree "~/org/journal.org")
+    ;;          "* %?\nEntered on %U\n  %i\n")
+    ;;         ))
 
-    (defun list-of-existing-files (project-todo-files)
-      (defun list-of-existing-files-inner (file-list acc)
-        (if (null file-list) 
-            acc)
-        (if (file-exists-p (car file-list))
-            (list-of-existing-files-inner (cdr file-list) (append (car file-list) acc)))
-        )
-       (list-of-existing-files-inner project-todo-files '()))
-    (with-eval-after-load 'org-agenda
-      (require 'org-projectile)
-      (setq org-agenda-files (append org-agenda-files (list-of-existing-files (org-projectile-todo-files))))
+    ;; (defun list-of-existing-files (project-todo-files)
+    ;;   (defun list-of-existing-files-inner (file-list acc)
+    ;;     (if (null file-list) 
+    ;;         acc)
+    ;;     (if (file-exists-p (car file-list))
+    ;;         (list-of-existing-files-inner (cdr file-list) (append (car file-list) acc)))
+    ;;     )
+    ;;    (list-of-existing-files-inner project-todo-files '()))
+    ;; (with-eval-after-load 'org-agenda
+    ;;   (require 'org-projectile)
+    ;;   (setq org-agenda-files (append org-agenda-files (list-of-existing-files (org-projectile-todo-files))))
       ;;(setq org-agenda-files (append org-agenda-files (org-projectile-todo-files)))
-      ))
-  (defun org-line-wrap ()
-    (spacemacs/toggle-visual-line-navigation-on)
-    (setq-local word-wrap t))
-  (add-hook 'org-mode-hook 'org-line-wrap)
+      ;; ))
+  ;; (defun org-line-wrap ()
+  ;;   (spacemacs/toggle-visual-line-navigation-on)
+  ;;   (setq-local word-wrap t))
+  ;; (add-hook 'org-mode-hook 'org-line-wrap)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -438,7 +448,7 @@ you should place your code here."
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
  '(evil-want-Y-yank-to-eol nil)
- '(fci-rule-color "#073642" t)
+ '(fci-rule-color "#073642")
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-symbol-colors
    (--map
@@ -462,14 +472,14 @@ you should place your code here."
  '(hl-fg-colors
    (quote
     ("#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36")))
- '(hl-paren-colors (quote ("#2aa198" "#b58900" "#268bd2" "#6c71c4" "#859900")) t)
+ '(hl-paren-colors (quote ("#2aa198" "#b58900" "#268bd2" "#6c71c4" "#859900")))
  '(magit-diff-use-overlays nil)
  '(nrepl-message-colors
    (quote
     ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
  '(package-selected-packages
    (quote
-    (omnisharp csharp-mode jinja2-mode company-ansible ansible-doc ansible slack emojify circe oauth2 websocket ht nginx-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby zenburn-theme zen-and-art-theme xcscope white-sand-theme wakatime-mode underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme sublime-themes subatomic256-theme subatomic-theme stickyfunc-enhance srefactor powerline spacegray-theme soothe-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme rebecca-theme railscasts-theme purple-haze-theme professional-theme plantuml-mode planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme spinner organic-green-theme org-category-capture alert log4e gntp org-plus-contrib oldlace-theme occidental-theme obsidian-theme noctilux-theme naquadah-theme mustang-theme monokai-theme monochrome-theme molokai-theme moe-theme minimal-theme material-theme majapahit-theme magit-popup madhat2r-theme lush-theme light-soap-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme hydra lv parent-mode heroku-theme hemisu-theme hc-zenburn-theme haml-mode gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flyspell-correct flx flatui-theme flatland-theme farmhouse-theme exotica-theme highlight magit transient git-commit with-editor smartparens iedit espresso-theme sbt-mode scala-mode dracula-theme django-theme disaster darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme d-mode cyberpunk-theme csv-mode projectile counsel swiper dash-functional company-quickhelp pos-tip company-dcd ivy flycheck-dmd-dub flycheck pkg-info epl company-c-headers company color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized cmake-mode clues-theme clang-format cherry-blossom-theme markdown-mode rust-mode busybee-theme bubbleberry-theme badwolf-theme yasnippet auctex apropospriate-theme anti-zenburn-theme anaconda-mode pythonic ample-zen-theme ample-theme alect-themes afternoon-theme web-completion-data auto-complete skewer-mode simple-httpd json-snatcher json-reformat multiple-cursors js2-mode tern tern-auto-complete nodejs-repl ox-reveal helm-themes helm-swoop helm-projectile helm-mode-manager helm-flx helm-descbinds helm-ag ace-jump-helm-line yapfify yaml-mode xterm-color xkcd ws-butler winum which-key wgrep web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill toml-mode toc-org tagedit swift-mode spaceline solarized-theme smex smeargle slim-mode shell-pop scss-mode sass-mode restart-emacs request rainbow-delimiters racer pyvenv pytest pyenv-mode py-isort pug-mode popwin pip-requirements persp-mode pcre2el paradox orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets open-junk-file noflet neotree mwim multi-term move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint less-css-mode json-mode js2-refactor js-doc ivy-hydra indent-guide hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-make google-translate golden-ratio gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy flyspell-popup flyspell-correct-ivy flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help ensime emmet-mode elisp-slime-nav dumb-jump diminish define-word cython-mode counsel-projectile company-web company-tern company-statistics company-auctex company-anaconda column-enforce-mode coffee-mode clean-aindent-mode cargo birds-of-paradise-plus-theme auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-link ac-ispell)))
+    (flycheck-rust flycheck-pos-tip omnisharp csharp-mode jinja2-mode company-ansible ansible-doc ansible slack emojify circe oauth2 websocket ht nginx-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby zenburn-theme zen-and-art-theme xcscope white-sand-theme wakatime-mode underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme sublime-themes subatomic256-theme subatomic-theme stickyfunc-enhance srefactor powerline spacegray-theme soothe-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme seti-theme reverse-theme rebecca-theme railscasts-theme purple-haze-theme professional-theme plantuml-mode planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme spinner organic-green-theme org-category-capture alert log4e gntp org-plus-contrib oldlace-theme occidental-theme obsidian-theme noctilux-theme naquadah-theme mustang-theme monokai-theme monochrome-theme molokai-theme moe-theme minimal-theme material-theme majapahit-theme magit-popup madhat2r-theme lush-theme light-soap-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme hydra lv parent-mode heroku-theme hemisu-theme hc-zenburn-theme haml-mode gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gandalf-theme flyspell-correct flx flatui-theme flatland-theme farmhouse-theme exotica-theme highlight magit transient git-commit with-editor smartparens iedit espresso-theme sbt-mode scala-mode dracula-theme django-theme disaster darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme d-mode cyberpunk-theme csv-mode projectile counsel swiper dash-functional company-quickhelp pos-tip company-dcd ivy flycheck-dmd-dub flycheck pkg-info epl company-c-headers company color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized cmake-mode clues-theme clang-format cherry-blossom-theme markdown-mode rust-mode busybee-theme bubbleberry-theme badwolf-theme yasnippet auctex apropospriate-theme anti-zenburn-theme anaconda-mode pythonic ample-zen-theme ample-theme alect-themes afternoon-theme web-completion-data auto-complete skewer-mode simple-httpd json-snatcher json-reformat multiple-cursors js2-mode tern tern-auto-complete nodejs-repl ox-reveal helm-themes helm-swoop helm-projectile helm-mode-manager helm-flx helm-descbinds helm-ag ace-jump-helm-line yapfify yaml-mode xterm-color xkcd ws-butler winum which-key wgrep web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill toml-mode toc-org tagedit swift-mode spaceline solarized-theme smex smeargle slim-mode shell-pop scss-mode sass-mode restart-emacs request rainbow-delimiters racer pyvenv pytest pyenv-mode py-isort pug-mode popwin pip-requirements persp-mode pcre2el paradox orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets open-junk-file noflet neotree mwim multi-term move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint less-css-mode json-mode js2-refactor js-doc ivy-hydra indent-guide hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-make google-translate golden-ratio gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md fuzzy flyspell-popup flyspell-correct-ivy flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help ensime emmet-mode elisp-slime-nav dumb-jump diminish define-word cython-mode counsel-projectile company-web company-tern company-statistics company-auctex company-anaconda column-enforce-mode coffee-mode clean-aindent-mode cargo birds-of-paradise-plus-theme auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-link ac-ispell)))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
