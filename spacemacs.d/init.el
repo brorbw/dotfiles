@@ -57,8 +57,13 @@ values."
      semantic
      cscope
      plantuml
+		 auto-completion
+		 gtags
 		 syntax-checking
-     (c-c++ :variables c-c++-enable-clang-support t)
+     (c-c++ :variables
+						c-c++-enable-clang-support t)
+						;; c-c++-backend 'lsp-cquery
+						;; c-c++-lsp-executable "/usr/local/bin/cquery")
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -72,7 +77,6 @@ values."
      xkcd
      ;; (org :variables org-enable-reveal-js-support t
      ;;      org-projectile-file "TODOs.org")
-     
      ;; Themes
      themes-megapack
      (wakatime :variables
@@ -375,7 +379,7 @@ you should place your code here."
   (setq-default indent-tabs-mode t)
 	(setq-default set-fill-column 80)
   (defun my-custom-indent-width (n)
-    (setq c-basic-offset n)
+    (setq c-basic-offset (+ n 2))
     (setq coffee-tab-width n) ; coffeescript
     (setq javascript-indent-level n) ; javascript-mode
     (setq js-indent-level n) ; js-mode
