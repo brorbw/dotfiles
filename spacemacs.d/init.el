@@ -77,6 +77,7 @@ values."
             shell-default-height 30
             shell-default-position 'top)
      xkcd
+		 org
      ;; (org :variables org-enable-reveal-js-support t
      ;;      org-projectile-file "TODOs.org")
      ;; Themes
@@ -192,7 +193,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Fira Code"
-                               :size 14
+                               :size 10
                                :weight Light
                                :width normal
                                :powerline-scale 1)
