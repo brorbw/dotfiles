@@ -56,20 +56,22 @@ values."
      markdown
      semantic
      cscope
-     plantuml
-		 auto-completion
 		 gtags
-		 syntax-checking
+     plantuml
+		 (auto-completion :variables
+											auto-completion-return-key-behavior 'cycle
+											auto-completion-tab-key-behavior 'complete
+											auto-completion-enable-sort-by-usage t
+											auto-completion-enable-snippets-in-popup t)
+
      (c-c++ :variables
-						c-c++-enable-clang-support t)
-						;; c-c++-backend 'lsp-cquery
-						;; c-c++-lsp-executable "/usr/local/bin/cquery")
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
+						c-c++-enable-clang-support t
+						c-c++-enable-rtags-support t
+						c-c++-backend 'rtags)
      (spell-checking :variables
                      enable-flyspell-auto-completion t
                      spell-checking-enable-by-default nil)
+		 syntax-checking
      (shell :variables
             shell-default-shell 'shell
             shell-default-height 30
@@ -357,7 +359,6 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-confi' first."
-  (global-linum-mode)
 )
  (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -392,6 +393,14 @@ you should place your code here."
   )
   (my-custom-indent-width 2)
 	(add-hook 'prog-mode-hook fci-mode 1)
+
+	;; C-C++ hooks
+	(add-hook 'c-mode-hook 'rtags-start-process-unless-running)
+	(add-hook 'c++-mode-hook 'rtags-start-process-unless-running)
+	(add-hook 'objc-mode-hook 'rtags-start-process-unless-running)
+
+	;; C# configs
+	(setq-default omnisharp--curl-executable-path "/usr/bin/curl")
 
   (add-hook 'c++-mode-hook 'clang-format-bindings)
   ;; save the current buffer when spacemacs looses focus.
@@ -440,18 +449,26 @@ you should place your code here."
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
-(custom-set-variables
+(custom-set-variables)
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+(custom-set-faces)
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
 (defun dotspacemacs/emacs-custom-settings ()
   "Emacs custom settings.
 This is an auto-generated function, do not modify its content directly, use
 Emacs customize menu instead.
 This function is called at the very end of Spacemacs initialization."
 (custom-set-variables)
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
