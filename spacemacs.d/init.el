@@ -442,10 +442,10 @@ you should place your code here."
     ;;   (setq org-agenda-files (append org-agenda-files (list-of-existing-files (org-projectile-todo-files))))
       ;;(setq org-agenda-files (append org-agenda-files (org-projectile-todo-files)))
       ;; ))
-  ;; (defun org-line-wrap ()
-  ;;   (spacemacs/toggle-visual-line-navigation-on)
-  ;;   (setq-local word-wrap t))
-  ;; (add-hook 'org-mode-hook 'org-line-wrap)
+  (defun org-line-wrap ()
+    (spacemacs/toggle-visual-line-navigation-on)
+    (setq-local word-wrap t))
+  (add-hook 'org-mode-hook 'org-line-wrap)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
