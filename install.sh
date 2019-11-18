@@ -10,9 +10,10 @@ sudo spctl --master-disable
 
 # brew
 brew install emacs-plus
+brew install ispell
 
 # npm
 npm install -g tern
 npm install -g eslint
 
-# linking
+# linking of dotfiles
