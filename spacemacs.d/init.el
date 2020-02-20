@@ -97,7 +97,7 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages
    '(
-		 nodejs-repl
+		 ;; nodejs-repl
 		 )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
