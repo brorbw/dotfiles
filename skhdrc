@@ -59,7 +59,6 @@ cmd + alt - 0 : yabai -m space --focus 10
 
 # send window to desktop and follow focus
 shift + cmd - x : yabai -m window --space recent; yabai -m space --focus recent
-shift + cmd - z : yabai -m window --space prev; yabai -m space --focus prev
 shift + cmd - c : yabai -m window --space next; yabai -m space --focus next
 shift + cmd - 1 : yabai -m window --space  1; yabai -m space --focus 1
 shift + cmd - 2 : yabai -m window --space  2; yabai -m space --focus 2
@@ -140,8 +139,8 @@ shift + alt - b : yabai -m window --toggle border
 alt - e : yabai -m window --toggle split
 
 # float / unfloat window and center on screen
-alt - t : yabai -m window --toggle float;\
-          yabai -m window --grid 4:4:1:1:2:2
+# alt - t : yabai -m window --toggle float;\
+#           yabai -m window --grid 4:4:1:1:2:2
 
 # toggle sticky (show on all spaces)
 alt - s : yabai -m window --toggle sticky

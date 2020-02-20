@@ -31,22 +31,24 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(php
-		 ansible
+     yaml
+     ansible
      nginx
      ruby
      csv
      (javascript :variables javascript-disable-tern-port-files nil)
-     yaml
+     ;; yaml
      octave
-     html
+     htm 
      python
 		 (treemacs :variables treemacs-use-git-mode 'deferred)
 		 react
      swift
      rust
      csharp
-     slack
      scala
+		 go
+		 react
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncommon some layer names and press <SPC f e R> (Vim style) or
@@ -58,19 +60,17 @@ values."
 		 git
      markdown
      semantic
-     cscope
-		 gtags
-     plantuml
+     ;; cscope
+		 ;; gtags
+     ;; plantuml
 		 (auto-completion :variables
-											auto-completion-return-key-behavior 'cycle
-											auto-completion-tab-key-behavior 'complete
 											auto-completion-enable-sort-by-usage t
 											auto-completion-enable-snippets-in-popup t)
 
-     (c-c++ :variables
-						c-c++-enable-clang-support t
-						c-c++-enable-rtags-support t
-						c-c++-backend 'rtags)
+     ;; (c-c++ :variables
+		 ;; 				c-c++-enable-clang-support t
+		 ;; 				c-c++-enable-rtags-support t
+		 ;; 				c-c++-backend 'rtags)
      (spell-checking :variables
                      enable-flyspell-auto-completion t
                      spell-checking-enable-by-default nil)
@@ -102,7 +102,9 @@ values."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(
+																		org-projectile
+																		)
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
    ;; `used-only' installs only explicitly used packages and uninstall any
@@ -173,6 +175,7 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(monokai
+												 underwater
 												 solarized-light
                          omtose-darker
                          zenburn
@@ -189,7 +192,7 @@ values."
    ;; to create your own spaceline theme. Value can be a symbol or list with\
    ;; additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.0)
+   dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
@@ -379,8 +382,8 @@ you should place your code here."
   (spacemacs/set-leader-keys-for-major-mode 'js2-mode "onl" 'nodejs-repl-load-file)
   (spacemacs/set-leader-keys-for-major-mode 'js2-mode "on'" 'nodejs-repl-switch-to-repl)
   (spacemacs/set-leader-keys-for-major-mode 'js2-mode "ons" 'nodejs-repl-switch-to-repl)
-	(global-company-mode)
 	(setq frame-resize-pixelwise t)
+	(setq rust-format-on-save t)
 	(require 'fill-column-indicator)
   (setq-default indent-tabs-mode t)
 	(setq-default set-fill-column 80)
@@ -419,10 +422,13 @@ you should place your code here."
 
   (global-hl-line-mode -1)
   (setq org-reveal-root "file:///Home/nonam/Projects/reveal.js")
+  ;; add check to see if on macos or linux
+  ;;(setq org-re-reveal-root "file:///Users/noname/Projects/reveal.js/")
   (defun org-line-wrap ()
     (spacemacs/toggle-visual-line-navigation-on)
     (setq-local word-wrap t))
   (add-hook 'org-mode-hook 'org-line-wrap)
+	
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -434,7 +440,7 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (counsel swiper ivy helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-gtags helm-gitignore helm-flx helm-descbinds helm-css-scss helm-cscope helm-company helm-c-yasnippet helm-ag flyspell-correct-helm ace-jump-helm-line helm helm-core zenburn-theme zen-and-art-theme yapfify yaml-mode xterm-color xkcd xcscope ws-butler winum white-sand-theme which-key wgrep web-mode web-beautify wakatime-mode volatile-highlights vi-tilde-fringe uuidgen use-package underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme toml-mode toc-org tao-theme tangotango-theme tango-plus-theme tango-2-theme tagedit swift-mode sunny-day-theme sublime-themes subatomic256-theme subatomic-theme stickyfunc-enhance srefactor spaceline spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smex smeargle slim-mode slack shell-pop seti-theme scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reverse-theme restart-emacs rebecca-theme rbenv rake rainbow-delimiters railscasts-theme racer pyvenv pytest pyenv-mode py-isort purple-haze-theme pug-mode professional-theme popwin plantuml-mode planet-theme pip-requirements phpunit phpcbf php-extras php-auto-yasnippets phoenix-dark-pink-theme phoenix-dark-mono-theme persp-mode paradox ox-reveal orgit organic-green-theme org-projectile org-present org-pomodoro org-mime org-download org-bullets open-junk-file omtose-phellack-theme omnisharp oldlace-theme occidental-theme obsidian-theme noflet nodejs-repl noctilux-theme nginx-mode neotree naquadah-theme mustang-theme multi-term move-text monokai-theme monochrome-theme molokai-theme moe-theme mmm-mode minitest minimal-theme material-theme markdown-toc majapahit-theme magit-gitflow madhat2r-theme lush-theme lorem-ipsum livid-mode live-py-mode linum-relative link-hint light-soap-theme json-mode js2-refactor js-doc jinja2-mode jbeans-theme jazz-theme ivy-hydra ir-black-theme insert-shebang inkpot-theme indent-guide hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation heroku-theme hemisu-theme helm-make hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme google-translate golden-ratio gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md ggtags gandalf-theme fuzzy flyspell-popup flyspell-correct-ivy flycheck-rust flycheck-pos-tip flx-ido flatui-theme flatland-theme fish-mode fill-column-indicator farmhouse-theme fancy-battery eyebrowse expand-region exotica-theme exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu espresso-theme eshell-z eshell-prompt-extras esh-help ensime emmet-mode dumb-jump drupal-mode dracula-theme django-theme disaster diminish define-word darktooth-theme darkokai-theme darkmine-theme darkburn-theme dakrone-theme cython-mode cyberpunk-theme csv-mode counsel-projectile company-web company-tern company-statistics company-shell company-c-headers company-auctex company-ansible company-anaconda column-enforce-mode color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized coffee-mode cmake-mode clues-theme clean-aindent-mode clang-format chruby cherry-blossom-theme cargo busybee-theme bundler bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme auto-yasnippet auto-highlight-symbol auto-dictionary auctex-latexmk apropospriate-theme anti-zenburn-theme ansible-doc ansible ample-zen-theme ample-theme alect-themes aggressive-indent afternoon-theme adaptive-wrap ace-window ace-link ac-ispell))))
+)))
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.

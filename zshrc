@@ -96,7 +96,7 @@ export LANG=en_US.UTF-8
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
-
+export PATH=$PATH:$(go env GOPATH)/bin
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -109,3 +109,7 @@ alias chunkwmrc="vim ~/.chunkwmrc"
 alias rtfh="ps ux | grep -E '[F]lash Player Plugin' | awk '{ print $2; }' | xargs kill"
 alias cd..="cd ../"
 alias cat="bat --paging never"
+
+# Set Spaceship ZSH as a prompt
+autoload -U promptinit; promptinit
+prompt spaceship
