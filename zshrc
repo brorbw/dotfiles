@@ -1,4 +1,4 @@
-source ~/.oh-my-zsh/custom/plugins/antigen.zsh
+source ~/Projects/dotfiles/antigen.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -20,8 +20,8 @@ antigen bundle sobolevn/wakatime-zsh-plugin
 # antigen theme robbyrussell
 # antigen theme geometry-zsh/geometry
 
-# antigen theme denysdovhan/spaceship-prompt
-antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
+antigen theme denysdovhan/spaceship-prompt
+# antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
 
 # Tell Antigen that you're done.
 antigen apply
@@ -48,7 +48,7 @@ HYPHEN_INSENSITIVE="true"
 ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -108,7 +108,4 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 alias chunkwmrc="vim ~/.chunkwmrc"
 alias rtfh="ps ux | grep -E '[F]lash Player Plugin' | awk '{ print $2; }' | xargs kill"
 alias cd..="cd ../"
-
-# Set Spaceship ZSH as a prompt
-autoload -U promptinit; promptinit
-prompt spaceship
+alias cat="bat --paging never"
