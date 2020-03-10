@@ -111,5 +111,5 @@ alias cd..="cd ../"
 alias cat="bat --paging never"
 
 # Set Spaceship ZSH as a prompt
-autoload -U promptinit; promptinit
-prompt spaceship
+# autoload -U promptinit; promptinit
+# prompt spaceship
