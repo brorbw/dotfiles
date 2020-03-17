@@ -110,6 +110,8 @@ alias rtfh="ps ux | grep -E '[F]lash Player Plugin' | awk '{ print $2; }' | xarg
 alias cd..="cd ../"
 alias cat="bat --paging never"
 
+PATH="$HOME/.node_modules/bin:$PATH"
+export npm_config_prefix=~/.node_modules
 # Set Spaceship ZSH as a prompt
 # autoload -U promptinit; promptinit
 # prompt spaceship
