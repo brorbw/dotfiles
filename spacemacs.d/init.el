@@ -36,7 +36,13 @@ values."
      nginx
      ruby
      csv
-     (javascript :variables javascript-disable-tern-port-files nil)
+		 web-beautify
+		 (tern :variables tern-disable-port-files nil tern-comand '("node", "/home/nonam/.node_modules/bin/tern"))
+     (javascript :variables
+								 javascript-backend 'tern
+								 javascript-disable-tern-port-files nil
+								 javascript-import-tool 'import-js
+								 javascript-fmt-tool 'web-beautify)
      ;; yaml
      octave
      html
