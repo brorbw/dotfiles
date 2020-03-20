@@ -52,6 +52,11 @@ values."
      swift
      rust
      csharp
+     slack
+		 (go :variables
+				 go-format-before-save t
+				 godoc-at-point-function 'godoc-gogetdoc)
+
      scala
 		 go
 		 react
@@ -64,6 +69,7 @@ values."
      ivy
 		 shell-scripts
 		 git
+		 react
      markdown
      semantic
      ;; cscope
@@ -330,7 +336,7 @@ values."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers t
+   dotspacemacs-line-numbers nil
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -393,18 +399,24 @@ you should place your code here."
 	(require 'fill-column-indicator)
   (setq-default indent-tabs-mode t)
 	(setq-default set-fill-column 80)
-  (defun my-custom-indent-width (n)
-    (setq c-basic-offset (+ n 2))
-    (setq coffee-tab-width n) ; coffeescript
-    (setq javascript-indent-level n) ; javascript-mode
-    (setq js-indent-level n) ; js-mode
-    (setq js2-basic-offset n) ; js2-mode, in latest js2-mode, it's alias of js-indent-level
-    (setq web-mode-markup-indent-offset n) ; web-mode, html tag in html file
-    (setq web-mode-css-indent-offset n) ; web-mode, css in html file
-    (setq web-mode-code-indent-offset n) ; web-mode, js code in html file
-    (setq css-indent-offset n) ; css-mode
+	(setq-default indent-tabs-mode t)
+  (defun my-custom-indent-width (n t)
+		(setq-default tab-width t)
+		(setq-default go-tab-width n)
+		(setq-default standard-indent n)
+    (setq-default c-basic-offset n)
+    (setq-default coffee-tab-width n) ; coffeescript
+    (setq-default javascript-indent-level n) ; javascript-mode
+    (setq-default js-indent-level n) ; js-mode
+    (setq-default js2-basic-offset n) ; js2-mode, in latest js2-mode, it's alias of js-indent-level
+    (setq-default web-mode-markup-indent-offset n) ; web-mode, html tag in html file
+    (setq-default web-mode-css-indent-offset n) ; web-mode, css in html file
+    (setq-default web-mode-code-indent-offset n) ; web-mode, js code in html file
+		(setq-default react-indent-level n)
+		(setq-default web-mode-indent-style n)
+    (setq-default css-indent-offset n) ; css-mode
   )
-  (my-custom-indent-width 2)
+  (my-custom-indent-width 2 2)
 	(add-hook 'prog-mode-hook fci-mode 1)
 
 	;; C-C++ hooks

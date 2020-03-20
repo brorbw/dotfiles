@@ -84,6 +84,8 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
+export PATH=$PATH:$(go env GOPATH)/bin 
+
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -109,6 +111,7 @@ alias chunkwmrc="vim ~/.chunkwmrc"
 alias rtfh="ps ux | grep -E '[F]lash Player Plugin' | awk '{ print $2; }' | xargs kill"
 alias cd..="cd ../"
 alias cat="bat --paging never"
+export BAT_CONFIG_PATH="~/.batrc"
 
 PATH="$HOME/.node_modules/bin:$PATH"
 export npm_config_prefix=~/.node_modules
