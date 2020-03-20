@@ -37,12 +37,13 @@ values."
      ruby
      csv
 		 web-beautify
+		 prettier
 		 (tern :variables tern-disable-port-files nil tern-comand '("node", "/home/nonam/.node_modules/bin/tern"))
      (javascript :variables
 								 javascript-backend 'tern
 								 javascript-disable-tern-port-files nil
 								 javascript-import-tool 'import-js
-								 javascript-fmt-tool 'web-beautify)
+								 javascript-fmt-tool 'prettier)
      ;; yaml
      octave
      html
@@ -413,6 +414,11 @@ you should place your code here."
 
 	;; C# configs
 	(setq-default omnisharp--curl-executable-path "/usr/bin/curl")
+	(setq prettier-js-args '(
+													 "--use-tabs"
+													 "--single-quote"
+													 "----trailing-comma" "es5"
+													 ))
 
   (add-hook 'c++-mode-hook 'clang-format-bindings)
   ;; save the current buffer when spacemacs looses focus.
