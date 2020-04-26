@@ -36,14 +36,13 @@ values."
      nginx
      ruby
      csv
-		 web-beautify
 		 prettier
 		 (tern :variables tern-disable-port-files nil tern-comand '("node", "/home/nonam/.node_modules/bin/tern"))
      (javascript :variables
 								 javascript-backend 'tern
 								 javascript-disable-tern-port-files nil
 								 javascript-import-tool 'import-js
-								 javascript-fmt-tool 'web-beautify
+								 javascript-fmt-tool 'prettier
 								 javascript-fmt-on-save t
 								 node-add-modules-path t
 								 js2-include-node-externs t)
@@ -175,7 +174,7 @@ values."
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed. (default 'official)
    dotspacemacs-startup-banner 'official
-   ;; List of items to show in startup buffer or an association list of 
+   ;; List of items to show in startup buffer or an association list of
    ;; the form `(list-type . list-size)`. If nil then it is disabled.
    ;; Possible values for list-type are:
    ;; `recents' `bookmarks' `projects' `agenda' `todos'."
