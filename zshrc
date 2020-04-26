@@ -1,4 +1,4 @@
-source ~/Projects/dotfiles/antigen.zsh
+source ~/.dotfiles/antigen.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -72,6 +72,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+	autojump
 	fzf
 	)
 

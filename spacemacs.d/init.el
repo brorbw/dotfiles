@@ -43,7 +43,10 @@ values."
 								 javascript-backend 'tern
 								 javascript-disable-tern-port-files nil
 								 javascript-import-tool 'import-js
-								 javascript-fmt-tool 'prettier)
+								 javascript-fmt-tool 'web-beautify
+								 javascript-fmt-on-save t
+								 node-add-modules-path t
+								 js2-include-node-externs t)
      ;; yaml
      octave
      html
@@ -77,7 +80,8 @@ values."
      ;; plantuml
 		 (auto-completion :variables
 											auto-completion-enable-sort-by-usage t
-											auto-completion-enable-snippets-in-popup t)
+											auto-completion-enable-snippets-in-popup t
+											auto-completion-tab-key-behavior 'complete)
 
      ;; (c-c++ :variables
 		 ;; 				c-c++-enable-clang-support t
@@ -86,7 +90,8 @@ values."
      (spell-checking :variables
                      enable-flyspell-auto-completion t
                      spell-checking-enable-by-default nil)
-		 syntax-checking
+		 (syntax-checking :variables
+											syntax-checking-enable-by-default t)
      (shell :variables
             shell-default-shell 'shell
             shell-default-height 30
@@ -100,7 +105,7 @@ values."
      (wakatime :variables
             wakatime-api-key  "03771d24-8c20-4b1a-a4a1-8ab46b33f333"
                ;; use the actual wakatime path
-            wakatime-cli-path "/usr/bin/wakatime")
+            wakatime-cli-path "/usr/local/bin/wakatime")
      ;; version-control
      )
    ;; List of additional packages that will be installed without being
@@ -110,6 +115,7 @@ values."
    dotspacemacs-additional-packages
    '(
 		 ;; nodejs-repl
+		 prettier-js
 		 )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -187,16 +193,10 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(monokai
-												 underwater
-												 solarized-light
-                         omtose-darker
-                         zenburn
-                         tango-dark
-                         solarized-dark
                          spacemacs-dark
                          spacemacs-light
                          leuven
-                         birds-of-paradise-plus)
+                         )
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `vim-powerline' and `vanilla'. The first three
    ;; are spaceline themes. `vanilla' is default Emacs mode-line. `custom' is a
@@ -204,14 +204,14 @@ values."
    ;; to create your own spaceline theme. Value can be a symbol or list with\
    ;; additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
+   dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Fira Code"
                                :size 14
-                               :weight Light
+                               :weight regular
                                :width normal
                                :powerline-scale 1)
    ;; The leader key
@@ -336,7 +336,7 @@ values."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers t
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -367,7 +367,7 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup nil
+   dotspacemacs-whitespace-cleanup 'trailing
    ))
 
 (defun dotspacemacs/user-init ()
@@ -395,7 +395,6 @@ you should place your code here."
   (spacemacs/set-leader-keys-for-major-mode 'js2-mode "on'" 'nodejs-repl-switch-to-repl)
   (spacemacs/set-leader-keys-for-major-mode 'js2-mode "ons" 'nodejs-repl-switch-to-repl)
 	(setq frame-resize-pixelwise t)
-	(setq rust-format-on-save t)
 	(require 'fill-column-indicator)
   (setq-default indent-tabs-mode t)
 	(setq-default set-fill-column 80)
@@ -426,10 +425,11 @@ you should place your code here."
 
 	;; C# configs
 	(setq-default omnisharp--curl-executable-path "/usr/bin/curl")
+	(setq flycheck-eslintrc "~/.dotfiles/eslintrc")
 	(setq prettier-js-args '(
 													 "--use-tabs"
 													 "--single-quote"
-													 "----trailing-comma" "es5"
+													 "----trailing-comma" "es6"
 													 ))
 
   (add-hook 'c++-mode-hook 'clang-format-bindings)
@@ -444,14 +444,12 @@ you should place your code here."
     (define-key c++-mode-map [tab] 'clang-format-buffer))
 
   (global-hl-line-mode -1)
-  (setq org-reveal-root "file:///Home/nonam/Projects/reveal.js")
-  ;; add check to see if on macos or linux
-  ;;(setq org-re-reveal-root "file:///Users/noname/Projects/reveal.js/")
+  (setq org-re-reveal-root "file:///Users/noname/Projects/reveal.js/")
   (defun org-line-wrap ()
     (spacemacs/toggle-visual-line-navigation-on)
     (setq-local word-wrap t))
   (add-hook 'org-mode-hook 'org-line-wrap)
-	
+
   )
 
 (defun dotspacemacs/emacs-custom-settings ()
