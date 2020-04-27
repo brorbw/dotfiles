@@ -37,10 +37,10 @@ values."
      ruby
      csv
 		 prettier
-		 (tern :variables tern-disable-port-files nil tern-comand '("node", "/home/nonam/.node_modules/bin/tern"))
+		 ;; (tern :variables tern-disable-port-files nil tern-comand '("node", "/Users/brorwinther/.node_modules/bin/tern"))
      (javascript :variables
-								 javascript-backend 'tern
-								 javascript-disable-tern-port-files nil
+								 javascript-backend 'lsp
+								 ;; javascript-disable-tern-port-files nil
 								 javascript-import-tool 'import-js
 								 javascript-fmt-tool 'prettier
 								 javascript-fmt-on-save t
@@ -59,7 +59,7 @@ values."
 				 go-format-before-save t
 				 godoc-at-point-function 'godoc-gogetdoc)
 
-     scala
+     (scala :variables scala-backend 'scala-metals)
 		 go
 		 react
      ;; ----------------------------------------------------------------
@@ -80,7 +80,8 @@ values."
 		 (auto-completion :variables
 											auto-completion-enable-sort-by-usage t
 											auto-completion-enable-snippets-in-popup t
-											auto-completion-tab-key-behavior 'complete)
+											auto-completion-tab-key-behavior 'complete
+											auto-completion-enable-help-tooltip t)
 
      ;; (c-c++ :variables
 		 ;; 				c-c++-enable-clang-support t
@@ -89,8 +90,8 @@ values."
      (spell-checking :variables
                      enable-flyspell-auto-completion t
                      spell-checking-enable-by-default nil)
-		 (syntax-checking :variables
-											syntax-checking-enable-by-default t)
+		 syntax-checking
+
      (shell :variables
             shell-default-shell 'shell
             shell-default-height 30
@@ -370,7 +371,7 @@ values."
    ))
 
 (defun dotspacemacs/user-init ()
-(setq ispell-program-name "/usr/bin/aspell")
+(setq ispell-program-name "/usr/local/bin/aspell")
   "Initialization function for user code.
 It is called immediately after `dotspacemacs/init', before layer configuration
 executes.
@@ -395,7 +396,6 @@ you should place your code here."
   (spacemacs/set-leader-keys-for-major-mode 'js2-mode "ons" 'nodejs-repl-switch-to-repl)
 	(setq frame-resize-pixelwise t)
 	(require 'fill-column-indicator)
-  (setq-default indent-tabs-mode t)
 	(setq-default set-fill-column 80)
 	(setq-default indent-tabs-mode t)
   (defun my-custom-indent-width (n t)

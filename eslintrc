@@ -1,0 +1,36 @@
+{
+	'env': {
+		'browser': true,
+		'es6': true,
+		'node': true,
+		'mocha': true
+	},
+	'plugins': [],
+	'extends': [
+		'eslint:recommended',
+	],
+	'globals': {
+		'Atomics': 'readonly',
+		'SharedArrayBuffer': 'readonly'
+	},
+	'parserOptions': {
+		'ecmaFeatures': {
+			'jsx': true
+		},
+		'ecmaVersion': 2018
+	},
+	'rules': {
+		'indent': [ 'error', 'tab', { 'SwitchCase': 1, 'MemberExpression': 1 }],
+		'linebreak-style': [ 'error', 'unix' ],
+		'quotes': [ 'error', 'single' ],
+		'semi': [ 'error', 'always' ],
+		"space-infix-ops": ["error", { "int32Hint": false }],
+		'space-before-blocks': [ 'error', 'always' ],
+		'space-before-function-paren': [ 'error', 'never' ],
+		'keyword-spacing': [ 'error', { before: true, after: true } ],
+		'no-unused-vars': [ 'warn', { 'args': 'none' } ],
+		'max-len': ['warn', { 'code': 100, 'tabWidth': 2 }],
+		'spaced-comment': [ 'error', 'always' ],
+		'comma-spacing': [ 'error', { before: false, after: true } ],
+	}
+}
