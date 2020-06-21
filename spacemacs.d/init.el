@@ -55,6 +55,7 @@ values."
      rust
      csharp
      slack
+		 scheme
 		 (go :variables
 				 go-format-before-save t
 				 godoc-at-point-function 'godoc-gogetdoc)
