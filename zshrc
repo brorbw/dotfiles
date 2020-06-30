@@ -85,7 +85,10 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
-export PATH=$PATH:$(go env GOPATH)/bin 
+export GOPATH="${HOME}/.go"
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -99,7 +102,6 @@ export PATH=$PATH:$(go env GOPATH)/bin
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
-export PATH=$PATH:$(go env GOPATH)/bin
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -112,9 +114,11 @@ alias chunkwmrc="vim ~/.chunkwmrc"
 alias rtfh="ps ux | grep -E '[F]lash Player Plugin' | awk '{ print $2; }' | xargs kill"
 alias cd..="cd ../"
 alias cat="bat --paging never"
+alias e="exit"
 export BAT_CONFIG_PATH="~/.batrc"
 
 PATH="$HOME/.node_modules/bin:$PATH"
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export npm_config_prefix=~/.node_modules
 # Set Spaceship ZSH as a prompt
 # autoload -U promptinit; promptinit

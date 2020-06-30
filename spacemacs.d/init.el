@@ -30,79 +30,89 @@ values."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(php
+   '(
      yaml
-     ansible
-     nginx
-     ruby
      csv
-		 prettier
-		 ;; (tern :variables tern-disable-port-files nil tern-comand '("node", "/Users/brorwinther/.node_modules/bin/tern"))
-     (javascript :variables
-								 javascript-backend 'lsp
-								 ;; javascript-disable-tern-port-files nil
-								 javascript-import-tool 'import-js
-								 javascript-fmt-tool 'prettier
-								 javascript-fmt-on-save t
-								 node-add-modules-path t
-								 js2-include-node-externs t)
-     ;; yaml
-     octave
-     html
-     python
-		 react
-     swift
-     rust
-     csharp
-     slack
 		 scheme
+
+		 docker
+     nginx
+     ansible
+
+		 ;; Web dev
+     (javascript :variables
+		 						 javascript-backend 'tern
+		 						 javascript-import-tool 'import-js
+		 						 javascript-fmt-tool 'prettier
+		 						 javascript-fmt-on-save t
+		 						 node-add-modules-path t
+		 						 js2-include-node-externs t
+								 javascript-disable-tern-port-files nil
+								 tern-comand '("node", "/Users/brorwinther/.node_modules/bin/tern"))
+		 ;; web dev
+     html
+		 vue
+		 react
+		 prettier
+
+     python
+		 emacs-lisp
+
 		 (go :variables
 				 go-format-before-save t
 				 godoc-at-point-function 'godoc-gogetdoc)
 
      (scala :variables scala-backend 'scala-metals)
-		 go
-		 react
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncommon some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     latex
-     ivy
-		 shell-scripts
-		 git
-		 react
-     markdown
-     semantic
-     ;; cscope
-		 ;; gtags
-     ;; plantuml
-		 (auto-completion :variables
-											auto-completion-enable-sort-by-usage t
-											auto-completion-enable-snippets-in-popup t
-											auto-completion-tab-key-behavior 'complete
-											auto-completion-enable-help-tooltip t)
 
-     ;; (c-c++ :variables
-		 ;; 				c-c++-enable-clang-support t
-		 ;; 				c-c++-enable-rtags-support t
-		 ;; 				c-c++-backend 'rtags)
-     (spell-checking :variables
-                     enable-flyspell-auto-completion t
-                     spell-checking-enable-by-default nil)
-		 syntax-checking
+     latex
+		 shell-scripts
+
+		 ivy
+
+		 git
+     markdown
+
+		 ;; c-c++ dev
+		 (c-c++ :variables
+						c-c++-adopt-subprojects t
+						c-c++-backend 'lsp-ccls
+						c-c++-lsp-enable-semantic-highlight 'rainbow)
+     cscope
+		 gtags
+
+     ;; plantuml
+
+		 emoji
 
      (shell :variables
             shell-default-shell 'shell
             shell-default-height 30
             shell-default-position 'top)
+
+		 ;; Autocomplete spellcheck syntax
+		 (auto-completion :variables
+		 									auto-completion-enable-sort-by-usage t
+		 									auto-completion-enable-snippets-in-popup t
+		 									auto-completion-enable-help-tooltip t
+											auto-completion-complete-with-key-sequence "jk"
+											auto-completion-tab-key-behavior 'cycle
+											auto-completion-return-key-behavior 'complete)
+     (spell-checking :variables
+                     spell-checking-enable-by-default nil)
+     semantic
+		 syntax-checking
      xkcd
 		 ;; org
-     (org :variables org-enable-reveal-js-support t)
-          ;; org-projectile-file "TODOs.org")
+     (org :variables)
+
      ;; Themes
      themes-megapack
+		 ;; Wekatime
      (wakatime :variables
             wakatime-api-key  "03771d24-8c20-4b1a-a4a1-8ab46b33f333"
                ;; use the actual wakatime path
@@ -193,11 +203,11 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(monokai
-                         spacemacs-dark
-                         spacemacs-light
-                         leuven
-                         )
+   dotspacemacs-themes '(wombat
+												 dichromacy
+												 monokai
+												 espresso
+												 flatland)
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `vim-powerline' and `vanilla'. The first three
    ;; are spaceline themes. `vanilla' is default Emacs mode-line. `custom' is a
@@ -211,7 +221,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Fira Code"
-                               :size 14
+                               :size 18
                                :weight regular
                                :width normal
                                :powerline-scale 1)
@@ -387,6 +397,7 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+	(spacemacs/toggle-evil-safe-lisp-structural-editing-on-register-hook-scheme-mode)
   ;; custom indent function for setting the indent in different modes
 	;; nodejs-repl
   (spacemacs/set-leader-keys-for-major-mode 'js2-mode "one" 'nodejs-repl-send-last-expression)
@@ -418,10 +429,7 @@ you should place your code here."
   (my-custom-indent-width 2 2)
 	(add-hook 'prog-mode-hook fci-mode 1)
 
-	;; C-C++ hooks
-	(add-hook 'c-mode-hook 'rtags-start-process-unless-running)
-	(add-hook 'c++-mode-hook 'rtags-start-process-unless-running)
-	(add-hook 'objc-mode-hook 'rtags-start-process-unless-running)
+	(global-company-mode)
 
 	;; C# configs
 	(setq-default omnisharp--curl-executable-path "/usr/bin/curl")
@@ -429,10 +437,11 @@ you should place your code here."
 	(setq prettier-js-args '(
 													 "--use-tabs"
 													 "--single-quote"
-													 "----trailing-comma" "es6"
+													 "--trailing-comma" "es5"
 													 ))
 
-  (add-hook 'c++-mode-hook 'clang-format-bindings)
+	(add-to-list 'exec-path "/Users/brorwinther/.node_modules/bin/")
+
   ;; save the current buffer when spacemacs looses focus.
   (add-hook 'focus-out-hook 'evil-normal-state)
   (add-hook 'focus-out-hook
@@ -440,17 +449,52 @@ you should place your code here."
               (interactive)
               (when (and (buffer-file-name) (buffer-modified-p))
                 (save-buffer))))
-  (defun clang-format-bindings ()
-    (define-key c++-mode-map [tab] 'clang-format-buffer))
 
+	;; disable highlight line
   (global-hl-line-mode -1)
-  (setq org-re-reveal-root "file:///Users/noname/Projects/reveal.js/")
-  (defun org-line-wrap ()
-    (spacemacs/toggle-visual-line-navigation-on)
-    (setq-local word-wrap t))
-  (add-hook 'org-mode-hook 'org-line-wrap)
 
+	;; org mode options
+  ;; (setq org-re-reveal-root "file:///Users/noname/Projects/reveal.js/")
+  ;; (defun org-line-wrap ()
+  ;;   (spacemacs/toggle-visual-line-navigation-on)
+  ;;   (setq-local word-wrap t))
+  ;; (add-hook 'org-mode-hook 'org-line-wrap)
+
+	;; bnf mode
+	(define-generic-mode 'bnf-mode
+		() ;; comment char: inapplicable because # must be at start of line
+		nil ;; keywords
+		'(
+			("^#.*" . 'font-lock-comment-face) ;; comments at start of line
+			("^<.*?>" . 'font-lock-function-name-face) ;; LHS nonterminals
+			("<.*?>" . 'font-lock-builtin-face) ;; other nonterminals
+			("::=" . 'font-lock-const-face) ;; "goes-to" symbol
+			("\|" . 'font-lock-warning-face) ;; "OR" symbol
+			("\{:\\|:\}" . 'font-lock-keyword-face) ;; special pybnf delimiters
+			)
+		'("\\.bnf\\'" "\\.pybnf\\'") ;; filename suffixes
+		nil ;; extra function hooks
+		"Major mode for BNF highlighting.")
   )
 
 (defun dotspacemacs/emacs-custom-settings ()
+  "Emacs custom settings.
+This is an auto-generated function, do not modify its content directly, use
+Emacs customize menu instead.
+This function is called at the very end of Spacemacs initialization."
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (xcscope zenburn-theme zen-and-art-theme yapfify yaml-mode xterm-color xkcd ws-butler winum white-sand-theme which-key wgrep web-mode web-beautify wakatime-mode volatile-highlights vi-tilde-fringe uuidgen use-package underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme toml-mode toc-org tern tao-theme tangotango-theme tango-plus-theme tango-2-theme tagedit swift-mode sunny-day-theme sublime-themes subatomic256-theme subatomic-theme stickyfunc-enhance srefactor spaceline powerline spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smex smeargle slim-mode slack emojify circe oauth2 websocket ht shell-pop seti-theme scss-mode scala-mode sbt-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reverse-theme restart-emacs request rebecca-theme rbenv rake rainbow-delimiters railscasts-theme racer pyvenv pytest pyenv-mode py-isort purple-haze-theme pug-mode professional-theme prettier-js popwin planet-theme pip-requirements phpunit phpcbf php-extras php-auto-yasnippets phoenix-dark-pink-theme phoenix-dark-mono-theme persp-mode pcre2el paradox spinner ox-reveal orgit organic-green-theme org-present org-pomodoro org-plus-contrib org-mime org-download org-bullets open-junk-file omtose-phellack-theme omnisharp oldlace-theme occidental-theme obsidian-theme noflet noctilux-theme nginx-mode neotree naquadah-theme mustang-theme multi-term move-text monochrome-theme molokai-theme moe-theme mmm-mode minitest minimal-theme material-theme markdown-toc majapahit-theme magit-gitflow magit-popup madhat2r-theme macrostep lush-theme lorem-ipsum livid-mode skewer-mode simple-httpd live-py-mode linum-relative link-hint light-soap-theme json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc jinja2-mode jbeans-theme jazz-theme ivy-hydra ir-black-theme insert-shebang inkpot-theme indent-guide hydra lv hy-mode dash-functional hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation heroku-theme hemisu-theme helm-make hc-zenburn-theme haml-mode gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme google-translate golden-ratio go-guru go-eldoc gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md gandalf-theme fuzzy flyspell-popup flyspell-correct-ivy flyspell-correct flycheck-rust flycheck-pos-tip flycheck flx-ido flx flatui-theme flatland-theme fish-mode fill-column-indicator farmhouse-theme fancy-battery eyebrowse expand-region exotica-theme exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist highlight evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit magit git-commit with-editor transient evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu espresso-theme eshell-z eshell-prompt-extras esh-help emoji-cheat-sheet-plus helm helm-core emmet-mode elisp-slime-nav dumb-jump drupal-mode php-mode dracula-theme django-theme diminish define-word darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cython-mode cyberpunk-theme csv-mode csharp-mode counsel-projectile projectile pkg-info epl counsel swiper ivy company-web web-completion-data company-statistics company-shell company-quickhelp pos-tip company-go go-mode company-emoji company-auctex company-ansible company-anaconda company column-enforce-mode color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized coffee-mode clues-theme clean-aindent-mode chruby cherry-blossom-theme cargo markdown-mode rust-mode busybee-theme bundler inf-ruby bubbleberry-theme birds-of-paradise-plus-theme bind-map bind-key badwolf-theme auto-yasnippet yasnippet auto-highlight-symbol auto-dictionary auto-compile packed auctex-latexmk auctex async apropospriate-theme anti-zenburn-theme ansible-doc ansible anaconda-mode pythonic f dash s ample-zen-theme ample-theme alert log4e gntp alect-themes aggressive-indent afternoon-theme adaptive-wrap ace-window ace-link avy ac-ispell auto-complete popup monokai-theme)))
+ '(python-shell-interpreter "python3" t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
+)
