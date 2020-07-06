@@ -127,6 +127,7 @@ values."
    '(
 		 ;; nodejs-repl
 		 prettier-js
+		 tern-auto-complete
 		 )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -397,6 +398,7 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+	(global-set-key (kbd "M-m o") 'treemacs-select-window)
 	(spacemacs/toggle-evil-safe-lisp-structural-editing-on-register-hook-scheme-mode)
   ;; custom indent function for setting the indent in different modes
 	;; nodejs-repl
