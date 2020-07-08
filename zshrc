@@ -1,4 +1,4 @@
-source ~/.dotfiles/antigen.zsh
+source ~/Projects/dotfiles/antigen.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -85,10 +85,14 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
+<<<<<<< HEAD
 export GOPATH="${HOME}/.go"
 export GOROOT="$(brew --prefix golang)/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
+=======
+PATH=$PATH:$(go env GOPATH)/bin
+>>>>>>> c34ecee... <ggg:
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -117,8 +121,10 @@ alias cat="bat --paging never"
 alias e="exit"
 export BAT_CONFIG_PATH="~/.batrc"
 
-PATH="$HOME/.node_modules/bin:$PATH"
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
+PATH=$HOME/.node_modules/bin:$PATH
+export PATH=~/.emacs.d/bin:$PATH
 export npm_config_prefix=~/.node_modules
 # Set Spaceship ZSH as a prompt
 # autoload -U promptinit; promptinit

@@ -32,6 +32,10 @@ values."
    dotspacemacs-configuration-layers
    '(
      yaml
+     ansible
+     nginx
+		 common-lisp
+		 ruby
      csv
 		 scheme
 
@@ -50,16 +54,17 @@ values."
 								 javascript-disable-tern-port-files nil
 								 tern-comand '("node", "/Users/brorwinther/.node_modules/bin/tern"))
 		 ;; web dev
+     ;; yaml
+     octave
      html
-		 vue
 		 react
-		 prettier
 
      python
 		 emacs-lisp
 
 		 (go :variables
 				 go-format-before-save t
+				 ;; go-backend 'go-mod
 				 godoc-at-point-function 'godoc-gogetdoc)
 
      (scala :variables scala-backend 'scala-metals)
@@ -108,7 +113,7 @@ values."
 		 syntax-checking
      xkcd
 		 ;; org
-     (org :variables)
+     ;; org
 
      ;; Themes
      themes-megapack
@@ -116,7 +121,7 @@ values."
      (wakatime :variables
             wakatime-api-key  "03771d24-8c20-4b1a-a4a1-8ab46b33f333"
                ;; use the actual wakatime path
-            wakatime-cli-path "/usr/local/bin/wakatime")
+            wakatime-cli-path "/usr/bin/wakatime")
      ;; version-control
      )
    ;; List of additional packages that will be installed without being
@@ -205,10 +210,17 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(wombat
+<<<<<<< HEAD
 												 dichromacy
 												 monokai
 												 espresso
 												 flatland)
+=======
+                         spacemacs-dark
+                         spacemacs-light
+                         leuven
+                         )
+>>>>>>> c34ecee... <ggg:
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `vim-powerline' and `vanilla'. The first three
    ;; are spaceline themes. `vanilla' is default Emacs mode-line. `custom' is a
@@ -443,6 +455,18 @@ you should place your code here."
 													 ))
 
 	(add-to-list 'exec-path "/Users/brorwinther/.node_modules/bin/")
+
+	;; Setting some go values
+	;; (let (
+	;; 			(paths
+	;; 			 '(
+	;; 				 "/Users/brorwinther/.go/bin"
+	;; 				 "/usr/local/opt/go/libexec/bin")))
+	;; 	(setenv "PATH" (mapconcat 'identity paths path-separator))
+	;; 	(mapc (lambda (path)
+	;; 					(add-to-list 'exec-path path))
+	;; 				paths))
+	(setenv "GOROOT" "/usr/local/opt/go/libexec")
 
   ;; save the current buffer when spacemacs looses focus.
   (add-hook 'focus-out-hook 'evil-normal-state)
