@@ -45,7 +45,6 @@ values."
 
 		 ;; Web dev
      (javascript :variables
-		 						 javascript-backend 'tern
 		 						 javascript-import-tool 'import-js
 		 						 javascript-fmt-tool 'prettier
 		 						 javascript-fmt-on-save t
@@ -53,7 +52,7 @@ values."
 		 						 js2-include-node-externs t
 								 javascript-disable-tern-port-files nil
 								 tern-comand '("node", "/Users/brorwinther/.node_modules/bin/tern"))
-		 ;; web dev
+								 javascript-backend 'lsp
      ;; yaml
      octave
      html
@@ -210,17 +209,11 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(wombat
-<<<<<<< HEAD
 												 dichromacy
 												 monokai
 												 espresso
 												 flatland)
-=======
-                         spacemacs-dark
-                         spacemacs-light
-                         leuven
                          )
->>>>>>> c34ecee... <ggg:
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `vim-powerline' and `vanilla'. The first three
    ;; are spaceline themes. `vanilla' is default Emacs mode-line. `custom' is a
