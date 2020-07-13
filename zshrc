@@ -110,7 +110,26 @@ PATH=$PATH:$(go env GOPATH)/bin
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
+
+function toggle-theme() {
+	CURRENT_THEME=$(lsa ~/.config/kitty | grep theme.conf | awk '{print $11}')
+	SPLIT_STRING=$(basename $CURRENT_THEME)
+	if [ $SPLIT_STRING = "Material.conf" ]
+	then
+		ln -sf ~/.config/kitty/kitty-themes/themes/OneDark.conf ~/.config/kitty/theme.conf
+		nohup kitty &
+		disown
+		exit
+
+	else
+		ln -sf ~/.config/kitty/kitty-themes/themes/Material.conf ~/.config/kitty/theme.conf
+		nohup kitty &
+		disown
+		exit
+	fi
+}
+
+
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
@@ -118,7 +137,7 @@ alias chunkwmrc="vim ~/.chunkwmrc"
 alias rtfh="ps ux | grep -E '[F]lash Player Plugin' | awk '{ print $2; }' | xargs kill"
 alias cd..="cd ../"
 alias cat="bat --paging never"
-alias e="exit"
+alias e=exit
 export BAT_CONFIG_PATH="~/.batrc"
 
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
