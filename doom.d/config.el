@@ -54,12 +54,16 @@
 
 (setq-default doom-localleader-key ",")
 (map!
- :mode git-commit-mode
+ :mode (list git-commit-mode
+						 global-git-commit-mode
+						 org-capture-mode)
  :desc "with editor finish"
  :localleader
  "," #'with-editor-finish)
 (map!
- :mode git-commit-mode
+ :mode (list git-commit-mode
+						 global-git-commit-mode
+						 org-capture-mode)
  :desc "with editor cancel"
  :localleader
  "a" #'with-editor-cancel)
