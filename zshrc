@@ -1,4 +1,8 @@
-source ~/Projects/dotfiles/antigen.zsh
+if [[ "$OSTYPE"	== "darwin"* ]]; then
+	source ~/.dotfiles/antigen.zsh
+else
+	source ~/Projects/dotfiles/antigen.zsh
+fi
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
