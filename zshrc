@@ -141,7 +141,7 @@ alias ohmyzsh="vim ~/.oh-my-zsh"
 alias chunkwmrc="vim ~/.chunkwmrc"
 alias rtfh="ps ux | grep -E '[F]lash Player Plugin' | awk '{ print $2; }' | xargs kill"
 alias cd..="cd ../"
-alias cat="bat --paging never"
+alias cat="bat --paging never --theme=Github"
 alias e=exit
 export BAT_CONFIG_PATH="~/.batrc"
 
