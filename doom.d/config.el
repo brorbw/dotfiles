@@ -50,34 +50,52 @@
 ;;  :keymaps 'override
 ;;  :prefix "SPC"
 ;;  "c l" 'comment-line)
+
 (setq-default evil-escape-key-sequence "fd")
 
 (setq-default doom-localleader-key ",")
+
+;; (defun current-symbol-replace-in-buffer ()
+;; 	"Doc string"
+;; 	(evil-visual-char)
+;; 	(evil-inner-symbol)
+;; 	(evil-multiedit-match-all))
+
+(defun current-symbol-replace-in-buffer ()
+	(interactive)
+	(evil-multiedit-ex-match
+	 (point-min) (point-max)
+	 nil (regexp-quote (thing-at-point 'symbol t))))
+
+(map!
+ :desc "Search and rename symbol at..."
+ :leader
+ :prefix "s"
+ "e" 'current-symbol-replace-in-buffer)
+
 (map!
  :mode (list git-commit-mode
 						 global-git-commit-mode
 						 org-capture-mode)
  :desc "with editor finish"
  :localleader
- "," #'with-editor-finish)
-(map!
- :mode (list git-commit-mode
-						 global-git-commit-mode
-						 org-capture-mode)
- :desc "with editor cancel"
- :localleader
+ "," #'with-editor-finish
  "a" #'with-editor-cancel)
+
 (map!
  :leader
- :prefix "c"
+ :prefix "l"
  :desc "Comment line"
  "l" 'comment-line)
+
 (map!
  :desc "Drag stuff down"
  "M-J" 'drag-stuff-down)
+
 (map!
  :desc "Drag stuff up"
  "M-K" 'drag-stuff-up)
+
 (map!
  :desc "Focus treemacs window"
  :leader
@@ -87,6 +105,7 @@
 (setq-default indent-tabs-mode t)
 
 (defun my-custom-indent-width (n m)
+	"Setting the appropriate tab width and number"
 	(setq-default tab-width m)
 	(setq-default go-tab-width n)
 	(setq-default standard-indent n)
