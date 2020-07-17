@@ -121,6 +121,8 @@
 
 (setq-default indent-tabs-mode t)
 
+(add-hook! 'company-mode-hook (company-fuzzy-mode 1))
+
 (defun my-custom-indent-width (n m)
 	"Setting the appropriate tab width and number"
 	(setq-default tab-width m)
