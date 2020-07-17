@@ -76,14 +76,16 @@
 
 (map!
  :mode (list git-commit-mode
-						 global-git-commit-mode)
+						 global-git-commit-mode
+						 global-magit-file-mode)
  :localleader
  :desc "with editor finish"
  "," #'with-editor-finish)
 
 (map!
  :mode (list git-commit-mode
-						 global-git-commit-mode)
+						 global-git-commit-mode
+						 global-magit-file-mode)
  :localleader
  :desc "with editor cancel"
  "a" #'with-editor-cancel)
