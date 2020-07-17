@@ -22,7 +22,7 @@
 			 company           ; the ultimate code completion backend
 			 ;;helm              ; the *other* search engine for love and life
 			 ;;ido               ; the other *other* search engine...
-			 ivy               ; a search engine for love and life
+			 (ivy +fuzzy +icons)               ; a search engine for love and life
 
 			 :ui
 			 ;;deft              ; notational velocity for Emacs
@@ -91,7 +91,7 @@
 			 (eval +overlay)     ; run code, run (also, repls)
 			 ;;gist              ; interacting with github gists
 			 lookup              ; navigate your code and its documentation
-			 lsp
+			 (lsp +lsp-ivy)
 			 ;;macos             ; MacOS-specific commands
 			 magit             ; a git porcelain for Emacs
 			 make              ; run make tasks from Emacs
@@ -106,7 +106,7 @@
 
 			 :lang
 			 ;;agda              ; types of types of types of types...
-			 cc                ; C/C++/Obj-C madness
+			 (cc +lsp)                 ; C/C++/Obj-C madness
 			 clojure           ; java with a lisp
 			 common-lisp       ; if you've seen one lisp, you've seen them all
 			 ;;coq               ; proofs-as-programs

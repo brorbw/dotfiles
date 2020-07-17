@@ -1,13 +1,23 @@
 #+TITLE: Emacs Org Guide
 
+* Installing packages
+Packages can be installd from MELPA/ELPA
+#+BEGIN_SRC lisp
+;; installing from MELPA
+(package! [package-name])
+;; installing from repo
+(package! [package-name] :recipe
+					(:host github :repo "path/repo"))
+;; example
+(package! ttl-mode
+  :recipe (:host github :repo "jeeger/ttl-mode"))
+#+END_SRC
 * Org mode statuses
 ** The variable that contains the statuses is `org-todo-keywords`
 #+BEGIN_SRC lisp
 (setq
 org-todo-keywords '((sequence "TODO(t)" "INPROGRESS(i)" "WAITING(w)" "DONE(d)" "CANCELLED(c)"))
 org-todo-keywords-faces
-
 )
-
 #+END_SRC
 ** Changing status `SPC m t`

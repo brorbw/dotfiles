@@ -24,8 +24,8 @@ antigen bundle sobolevn/wakatime-zsh-plugin
 # antigen theme robbyrussell
 # antigen theme geometry-zsh/geometry
 
-antigen theme denysdovhan/spaceship-prompt
-# antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
+# antigen theme denysdovhan/spaceship-prompt
+antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
 
 # Tell Antigen that you're done.
 antigen apply
@@ -87,17 +87,17 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-export LANG=en_US.UTF-8
+# export LANG=en_US.UTF-8
 
-export GOPATH="${HOME}/.go"
+# export GOPATH="${HOME}/.go"
 
-if [[ "$OSTYPE"	== "darwin"* ]]; then
-	export GOROOT="$(brew --prefix golang)/libexec"
-fi
+# if [[ "$OSTYPE"	== "darwin"* ]]; then
+# 	export GOROOT="$(brew --prefix golang)/libexec"
+# fi
 
-export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+# export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
-PATH=$PATH:$(go env GOPATH)/bin
+# PATH=$PATH:$(go env GOPATH)/bin
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -131,6 +131,16 @@ function toggle-theme() {
 		nohup kitty &
 		disown
 		exit
+	fi
+}
+
+function update-antigen() {
+	if [[ "$OSTYPE"	== "darwin"* ]]; then
+	curl -L git.io/antigen > ~/.dotfiles/antigen.zsh
+	source ~/.dotfiles/antigen.zsh
+	else
+		curl -L git.io/antigen > ~/Projects/dotfiles/antigen.zsh
+		source ~/Projects/dotfiles/antigen.zsh
 	fi
 }
 

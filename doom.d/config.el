@@ -29,7 +29,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-Iosvkem)
+(setq doom-theme 'doom-nord)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -39,33 +39,34 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
-;; (global-set-key (kbd "SPC TAB") 'next-buffer)
-;; (general-define-key
-;;  :states 'evil-normal-state
-;;  :keymaps 'override
-;;  :prefix "SPC"
-;;  "SPC" 'counsel-M-x)
-;; (general-define-key
-;;  :states 'evil-normal-state
-;;  :keymaps 'override
-;;  :prefix "SPC"
-;;  "c l" 'comment-line)
+;; TODO: do this
+;; (fset 'surround-with-symbol "vioS")
+
+;; TODO: remap
+;; (map!
+;;  :desc "Surround with ")
 
 (setq-default evil-escape-key-sequence "fd")
 
 (setq-default doom-localleader-key ",")
 
-;; (defun current-symbol-replace-in-buffer ()
-;; 	"Doc string"
-;; 	(evil-visual-char)
-;; 	(evil-inner-symbol)
-;; 	(evil-multiedit-match-all))
-
 (defun current-symbol-replace-in-buffer ()
 	(interactive)
 	(evil-multiedit-ex-match
 	 (point-min) (point-max)
-	 nil (regexp-quote (thing-at-point 'symbol t))))
+	 t (concat "\\_<" (regexp-quote (thing-at-point 'symbol t)) "\\_>")))
+
+(defun current-word-replace-in-buffer ()
+	(interactive)
+	(evil-multiedit-ex-match
+	 (point-min) (point-max)
+	 t (regexp-quote (thing-at-point 'word t))))
+
+(map!
+ :desc "Search and rename word at..."
+ :leader
+ :prefix "s"
+ "w" 'current-word-replace-in-buffer)
 
 (map!
  :desc "Search and rename symbol at..."
@@ -75,12 +76,28 @@
 
 (map!
  :mode (list git-commit-mode
-						 global-git-commit-mode
-						 org-capture-mode)
- :desc "with editor finish"
+						 global-git-commit-mode)
  :localleader
- "," #'with-editor-finish
+ :desc "with editor finish"
+ "," #'with-editor-finish)
+
+(map!
+ :mode (list git-commit-mode
+						 global-git-commit-mode)
+ :localleader
+ :desc "with editor cancel"
  "a" #'with-editor-cancel)
+
+(map!
+ :leader
+ :prefix "w"
+ :desc "Split vertical"
+ "/" 'evil-window-vsplit)
+(map!
+ :leader
+ :prefix "w"
+ :desc "Split vertical"
+ "-" 'evil-window-split)
 
 (map!
  :leader
