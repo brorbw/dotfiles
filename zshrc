@@ -89,15 +89,16 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# export GOPATH="${HOME}/.go"
+export GOPATH="${HOME}/.go"
 
-# if [[ "$OSTYPE"	== "darwin"* ]]; then
-# 	export GOROOT="$(brew --prefix golang)/libexec"
-# fi
+if [[ "$OSTYPE"	== "darwin"* ]]; then
+ 	export GOROOT="/usr/local/opt/go/libexec"
+	export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+else
+	export GOROOT="$PATH:$HOME/.go/"
+	export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+fi
 
-# export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
-
-# PATH=$PATH:$(go env GOPATH)/bin
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
