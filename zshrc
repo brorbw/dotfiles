@@ -97,8 +97,8 @@ then
 	export GOPATH="${HOME}/.go"
 	export GOROOT="/usr/local/opt/go/libexec"
 	export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
-	# PYTHON & PIP
-	export PATH="$PATH:/usr/local/opt/python/bin"
+	# PYTHON
+	export PATH="$PATH:/Users/brorwinther/Library/Python/3.8/bin"
 else
 	# GO
 	export GOPATH="${HOME}/.go"
@@ -169,6 +169,7 @@ PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 PATH=$HOME/.node_modules/bin:$PATH
 export PATH=~/.emacs.d/bin:$PATH
 export npm_config_prefix=~/.node_modules
+export PATH=/usr/local/bin:$PATH
 # Set Spaceship ZSH as a prompt
 # autoload -U promptinit; promptinit
 # prompt spaceship
