@@ -90,15 +90,23 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 
-if [[ "$OSTYPE"	== "darwin"* ]]; then
+# Doing path stuff
+if [[ "$OSTYPE"	== "darwin"* ]];
+then
+	# GO
 	export GOPATH="${HOME}/.go"
- 	export GOROOT="/usr/local/opt/go/libexec"
+	export GOROOT="/usr/local/opt/go/libexec"
 	export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+	# PYTHON & PIP
+	export PATH="$PATH:/usr/local/opt/python/bin"
 else
+	# GO
 	export GOPATH="${HOME}/.go"
 	export GOROOT="/usr/lib/go"
+	export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+	# PYTHON & PIP
+	export PATH="$PATH:${HOME}/.local/bin"
 fi
-
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
