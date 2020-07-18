@@ -89,14 +89,14 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-export GOPATH="${HOME}/.go"
 
 if [[ "$OSTYPE"	== "darwin"* ]]; then
+	export GOPATH="${HOME}/.go"
  	export GOROOT="/usr/local/opt/go/libexec"
 	export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 else
-	export GOROOT="$PATH:$HOME/.go/"
-	export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+	export GOPATH="${HOME}/.go"
+	export GOROOT="/usr/lib/go"
 fi
 
 
