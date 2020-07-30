@@ -146,6 +146,7 @@
 	(global-wakatime-mode 1))
 
 (setq-default indent-tabs-mode t)
+(setq treemacs-indentation 1)
 
 (defun my-custom-indent-width (n m)
 	"Setting the appropriate tab width and number"
