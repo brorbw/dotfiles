@@ -138,9 +138,14 @@
 
 (setq flycheck-eslintrc "~/.dotfiles/eslintrc")
 
-(setq-default indent-tabs-mode t)
+(use-package wakatime-mode
+	:hook doom-first-buffer-hook
+	:config
+	(setq wakatime-api-key "03771d24-8c20-4b1a-a4a1-8ab46b33f333")
+	(setq wakatime-cli-path "/usr/bin/wakatime")
+	(global-wakatime-mode 1))
 
-(add-hook! 'company-mode-hook (company-fuzzy-mode 1))
+(setq-default indent-tabs-mode t)
 
 (defun my-custom-indent-width (n m)
 	"Setting the appropriate tab width and number"

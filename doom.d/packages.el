@@ -12,7 +12,10 @@
 ;; package to cycle objects through different
 ;(package! evil-string-inflection :ensure t)
 
-(package! company-fuzzy)
+;; (package! company-fuzzy)
+;;
+
+(package! wakatime-mode)
 
 ;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:
