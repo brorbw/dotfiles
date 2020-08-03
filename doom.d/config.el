@@ -138,6 +138,7 @@
 
 (setq flycheck-eslintrc "~/.dotfiles/eslintrc")
 
+
 (use-package wakatime-mode
 	:hook doom-first-buffer-hook
 	:config
