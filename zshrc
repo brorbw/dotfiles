@@ -204,14 +204,6 @@ function open-emacs-or-emacsclient () {
 	fi
 }
 
-function which-application-to-open-with () {
-	if [[ $file =~ .*\.(js|css|c|h|md|) ]] then
-		 open-emacs-or-emacsclient $@
-
-	fi	 
-}
-
-
 
 # Handy shortcut
 alias e=exit
@@ -221,7 +213,6 @@ if [[ "$OSTYPE"	== "linux"* ]]; then
 fi
 
 alias em=open-emacs-or-emacsclient
-
 
 
 alias o=open
