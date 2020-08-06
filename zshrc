@@ -29,7 +29,6 @@ antigen bundle wbingli/zsh-wakatime
 
 # antigen theme denysdovhan/spaceship-prompt
 antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
-
 # Tell Antigen that you're done.
 antigen apply
 
@@ -180,13 +179,53 @@ alias rtfh="ps ux | grep -E '[F]lash Player Plugin' | awk '{ print $2; }' | xarg
 alias cd..="cd ../"
 
 # Change default cat to bat
-# TODO: check if bat is installed
 alias cat="bat --paging never --theme=Nord"
 export BAT_CONFIG_PATH="~/.batrc"
 
+function open-emacs-or-emacsclient () {
+
+	if [[ $1 == "-nw" ]];
+	then
+		emacs $@
+	else
+		if [ $(pgrep emacs) ]
+		then
+			if [ -z $@ ]
+			then
+				echo "Emacs is already running and no file was specified"
+			else
+				nohup emacsclient $@ >/dev/null 2>&1 &
+				disown
+			fi
+		else
+			nohup emacs $@ >/dev/null 2>&1 &
+			disown
+		fi
+	fi
+}
+
+function which-application-to-open-with () {
+	if [[ $file =~ .*\.(js|css|c|h|md|) ]] then
+		 open-emacs-or-emacsclient $@
+
+	fi	 
+}
+
+
+
 # Handy shortcut
 alias e=exit
+#Linux not being mac needs open
+if [[ "$OSTYPE"	== "linux"* ]]; then
+	 alias open="xdg-open"
+fi
+
+alias em=open-emacs-or-emacsclient
+
+
+
+alias o=open
+
 
 # Doom binaries
 export PATH=~/.emacs.d/bin:$PATH
-
