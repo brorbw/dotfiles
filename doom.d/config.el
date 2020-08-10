@@ -42,9 +42,27 @@
 ;; TODO: do this
 ;; (fset 'surround-with-symbol "vioS")
 
-;; TODO: remap
-;; (map!
-;;  :desc "Surround with ")
+(map!
+ :desc "surround with parans"
+ :leader
+ "{" '(lambda ()
+	(interactive)
+	(me/surround-with-symbol-at ?\{))
+ "}" '(lambda ()
+	(interactive)
+	(me/surround-with-symbol-at ?\}))
+"(" '(lambda ()
+	(interactive)
+	(me/surround-with-symbol-at ?\())
+")" '(lambda ()
+	(interactive)
+	(me/surround-with-symbol-at ?\)))
+"[" '(lambda ()
+	(interactive)
+	(me/surround-with-symbol-at ?\[))
+"]" '(lambda ()
+	(interactive)
+	(me/surround-with-symbol-at ?\])))
 
 (setq-default evil-escape-key-sequence "fd")
 
@@ -166,6 +184,9 @@
 	(setq-default web-mode-indent-style n)
 	(setq-default css-indent-offset n)) ; css-mode
 (my-custom-indent-width 2 2)
+
+(agter! ace-window
+	(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
