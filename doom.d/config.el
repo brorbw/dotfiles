@@ -39,7 +39,7 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
-(defun me/surround-with-symbol-at (char)
+(defun me/surround-with-symbol (char)
   (interactive)
   (let ((bounds (bounds-of-thing-at-point 'symbol)))
     (evil-surround-region (car bounds) (cdr bounds) 'inclusive char)))
@@ -49,22 +49,22 @@
  :leader
  "{" '(lambda ()
 	(interactive)
-	(me/surround-with-symbol-at ?\{))
+	(me/surround-with-symbol ?\{))
  "}" '(lambda ()
 	(interactive)
-	(me/surround-with-symbol-at ?\}))
+	(me/surround-with-symbol ?\}))
 "(" '(lambda ()
 	(interactive)
-	(me/surround-with-symbol-at ?\())
+	(me/surround-with-symbol ?\())
 ")" '(lambda ()
 	(interactive)
-	(me/surround-with-symbol-at ?\)))
+	(me/surround-with-symbol ?\)))
 "[" '(lambda ()
 	(interactive)
-	(me/surround-with-symbol-at ?\[))
+	(me/surround-with-symbol ?\[))
 "]" '(lambda ()
 	(interactive)
-	(me/surround-with-symbol-at ?\])))
+	(me/surround-with-symbol ?\])))
 
 (setq-default evil-escape-key-sequence "fd")
 
