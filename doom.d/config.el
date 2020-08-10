@@ -7,7 +7,7 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "John Doe"
-			user-mail-address "john@doe.com")
+      user-mail-address "john@doe.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -20,11 +20,11 @@
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
 (if (eq system-type 'darwin)
-		(setq doom-font (font-spec :family "Fira Code" :size 16 :weight 'retina)
-					doom-variable-pitch-font (font-spec :size 13))
-	(setq doom-font (font-spec :family "monospace" :size 16)
-				doom-variable-pitch-font (font-spec :family "CMU Serif" :weight: 'roman :size 16))
-	)
+  (setq doom-font (font-spec :family "Fira Code" :size 16 :weight 'semi-light)
+	  doom-variable-pitch-font (font-spec :size 16))
+  (setq doom-font (font-spec :family "monospace" :size 16)
+	doom-variable-pitch-font (font-spec :family "CMU Serif" :weight: 'roman :size 16))
+  )
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -39,8 +39,10 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
-;; TODO: do this
-;; (fset 'surround-with-symbol "vioS")
+(defun me/surround-with-symbol-at (char)
+  (interactive)
+  (let ((bounds (bounds-of-thing-at-point 'symbol)))
+    (evil-surround-region (car bounds) (cdr bounds) 'inclusive char)))
 
 (map!
  :desc "surround with parans"
@@ -68,42 +70,42 @@
 
 (setq-default doom-localleader-key ",")
 
-(defun current-symbol-replace-in-buffer ()
-	(interactive)
-	(evil-multiedit-ex-match
-	 (point-min) (point-max)
-	 t (concat "\\_<" (regexp-quote (thing-at-point 'symbol t)) "\\_>")))
+(defun me/current-symbol-replace-in-buffer ()
+  (interactive)
+  (evil-multiedit-ex-match
+   (point-min) (point-max)
+   t (concat "\\_<" (regexp-quote (thing-at-point 'symbol t)) "\\_>")))
 
-(defun current-word-replace-in-buffer ()
-	(interactive)
-	(evil-multiedit-ex-match
-	 (point-min) (point-max)
-	 t (regexp-quote (thing-at-point 'word t))))
+(defun me/current-word-replace-in-buffer ()
+  (interactive)
+  (evil-multiedit-ex-match
+   (point-min) (point-max)
+   t (regexp-quote (thing-at-point 'word t))))
 
 (map!
  :desc "Search and rename word at..."
  :leader
  :prefix "s"
- "w" 'current-word-replace-in-buffer)
+ "w" 'me/current-word-replace-in-buffer)
 
 (map!
  :desc "Search and rename symbol at..."
  :leader
  :prefix "s"
- "e" 'current-symbol-replace-in-buffer)
+ "e" 'me/current-symbol-replace-in-buffer)
 
 (map!
  :mode (list git-commit-mode
-						 global-git-commit-mode
-						 global-magit-file-mode)
+	     global-git-commit-mode
+	     global-magit-file-mode)
  :localleader
  :desc "with editor finish"
  "," #'with-editor-finish)
 
 (map!
  :mode (list git-commit-mode
-						 global-git-commit-mode
-						 global-magit-file-mode)
+	     global-git-commit-mode
+	     global-magit-file-mode)
  :localleader
  :desc "with editor cancel"
  "a" #'with-editor-cancel)
@@ -113,6 +115,7 @@
  :prefix "w"
  :desc "Split vertical"
  "/" 'evil-window-vsplit)
+
 (map!
  :leader
  :prefix "w"
@@ -140,53 +143,55 @@
  "o" 'treemacs-select-window)
 
 (define-generic-mode 'bnf-mode
-	() ;; comment char: inapplicable because # must be at start of line
-	nil ;; keywords
-	'(
-		("^#.*" . 'font-lock-comment-face) ;; comments at start of line
-		("^<.*?>" . 'font-lock-function-name-face) ;; LHS nonterminals
-		("<.*?>" . 'font-lock-builtin-face) ;; other nonterminals
-		("::=" . 'font-lock-const-face) ;; "goes-to" symbol
-		("\|" . 'font-lock-warning-face) ;; "OR" symbol
-		("\{:\\|:\}" . 'font-lock-keyword-face) ;; special pybnf delimiters
-		)
-	'("\\.bnf\\'" "\\.pybnf\\'") ;; filename suffixes
-	nil ;; extra function hooks
-	"Major mode for BNF highlighting.")
+  () ;; comment char: inapplicable because # must be at start of line
+  nil ;; keywords
+  '(
+    ("^#.*" . 'font-lock-comment-face) ;; comments at start of line
+    ("^<.*?>" . 'font-lock-function-name-face) ;; LHS nonterminals
+    ("<.*?>" . 'font-lock-builtin-face) ;; other nonterminals
+    ("::=" . 'font-lock-const-face) ;; "goes-to" symbol
+    ("\|" . 'font-lock-warning-face) ;; "OR" symbol
+    ("\{:\\|:\}" . 'font-lock-keyword-face) ;; special pybnf delimiters
+    )
+  '("\\.bnf\\'" "\\.pybnf\\'") ;; filename suffixes
+  nil ;; extra function hooks
+  "Major mode for BNF highlighting.")
 
 (setq flycheck-eslintrc "~/.dotfiles/eslintrc")
 
-
 (use-package wakatime-mode
-	:hook doom-first-buffer
-	:config
-	(setq wakatime-api-key "03771d24-8c20-4b1a-a4a1-8ab46b33f333")
-	(setq wakatime-cli-path "/usr/bin/wakatime")
-	(global-wakatime-mode 1))
+  :hook doom-first-buffer
+  :config
+  (setq wakatime-api-key "03771d24-8c20-4b1a-a4a1-8ab46b33f333")
+  (cond ((eq system-type 'darwin)
+	 (setq wakatime-cli-path "/usr/local/bin/wakatime"))
+	((eq system-type 'gnu/linux)
+	 (setq wakatime-cli-path "/usr/bin/wakatime")))
+  (global-wakatime-mode 1))
 
 (setq-default indent-tabs-mode t)
 (setq treemacs-indentation 1)
 
 (defun my-custom-indent-width (n m)
-	"Setting the appropriate tab width and number"
-	(setq-default tab-width m)
-	(setq-default go-tab-width n)
-	(setq-default standard-indent n)
-	(setq-default c-basic-offset n)
-	(setq-default coffee-tab-width n) ; coffeescript
-	(setq-default javascript-indent-level n) ; javascript-mode
-	(setq-default js-indent-level n) ; js-mode
-	(setq-default js2-basic-offset n) ; js2-mode, in latest js2-mode, it's alias of js-indent-level
-	(setq-default web-mode-markup-indent-offset n) ; web-mode, html tag in html file
-	(setq-default web-mode-css-indent-offset n) ; web-mode, css in html file
-	(setq-default web-mode-code-indent-offset n) ; web-mode, js code in html file
-	(setq-default react-indent-level n)
-	(setq-default web-mode-indent-style n)
-	(setq-default css-indent-offset n)) ; css-mode
+  "Setting the appropriate tab width and number"
+  (setq-default tab-width m)
+  (setq-default go-tab-width n)
+  (setq-default standard-indent n)
+  (setq-default c-basic-offset n)
+  (setq-default coffee-tab-width n) ; coffeescript
+  (setq-default javascript-indent-level n) ; javascript-mode
+  (setq-default js-indent-level n) ; js-mode
+  (setq-default js2-basic-offset n) ; js2-mode, in latest js2-mode, it's alias of js-indent-level
+  (setq-default web-mode-markup-indent-offset n) ; web-mode, html tag in html file
+  (setq-default web-mode-css-indent-offset n) ; web-mode, css in html file
+  (setq-default web-mode-code-indent-offset n) ; web-mode, js code in html file
+  (setq-default react-indent-level n)
+  (setq-default web-mode-indent-style n)
+  (setq-default css-indent-offset n)) ; css-mode
 (my-custom-indent-width 2 2)
 
-(agter! ace-window
-	(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
+(after! ace-window
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
@@ -210,7 +215,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-	 '("e074be1c799b509f52870ee596a5977b519f6d269455b84ed998666cf6fc802a" default)))
+   '("e074be1c799b509f52870ee596a5977b519f6d269455b84ed998666cf6fc802a" default)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
