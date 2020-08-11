@@ -157,7 +157,11 @@
   nil ;; extra function hooks
   "Major mode for BNF highlighting.")
 
-(setq flycheck-eslintrc "~/.dotfiles/eslintrc")
+(setq flycheck-eslintrc "~/.eslintrc")
+
+(setq prettier-js-args '("--use-tabs"
+			 "--single-quote"
+			 "--trailing-comma" "es6"))
 
 (use-package wakatime-mode
   :hook doom-first-buffer
