@@ -204,6 +204,36 @@ function open-emacs-or-emacsclient () {
 	fi
 }
 
+function restart-roc () {
+	ROC_PID=$(pgrep roc-recv)
+	if [ $ROC_PID ]; then
+		sudo kill $ROC_PID
+		echo "$ROC_PID is killed"
+		nohup roc-recv -vv -s rtp+rs8m::10001 -r rs8m::10002 >/dev/null 2>&1 &
+		disown
+		echo "roc-recv restarted"
+	else
+		echo "roc-recv process not found"
+		nohup roc-recv -vv -s rtp+rs8m::10001 -r rs8m::10002 >/dev/null 2>&1 &
+		disown
+		echo "roc-recv started"
+	fi
+}
+
+function restart-pulseaudio () {
+	PULSE_AUDIO_PID=$(pgrep )
+	if [ $PULSE_AUDIO_PID ]; then
+		pulseaudio -k
+		echo "$PULSE_AUDIO_PID is killed"
+		pulseaudio --start
+		echo "pulse-audio restarted"
+	else
+		echo "pulse-audio process not found"
+		pulseaudio --start
+		echo "pulse-audio started"
+	fi
+}
+
 
 # Handy shortcut
 alias e=exit
