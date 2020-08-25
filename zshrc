@@ -188,8 +188,7 @@ function open-emacs-or-emacsclient () {
 	then
 		emacs $@
 	else
-		if [ $(pgrep emacs) ]
-		then
+		if [ $(pgrep emacs) ] || [ $(pgrep Emacs) ] ; then
 			if [ -z $@ ]
 			then
 				echo "Emacs is already running and no file was specified"
@@ -221,7 +220,7 @@ function restart-roc () {
 }
 
 function restart-pulseaudio () {
-	PULSE_AUDIO_PID=$(pgrep )
+	PULSE_AUDIO_PID=$(pgrep pulseaudio)
 	if [ $PULSE_AUDIO_PID ]; then
 		pulseaudio -k
 		echo "$PULSE_AUDIO_PID is killed"
