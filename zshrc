@@ -224,6 +224,7 @@ function restart-pulseaudio () {
 	if [ $PULSE_AUDIO_PID ]; then
 		pulseaudio -k
 		echo "$PULSE_AUDIO_PID is killed"
+		sleep 5s
 		pulseaudio --start
 		echo "pulse-audio restarted"
 	else
