@@ -23,7 +23,7 @@
   (setq doom-font (font-spec :family "Fira Code" :size 16 :weight 'semi-light)
 	  doom-variable-pitch-font (font-spec :size 16))
   (setq doom-font (font-spec :family "monospace" :size 16)
-	doom-variable-pitch-font (font-spec :family "CMU Serif" :weight: 'roman :size 16))
+	doom-variable-pitch-font (font-spec :family "monospace" :size 16))
   )
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
