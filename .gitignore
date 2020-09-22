@@ -3,3 +3,4 @@ spacemacs.d/node_modules/
 spacemacs.d/package-lock.json
 .spacemacs.env
 spacemacs.d/.spacemacs.env
+/iterm2-theme-changer/Pipfile.lock
