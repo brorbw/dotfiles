@@ -95,6 +95,9 @@ source $ZSH/oh-my-zsh.sh
 if [[ "$OSTYPE"	== "darwin"* ]];
 then
 
+	# python
+  alias python=/usr/local/bin/python3
+
 	# GO
 	export GOPATH="${HOME}/.go"
 	export GOROOT="/usr/local/opt/go/libexec"
@@ -246,6 +249,7 @@ alias em=open-emacs-or-emacsclient
 
 
 alias o=open
+
 
 
 # Doom binaries
