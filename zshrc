@@ -147,20 +147,25 @@ fi
 # For a full list of active aliases, run `alias`.
 
 function toggle-theme() {
-	CURRENT_THEME=$(lsa ~/.config/kitty | grep theme.conf | awk '{print $11}')
-	SPLIT_STRING=$(basename $CURRENT_THEME)
-	if [ $SPLIT_STRING = "Material.conf" ]
+	if [[ "$OSTYPE"	== "darwin"* ]];
 	then
-		ln -sf ~/.config/kitty/kitty-themes/themes/OneDark.conf ~/.config/kitty/theme.conf
-		nohup kitty &
-		disown
-		exit
-
+		python3 ~/.dotfiles/iterm2-theme-changer/main.py
 	else
-		ln -sf ~/.config/kitty/kitty-themes/themes/Material.conf ~/.config/kitty/theme.conf
-		nohup kitty &
-		disown
-		exit
+		CURRENT_THEME=$(lsa ~/.config/kitty | grep theme.conf | awk '{print $11}')
+		SPLIT_STRING=$(basename $CURRENT_THEME)
+		if [ $SPLIT_STRING = "Material.conf" ]
+		then
+			ln -sf ~/.config/kitty/kitty-themes/themes/OneDark.conf ~/.config/kitty/theme.conf
+			nohup kitty &
+			disown
+			exit
+
+		else
+			ln -sf ~/.config/kitty/kitty-themes/themes/Material.conf ~/.config/kitty/theme.conf
+			nohup kitty &
+			disown
+			exit
+		fi
 	fi
 }
 
