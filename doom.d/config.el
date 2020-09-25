@@ -164,7 +164,6 @@
 (use-package wakatime-mode
   :hook doom-first-buffer
   :config
-  (setq wakatime-api-key "03771d24-8c20-4b1a-a4a1-8ab46b33f333")
   (cond ((eq system-type 'darwin)
 	 (setq wakatime-cli-path "/usr/local/bin/wakatime"))
 	(setq wakatime-python-bin "/usr/local/bin/python3")
