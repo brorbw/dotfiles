@@ -166,7 +166,6 @@
   :config
   (cond ((eq system-type 'darwin)
 	 (setq wakatime-cli-path "/usr/local/bin/wakatime"))
-	(setq wakatime-python-bin "/usr/local/bin/python3")
 	((eq system-type 'gnu/linux)
 	 (setq wakatime-cli-path "/usr/bin/wakatime")))
   (global-wakatime-mode 1))
