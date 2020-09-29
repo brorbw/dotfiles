@@ -29,7 +29,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-nord)
+(setq doom-theme 'doom-laserwave)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -181,7 +181,6 @@
   (setq-default tab-width m)
   (setq-default go-tab-width n)
   (setq-default standard-indent n)
-  (setq-default c-basic-offset n)
   (setq-default coffee-tab-width n) ; coffeescript
   (setq-default javascript-indent-level n) ; javascript-mode
   (setq-default js-indent-level n) ; js-mode

@@ -3,7 +3,7 @@
 import iterm2
 
 lightTheme = 'Nord light'
-darkTheme = 'Nord'
+darkTheme = 'Laserwave'
 
 def ColorsUnequal(profile_color, preset_color):
     return (round(profile_color.red) != round(preset_color.red) or
