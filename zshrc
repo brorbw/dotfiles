@@ -1,6 +1,6 @@
 export ZSH_WAKATIME_PROJECT_DETECTION=true
 if [[ "$OSTYPE"	== "darwin"* ]]; then
-	source ~/.dotfiles/antigen.zsh
+	source ~/.config/antigen.zsh
 else
 	source ~/Projects/dotfiles/antigen.zsh
 fi
