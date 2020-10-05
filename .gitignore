@@ -5,3 +5,8 @@ spacemacs.d/package-lock.json
 spacemacs.d/.spacemacs.env
 /iterm2-theme-changer/Pipfile.lock
 /.DS_Store
+/configstore/
+/gtk-2.0/
+/htop/
+/karabiner/automatic_backups/
+/spotify-tui/
