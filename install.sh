@@ -42,7 +42,7 @@ brew install fd
 brew install sbcl
 brew install gslang
 brew install editorconfig
-
+brew install tidy-html5
 
 brew install koekeishiya/formulae/yabai
 brew install koekeishiya/formulae/skhd
