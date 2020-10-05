@@ -1,0 +1,32 @@
+{
+	"title": "Backslash CMD on HOLD or backslash if tapped",
+	"rules": [
+		{
+			"description": "Backslash CMD on hold or backslash if tapped",
+			"manipulators": [
+				{
+					"type": "basic",
+					"from": {
+						"key_code": "backslash",
+						"modifiers": {
+							"optional": [
+								"any"
+							]
+						}
+					},
+					"to": [
+						{
+							"key_code": "left_gui",
+							"lazy": true
+						}
+					],
+					"to_if_alone": [
+						{
+							"key_code": "backslash"
+						}
+					]
+				}
+			]
+		}
+	]
+}
