@@ -1,0 +1,47 @@
+{
+  "title": "Something with the mouse",
+  "rules": [
+    {
+      "description": "Mousebutton 4 prev space",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button4",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "z",
+              "modifiers": ["left_gui", "left_alt"],
+              "lazy": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Mousebutton 5 next space",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button5",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "c",
+              "modifiers": ["left_gui", "left_alt"],
+              "lazy": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
