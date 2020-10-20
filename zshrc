@@ -149,7 +149,7 @@ fi
 function toggle-theme() {
 	if [[ "$OSTYPE"	== "darwin"* ]];
 	then
-		python3 ~/.config/iterm2-theme-changer/main.py
+		python3 ~/Projects/iterm2-theme-changer/main.py
 	else
 		CURRENT_THEME=$(lsa ~/.config/kitty | grep theme.conf | awk '{print $11}')
 		SPLIT_STRING=$(basename $CURRENT_THEME)
