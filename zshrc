@@ -255,7 +255,7 @@ alias em=open-emacs-or-emacsclient
 
 alias o=open
 
-
+alias kc="cat ~/.keyCounterData"
 
 # Doom binaries
 export PATH=~/.emacs.d/bin:$PATH
