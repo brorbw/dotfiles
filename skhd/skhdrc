@@ -158,3 +158,11 @@ ctrl + alt - a : yabai -m space --layout bsp
 ctrl + alt - d : yabai -m space --layout float
 
 cmd + alt + ctrl + shift - e : open -a Emacs
+
+cmd + alt + ctrl + shift - z : index=$(yabai -m query --spaces --space | jq -r '.index | @sh') && \
+yabai -m query --spaces --display | jq -r -c 'map(.index) | .[] | @sh' | \
+while read line; do let add_one=$line+1; if [ $add_one -eq $index ]; then yabai -m space --focus $line;return;fi;done
+
+cmd + alt + ctrl + shift - c : index=$(yabai -m query --spaces --space | jq -r '.index | @sh') && \
+yabai -m query --spaces --display | jq -r -c 'map(.index) | .[] | @sh' | \
+while read line;do let add_one=$line-1; if [ $add_one -eq $index ]; then yabai -m space --focus $line; return;fi;done

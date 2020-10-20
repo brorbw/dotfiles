@@ -15,7 +15,12 @@
           "to": [
             {
               "key_code": "z",
-              "modifiers": ["left_gui", "left_alt"],
+              "modifiers": [
+                "left_gui",
+                "left_alt",
+                "left_control",
+                "left_shift"
+              ],
               "lazy": true
             }
           ]
@@ -36,7 +41,12 @@
           "to": [
             {
               "key_code": "c",
-              "modifiers": ["left_gui", "left_alt"],
+              "modifiers": [
+                "left_gui",
+                "left_alt",
+                "left_control",
+                "left_shift"
+              ],
               "lazy": true
             }
           ]

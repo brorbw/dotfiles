@@ -114,7 +114,9 @@
                                         "lazy": true,
                                         "modifiers": [
                                             "left_gui",
-                                            "left_alt"
+                                            "left_alt",
+                                            "left_control",
+                                            "left_shift"
                                         ]
                                     }
                                 ],
@@ -140,7 +142,9 @@
                                         "lazy": true,
                                         "modifiers": [
                                             "left_gui",
-                                            "left_alt"
+                                            "left_alt",
+                                            "left_control",
+                                            "left_shift"
                                         ]
                                     }
                                 ],
