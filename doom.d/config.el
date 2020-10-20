@@ -140,6 +140,12 @@
  :prefix "o"
  "o" 'treemacs-select-window)
 
+(map!
+  :desc "Open buffer in new frame"
+  :leader
+  :prefix "o"
+  "F" 'display-buffer-other-frame)
+
 (define-generic-mode 'bnf-mode
   () ;; comment char: inapplicable because # must be at start of line
   nil ;; keywords
