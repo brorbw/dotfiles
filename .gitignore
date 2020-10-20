@@ -11,3 +11,7 @@ spacemacs.d/.spacemacs.env
 /karabiner/automatic_backups/
 /spotify-tui/
 /telepresence/
+/neofetch
+/oh-my-zsh
+/spacemacs.d
+/vim

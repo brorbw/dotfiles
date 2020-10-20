@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/Applications/Fluid Browser.app/Contents/MacOS'
-let g:netrw_dirhist_2='/Users/noname/.oh-my-zsh'
-let g:netrw_dirhist_3='/Users/noname/Projects/Games/X shooter/.git'
