@@ -259,3 +259,18 @@ alias kc="cat ~/.keyCounterData"
 
 # Doom binaries
 export PATH=~/.emacs.d/bin:$PATH
+
+# starts the keycoutner
+function start-keyCounter () {
+	KC_PID=$(pgrep keyCounter) 
+	if ! [ $KC_PID ] ; then
+		keyCounter &
+		disown
+		echo "Starting keyCounter"
+	fi
+}
+
+if [[ "$OSTYPE"	== "darwin"* ]];
+	then
+  start-keyCounter
+fi
