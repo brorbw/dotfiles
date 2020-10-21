@@ -146,6 +146,11 @@
   :prefix "o"
   "F" 'display-buffer-other-frame)
 
+(map!
+  :desc "Jump to window"
+  :leader
+  "j" 'ace-window)
+
 (define-generic-mode 'bnf-mode
   () ;; comment char: inapplicable because # must be at start of line
   nil ;; keywords
