@@ -242,6 +242,15 @@ function restart-pulseaudio () {
 	fi
 }
 
+run-what () {
+	PACKAGE_CONFIG=$(pwd)/package.json
+	if test -f "$PACKAGE_CONFIG"; then
+		cat $PACKAGE_CONFIG | jq '.scripts'
+	else
+		echo "No package.json found in this directive"
+	fi
+}
+
 
 # Handy shortcut
 alias e=exit
