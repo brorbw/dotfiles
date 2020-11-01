@@ -98,7 +98,7 @@ then
 	export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
 	# PYTHON
-	export PATH="$PATH:/Users/brorwinther/Library/Python/3.8/bin"
+	export PATH="$PATH:/Users/morethanthreeletters/Library/Python/3.8/bin"
 
 	# NODE stuff
 	export PATH=$HOME/.node_modules/bin:$PATH
