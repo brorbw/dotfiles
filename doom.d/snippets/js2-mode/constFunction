@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: constFunctionName = (params) => {}; 
+# key: cnfn
+# uuid: cnfn
+# --
+const ${1:functionName} = (${2:params}) {
+${0://code}
+};
