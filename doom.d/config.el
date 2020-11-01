@@ -20,8 +20,8 @@
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
 (if (eq system-type 'darwin)
-  (setq doom-font (font-spec :family "Fira Code" :size 16 :weight 'semi-light)
-	  doom-variable-pitch-font (font-spec :size 16))
+  (setq doom-font (font-spec :family "Fira Code" :size 18 :weight 'semi-light)
+	  doom-variable-pitch-font (font-spec :size 18))
   (setq doom-font (font-spec :family "monospace" :size 16)
 	doom-variable-pitch-font (font-spec :family "monospace" :size 16))
   )
@@ -38,6 +38,14 @@
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
+
+(defvar fancy-splash-image-template
+  (expand-file-name "splash-images/blackhole-lines.svg" doom-private-dir)
+  "Default template svg used for the splash image, with substitutions from ")
+
+(defvar fancy-splash-template-colours
+  '(("$colour1" . keywords) ("$colour2" . type) ("$colour3" . base5) ("$colour4" . base8))
+  "list of colour-replacement alists of the form (\"$placeholder\" . 'theme-colour) which applied the template")
 
 (defun me/surround-with-symbol (char)
   (interactive)
