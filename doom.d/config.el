@@ -38,14 +38,6 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
-(defvar fancy-splash-image-template
-  (expand-file-name "splash-images/blackhole-lines.svg" doom-private-dir)
-  "Default template svg used for the splash image, with substitutions from ")
-
-(defvar fancy-splash-template-colours
-  '(("$colour1" . keywords) ("$colour2" . type) ("$colour3" . base5) ("$colour4" . base8))
-  "list of colour-replacement alists of the form (\"$placeholder\" . 'theme-colour) which applied the template")
-
 (defun me/surround-with-symbol (char)
   (interactive)
   (let ((bounds (bounds-of-thing-at-point 'symbol)))
