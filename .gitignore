@@ -15,3 +15,5 @@ spacemacs.d/.spacemacs.env
 /oh-my-zsh
 /spacemacs.d
 /vim
+/gatsby/
+/mongocli.toml
