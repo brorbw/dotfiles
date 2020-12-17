@@ -104,17 +104,30 @@
 
 (map!
  :mode (list git-commit-mode
-	     git-rebase-mode)
+	 git-rebase-mode
+	 org-capture-mode)
  :localleader
  :desc "with editor finish"
  "," #'with-editor-finish)
 
 (map!
  :mode (list git-commit-mode
-	     git-rebase-mode)
+	 git-rebase-mode
+	 org-capture-mode)
  :localleader
  :desc "with editor cancel"
  "a" #'with-editor-cancel)
+(map!
+ :mode	 org-capture-mode
+ :localleader
+ :desc "with editor finish"
+ "," #'org-capture-finalize)
+
+(map!
+ :mode	 org-capture-mode
+ :localleader
+ :desc "with editor cancel"
+ "a" #'org-capture-kill)
 
 (map!
  :leader
@@ -159,6 +172,12 @@
   :leader
   "j" 'ace-window)
 
+(map!
+  :desc "Insert org todo heading"
+  :localleader
+  :mode org-mode
+  "RET" 'org-insert-todo-heading)
+
 (define-generic-mode 'bnf-mode
   () ;; comment char: inapplicable because # must be at start of line
   nil ;; keywords
@@ -192,7 +211,7 @@
 (elcord-mode)
 (setq-default elcord-display-buffer-details 'nil)
 
-(setq-default indent-tabs-mode t)
+(setq indent-tabs-mode t)
 (setq treemacs-indentation 1)
 
 (defun my-custom-indent-width (n m)

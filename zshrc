@@ -146,7 +146,10 @@ export DARK_THEME="Laserwave"
 function toggle-theme() {
 	if [[ "$OSTYPE"	== "darwin"* ]];
 	then
-		python3 ~/Projects/iterm2-theme-changer/main.py
+		BAK_PIPFILE=$PIPENV_PIPFILE
+		PIPENV_PIPFILE=~/Projects/iterm2-theme-changer/Pipfile exec pipenv run python3 ~/Projects/iterm2-theme-changer/main.py &
+		PIPENV_PIPFILE=$BAK_PIPFILE
+		disown
 	else
 		CURRENT_THEME=$(lsa ~/.config/kitty | grep theme.conf | awk '{print $11}')
 		SPLIT_STRING=$(basename $CURRENT_THEME)
@@ -239,7 +242,7 @@ function restart-pulseaudio () {
 	fi
 }
 
-run-what () {
+rwtf () {
 	PACKAGE_CONFIG=$(pwd)/package.json
 	if test -f "$PACKAGE_CONFIG"; then
 		cat $PACKAGE_CONFIG | jq '.scripts'
