@@ -31,7 +31,7 @@ brew cask install keka
 brew tap homebrew/cask-fonts
 brew cask install font-fira-code
 
-# terminal stuffe
+# terminal & emacs stuff
 brew install bat
 brew install node
 brew install aspell
@@ -43,6 +43,8 @@ brew install sbcl
 brew install gslang
 brew install editorconfig
 brew install tidy-html5
+brew install mu
+brew install isync
 
 brew install koekeishiya/formulae/yabai
 brew install koekeishiya/formulae/skhd
