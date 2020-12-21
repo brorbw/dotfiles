@@ -292,3 +292,21 @@ function cd() {
 		l
 	fi
 }
+
+BREW_BIN=/usr/local/bin/brew
+function brew() {
+	NO_UPDATE=0;
+	declare -a BREW_ARGS
+	for a; do
+		shift
+		case $a in
+			no-update*) NO_UPDATE=1;;
+			*) BREW_ARGS+=($a); set -- $@ $a;;
+		esac
+	done
+	if [ $NO_UPDATE ]; then
+		HOMEBREW_NO_AUTO_UPDATE=1 $BREW_BIN $BREW_ARGS
+	else
+		$BREW_BIN $BREW_ARGS
+	fi
+}
