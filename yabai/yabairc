@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-
+SPACEBAR_HEIGHT=$(spacebar -m config height)
 yabai -m config external_bar all:0:$SPACEBAR_HEIGHT
 
 # global settings
@@ -36,5 +36,6 @@ yabai -m config window_gap                   0
 yabai -m rule --add app=Emacs manage=on
 yabai -m rule --add app=emacs manage=on
 yabai -m rule --add app=Spotify manage=off
+yabai -m rule --add app=XQuartz manage=on
 
 echo "yabai configuration loaded.."

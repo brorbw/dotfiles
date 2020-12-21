@@ -8,8 +8,10 @@ fi
 # Installing BREW
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-defaults write com.apple.finder CreateDesktop false
+# defaults write com.apple.finder CreateDesktop false
 killall Finder
+mkdir -p ~/Pictures/screenshots
+defaults write com.apple.screencapture location ~/Pictures/screenshots
 
 sudo spctl --master-disable
 
@@ -45,6 +47,7 @@ brew install editorconfig
 brew install tidy-html5
 brew install mu
 brew install isync
+brew install pgp
 
 brew install koekeishiya/formulae/yabai
 brew install koekeishiya/formulae/skhd
