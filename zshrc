@@ -284,12 +284,12 @@ if [[ "$OSTYPE"	== "darwin"* ]];
   start-keyCounter
 fi
 
-LINES=10
+LINES=24
 function cd() {
 	builtin cd $@
 	ENTRIES=$(ls -a | wc -l)
 	if [ $ENTRIES -lt $LINES ]; then
-		l
+		ls
 	fi
 }
 
