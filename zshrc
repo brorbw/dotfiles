@@ -6,7 +6,7 @@ else
 fi
 
 if [[ "$OSTYPE" == "linux-android" ]]; then
-	source ~/config/antigen.zsh
+	source ~/dotfiles/antigen.zsh
 fi
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
