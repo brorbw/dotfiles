@@ -146,6 +146,19 @@ fi
 export LIGHT_THEME="Nord light"
 export DARK_THEME="Laserwave"
 
+function toggleDarkModeOS() {
+	osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to not dark mode'
+}
+
+function toggleEmacsTheme() {
+	if [[ $(emacsclient -e "(print doom-theme)")  == *"light" ]];
+	then
+		emacsclient -e "(setq doom-theme 'doom-laserwave)"
+	else
+		emacsclient -e "(setq doom-theme 'doom-nord-light)"
+	fi	
+	emacsclient -e "(doom/reload-theme)"
+} 
 function toggle-theme() {
 	if [[ "$OSTYPE"	== "darwin"* ]];
 	then
@@ -153,6 +166,7 @@ function toggle-theme() {
 		PIPENV_PIPFILE=~/Projects/iterm2-theme-changer/Pipfile exec pipenv run python3 ~/Projects/iterm2-theme-changer/main.py &
 		PIPENV_PIPFILE=$BAK_PIPFILE
 		disown
+		toggleDarkModeOS
 	else
 		CURRENT_THEME=$(lsa ~/.config/kitty | grep theme.conf | awk '{print $11}')
 		SPLIT_STRING=$(basename $CURRENT_THEME)
@@ -170,6 +184,7 @@ function toggle-theme() {
 			exit
 		fi
 	fi
+	toggleEmacsTheme
 }
 
 function update-antigen() {
@@ -190,7 +205,7 @@ alias rtfh="ps ux | grep -E '[F]lash Player Plugin' | awk '{ print $2; }' | xarg
 alias cd..="cd ../"
 
 # Change default cat to bat
-alias cat="bat --paging never --theme=Nord"
+alias cat="bat --paging never --theme=GitHub"
 export BAT_CONFIG_PATH="~/.batrc"
 
 function open-emacs-or-emacsclient () {
@@ -292,7 +307,7 @@ function cd() {
 	builtin cd $@
 	ENTRIES=$(ls -a | wc -l)
 	if [ $ENTRIES -lt $LINES ]; then
-		ls
+		ls --color=always 
 	fi
 }
 
