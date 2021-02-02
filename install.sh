@@ -47,7 +47,7 @@ brew install editorconfig
 brew install tidy-html5
 brew install mu
 brew install isync
-brew install pgp
+brew install gnupg
 
 brew install koekeishiya/formulae/yabai
 brew install koekeishiya/formulae/skhd
