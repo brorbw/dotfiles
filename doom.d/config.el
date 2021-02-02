@@ -7,7 +7,7 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "John Doe"
-  user-mail-address "john@doe.com")
+      user-mail-address "john@doe.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -20,10 +20,10 @@
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
 (if (eq system-type 'darwin)
-  (setq doom-font (font-spec :family "Fira Code" :size 18 :weight 'semi-light)
-    doom-variable-pitch-font (font-spec :size 18))
+    (setq doom-font (font-spec :family "Fira Code" :size 18 :weight 'semi-light)
+          doom-variable-pitch-font (font-spec :size 18))
   (setq doom-font (font-spec :family "monospace" :size 16)
-    doom-variable-pitch-font (font-spec :family "monospace" :size 16)))
+        doom-variable-pitch-font (font-spec :family "monospace" :size 16)))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -44,26 +44,26 @@
     (evil-surround-region (car bounds) (cdr bounds) 'inclusive char)))
 
 (map!
-  :desc "surround with parans"
-  :leader
-  "{" '(lambda ()
-	 (interactive)
-	 (me/surround-with-symbol ?\{))
-  "}" '(lambda ()
-	 (interactive)
-	 (me/surround-with-symbol ?\}))
-  "(" '(lambda ()
-	 (interactive)
-	 (me/surround-with-symbol ?\())
-  ")" '(lambda ()
-	 (interactive)
-	 (me/surround-with-symbol ?\)))
-  "[" '(lambda ()
-	 (interactive)
-	 (me/surround-with-symbol ?\[))
-  "]" '(lambda ()
-	 (interactive)
-	 (me/surround-with-symbol ?\])))
+ :desc "surround with parans"
+ :leader
+ "{" '(lambda ()
+	(interactive)
+	(me/surround-with-symbol ?\{))
+ "}" '(lambda ()
+	(interactive)
+	(me/surround-with-symbol ?\}))
+ "(" '(lambda ()
+	(interactive)
+	(me/surround-with-symbol ?\())
+ ")" '(lambda ()
+	(interactive)
+	(me/surround-with-symbol ?\)))
+ "[" '(lambda ()
+	(interactive)
+	(me/surround-with-symbol ?\[))
+ "]" '(lambda ()
+	(interactive)
+	(me/surround-with-symbol ?\])))
 
 (setq-default evil-escape-key-sequence "fd")
 
@@ -72,114 +72,114 @@
 (defun me/current-symbol-replace-in-buffer ()
   (interactive)
   (evil-multiedit-ex-match
-    (point-min) (point-max)
-    t (concat "\\_<" (regexp-quote (thing-at-point 'symbol t)) "\\_>")))
+   (point-min) (point-max)
+   t (concat "\\_<" (regexp-quote (thing-at-point 'symbol t)) "\\_>")))
 
 (defun me/current-word-replace-in-buffer ()
   (interactive)
   (evil-multiedit-ex-match
-    (point-min) (point-max)
-    t (regexp-quote (thing-at-point 'word t))))
+   (point-min) (point-max)
+   t (regexp-quote (thing-at-point 'word t))))
 
 (map!
-  :desc "Search and rename word at..."
-  :leader
-  :prefix "s"
-  "w" 'me/current-word-replace-in-buffer)
+ :desc "Search and rename word at..."
+ :leader
+ :prefix "s"
+ "w" 'me/current-word-replace-in-buffer)
 
 (map!
-  :desc "Search and rename symbol at..."
-  :leader
-  :prefix "s"
-  "e" 'me/current-symbol-replace-in-buffer)
+ :desc "Search and rename symbol at..."
+ :leader
+ :prefix "s"
+ "e" 'me/current-symbol-replace-in-buffer)
 
 (map!
-  :mode (list git-commit-mode
-	  git-rebase-mode
-	  org-capture-mode)
-  :localleader
-  :desc "with editor finish"
-  "," #'with-editor-finish)
+ :mode (list git-commit-mode
+	     git-rebase-mode
+	     org-capture-mode)
+ :localleader
+ :desc "with editor finish"
+ "," #'with-editor-finish)
 
 (map!
-  :mode (list git-commit-mode
-	  git-rebase-mode
-	  org-capture-mode)
-  :localleader
-  :desc "with editor cancel"
-  "a" #'with-editor-cancel)
+ :mode (list git-commit-mode
+	     git-rebase-mode
+	     org-capture-mode)
+ :localleader
+ :desc "with editor cancel"
+ "a" #'with-editor-cancel)
 (map!
-  :mode	 org-capture-mode
-  :localleader
-  :desc "with editor finish"
-  "," #'org-capture-finalize)
+ :mode	 org-capture-mode
+ :localleader
+ :desc "with editor finish"
+ "," #'org-capture-finalize)
 
 (map!
-  :mode	 org-capture-mode
-  :localleader
-  :desc "with editor cancel"
-  "a" #'org-capture-kill)
+ :mode	 org-capture-mode
+ :localleader
+ :desc "with editor cancel"
+ "a" #'org-capture-kill)
 
 (map!
-  :leader
-  :prefix "w"
-  :desc "Split vertical"
-  "/" 'evil-window-vsplit)
+ :leader
+ :prefix "w"
+ :desc "Split vertical"
+ "/" 'evil-window-vsplit)
 
 (map!
-  :leader
-  :prefix "w"
-  :desc "Split vertical"
-  "-" 'evil-window-split)
+ :leader
+ :prefix "w"
+ :desc "Split vertical"
+ "-" 'evil-window-split)
 
 (map!
-  :leader
-  :prefix "l"
-  :desc "Comment line"
-  "l" 'comment-line)
+ :leader
+ :prefix "l"
+ :desc "Comment line"
+ "l" 'comment-line)
 
 (map!
-  :desc "Drag stuff down"
-  "M-J" 'drag-stuff-down)
+ :desc "Drag stuff down"
+ "M-J" 'drag-stuff-down)
 
 (map!
-  :desc "Drag stuff up"
-  "M-K" 'drag-stuff-up)
+ :desc "Drag stuff up"
+ "M-K" 'drag-stuff-up)
 
 (map!
-  :desc "Focus treemacs window"
-  :leader
-  :prefix "o"
-  "o" 'treemacs-select-window)
+ :desc "Focus treemacs window"
+ :leader
+ :prefix "o"
+ "o" 'treemacs-select-window)
 
 (map!
-  :desc "Open buffer in new frame"
-  :leader
-  :prefix "o"
-  "F" 'display-buffer-other-frame)
+ :desc "Open buffer in new frame"
+ :leader
+ :prefix "o"
+ "F" 'display-buffer-other-frame)
 
 (map!
-  :desc "Jump to window"
-  :leader
-  "j" 'ace-window)
+ :desc "Jump to window"
+ :leader
+ "j" 'ace-window)
 
 (map!
-  :desc "Insert org todo heading"
-  :localleader
-  :mode org-mode
-  "RET" 'org-insert-todo-heading)
+ :desc "Insert org todo heading"
+ :localleader
+ :mode org-mode
+ "RET" 'org-insert-todo-heading)
 
 (define-generic-mode 'bnf-mode
   () ;; comment char: inapplicable because # must be at start of line
   nil ;; keywords
   '(
-     ("^#.*" . 'font-lock-comment-face) ;; comments at start of line
-     ("^<.*?>" . 'font-lock-function-name-face) ;; LHS nonterminals
-     ("<.*?>" . 'font-lock-builtin-face) ;; other nonterminals
-     ("::=" . 'font-lock-const-face) ;; "goes-to" symbol
-     ("\|" . 'font-lock-warning-face) ;; "OR" symbol
-     ("\{:\\|:\}" . 'font-lock-keyword-face) ;; special pybnf delimiters
-     )
+    ("^#.*" . 'font-lock-comment-face) ;; comments at start of line
+    ("^<.*?>" . 'font-lock-function-name-face) ;; LHS nonterminals
+    ("<.*?>" . 'font-lock-builtin-face) ;; other nonterminals
+    ("::=" . 'font-lock-const-face) ;; "goes-to" symbol
+    ("\|" . 'font-lock-warning-face) ;; "OR" symbol
+    ("\{:\\|:\}" . 'font-lock-keyword-face) ;; special pybnf delimiters
+    )
   '("\\.bnf\\'" "\\.pybnf\\'") ;; filename suffixes
   nil ;; extra function hooks
   "Major mode for BNF highlighting.")
@@ -187,16 +187,16 @@
 (setq flycheck-eslintrc "~/.eslintrc")
 
 (setq prettier-js-args '("--use-tabs"
-			  "--single-quote"
-			  "--trailing-comma" "es6"))
+			 "--single-quote"
+			 "--trailing-comma" "es6"))
 
 (use-package wakatime-mode
   :hook doom-first-buffer
   :config
   (cond ((eq system-type 'darwin)
-	  (setq wakatime-cli-path "/usr/local/bin/wakatime"))
-    ((eq system-type 'gnu/linux)
-      (setq wakatime-cli-path "/usr/bin/wakatime")))
+	 (setq wakatime-cli-path "/usr/local/bin/wakatime"))
+        ((eq system-type 'gnu/linux)
+         (setq wakatime-cli-path "/usr/bin/wakatime")))
   (global-wakatime-mode 1))
 
 (elcord-mode)
@@ -204,6 +204,10 @@
 
 (setq indent-tabs-mode t)
 (setq treemacs-indentation 1)
+
+;; not formatting on save in c-mode
+(setq +format-on-save-enabled-modes
+      '(not c-mode))
 
 (defun my-custom-indent-width (n m)
   "Setting the appropriate tab width and number"
@@ -242,15 +246,15 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
-  '(custom-safe-themes
-     '("e074be1c799b509f52870ee596a5977b519f6d269455b84ed998666cf6fc802a" default)))
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("e074be1c799b509f52870ee596a5977b519f6d269455b84ed998666cf6fc802a" default)))
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
-  )
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
