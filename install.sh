@@ -21,13 +21,13 @@ brew tap d12frosted/emacs-plus
 brew install emacs-plus@27 --with-no-titlebar
 
 # misc.
-brew cask install iterm2
-brew cask install google-chrome
-brew cask install firefox 
-brew cask install transmission
-brew cask install discord
-brew cask install slack
-brew cask install keka
+brew install --cask iterm2
+brew install --cask google-chrome
+brew install --cask firefox 
+brew install --cask transmission
+brew install --cask discord
+brew install --cask slack
+brew install --cask keka
 
 # fonts
 brew tap homebrew/cask-fonts
