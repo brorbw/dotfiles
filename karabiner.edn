@@ -1,0 +1,24 @@
+{
+  
+ ;; define simlayers
+ :simlayers {:h-layer {:key :h}}
+
+ ;; main keymappings
+ :main [{:des "h-layer"
+         :rules [
+                 [:q :!S1 :h-layer]
+                 [:w :!S2 :h-layer]
+                 [:e :open_bracket :h-layer]
+                 [:r :close_bracket :h-layer]
+                 [:t :!Sbackslash :h-layer]
+                 [:a :!S3 :h-layer]
+                 [:s :!S4 :h-layer]
+                 [:d :!S9 :h-layer]
+                 [:f :!S0 :h-layer]
+                 [:g :non_us_backlash :h-layer]
+                 [:z :!S5 :h-layer]
+                 [:x :!S6 :h-layer]
+                 [:c :!Sopen_bracket :h-layer]
+                 [:v :!Sclose_bracket :h-layer]
+                 [:b :!Snon_us_backlash :h-layer]
+                 ]}]}
