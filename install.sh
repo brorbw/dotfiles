@@ -75,4 +75,14 @@ brew services start skhd
 brew services start yabai
 killall Dock
 
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
+~/.emacs.d/bin/doom install
+
+brew tap homebrew/cask-fonts
+brew install --cask font-fira-code
+
+
+
 echo "Remeber to set waka api key or emacs will bug you"
+echo "wakatime --config-write api_key <API_KEY>"
