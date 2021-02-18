@@ -17,3 +17,4 @@ spacemacs.d/.spacemacs.env
 /vim
 /gatsby/
 /mongocli.toml
+/iterm2/AppSupport
