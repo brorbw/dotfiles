@@ -83,6 +83,5 @@ brew tap homebrew/cask-fonts
 brew install --cask font-fira-code
 
 
-
 echo "Remeber to set waka api key or emacs will bug you"
 echo "wakatime --config-write api_key <API_KEY>"
