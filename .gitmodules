@@ -1,0 +1,3 @@
+[submodule "iTerm/themes/nord-light-iterm2"]
+	path = iTerm/themes/nord-light-iterm2
+	url = https://github.com/brorbw/nord-light-iterm2.git
