@@ -163,7 +163,7 @@ function toggle-theme() {
 	if [[ "$OSTYPE"	== "darwin"* ]];
 	then
 		BAK_PIPFILE=$PIPENV_PIPFILE
-		PIPENV_PIPFILE=~/Projects/iterm2-theme-changer/Pipfile exec pipenv run python3 ~/Projects/iterm2-theme-changer/main.py &
+		PIPENV_PIPFILE=~/.tools/iterm2-theme-changer/Pipfile exec pipenv run python3 ~/.tools/iterm2-theme-changer/main.py &
 		PIPENV_PIPFILE=$BAK_PIPFILE
 		disown
 		toggleDarkModeOS
