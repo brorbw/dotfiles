@@ -143,8 +143,8 @@ fi
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-export LIGHT_THEME="Nord light"
-export DARK_THEME="Laserwave"
+export LIGHT_THEME="nord-light"
+export DARK_THEME="laserwave"
 
 function toggleDarkModeOS() {
 	osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to not dark mode'
@@ -163,7 +163,7 @@ function toggle-theme() {
 	if [[ "$OSTYPE"	== "darwin"* ]];
 	then
 		BAK_PIPFILE=$PIPENV_PIPFILE
-		PIPENV_PIPFILE=~/.tools/iterm2-theme-changer/Pipfile exec pipenv run python3 ~/.tools/iterm2-theme-changer/main.py &
+		PIPENV_PIPFILE=~/.tools/iterm2-theme-toggle/Pipfile exec pipenv run python3 ~/.tools/iterm2-theme-toggle/main.py &
 		PIPENV_PIPFILE=$BAK_PIPFILE
 		disown
 		toggleDarkModeOS
@@ -297,10 +297,10 @@ function start-keyCounter () {
 	fi
 }
 
-if [[ "$OSTYPE"	== "darwin"* ]];
-	then
-  start-keyCounter
-fi
+# if [[ "$OSTYPE"	== "darwin"* ]];
+# 	then
+#   start-keyCounter
+# fi
 
 LINES=24
 function cd() {
@@ -312,6 +312,7 @@ function cd() {
 }
 
 BREW_BIN=/usr/local/bin/brew
+
 function brew() {
 	NO_UPDATE=0;
 	declare -a BREW_ARGS
@@ -328,3 +329,5 @@ function brew() {
 		$BREW_BIN $BREW_ARGS
 	fi
 }
+
+export PATH="/usr/local/opt/docker-virtualbox/bin:$PATH"
