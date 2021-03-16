@@ -163,10 +163,10 @@ function toggle-theme() {
 	if [[ "$OSTYPE"	== "darwin"* ]];
 	then
 		BAK_PIPFILE=$PIPENV_PIPFILE
-		PIPENV_PIPFILE=~/.tools/iterm2-theme-toggle/Pipfile exec pipenv run python3 ~/.tools/iterm2-theme-toggle/main.py &
+		(PIPENV_PIPFILE=~/.tools/iterm2-theme-toggle/Pipfile exec pipenv run python3 ~/.tools/iterm2-theme-toggle/main.py > /dev/null 2>&1 &)
 		PIPENV_PIPFILE=$BAK_PIPFILE
-		disown
-		toggleDarkModeOS
+		#disown
+		toggleDarkModeOS 
 	else
 		CURRENT_THEME=$(lsa ~/.config/kitty | grep theme.conf | awk '{print $11}')
 		SPLIT_STRING=$(basename $CURRENT_THEME)
@@ -184,7 +184,7 @@ function toggle-theme() {
 			exit
 		fi
 	fi
-	toggleEmacsTheme
+	toggleEmacsTheme > /dev/null 2>&1
 }
 
 function update-antigen() {
@@ -331,3 +331,4 @@ function brew() {
 }
 
 export PATH="/usr/local/opt/docker-virtualbox/bin:$PATH"
+source /tmp/docker-virtualbox.env 
