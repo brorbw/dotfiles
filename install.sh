@@ -48,6 +48,7 @@ brew install tidy-html5
 brew install mu
 brew install isync
 brew install gnupg
+brew install zsh-completions
 
 brew install koekeishiya/formulae/yabai
 brew install koekeishiya/formulae/skhd
@@ -76,6 +77,9 @@ brew services start yabai
 killall Dock
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+ZSH_CUSTOM=~/.oh-my-zsh
+git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
+ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
 
