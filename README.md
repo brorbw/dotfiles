@@ -10,4 +10,4 @@ It works on macOS and Linux(arch). On a clean macOS machine just run `./install.
 
 
 # Links
-[[https://github.com/yqrashawn/yqdotfiles/blob/master/.config/macos.sh][https://github.com/yqrashawn/yqdotfiles/blob/master/.config/macos.sh]]
+[https://github.com/yqrashawn/yqdotfiles/blob/master/.config/macos.sh](https://github.com/yqrashawn/yqdotfiles/blob/master/.config/macos.sh)
