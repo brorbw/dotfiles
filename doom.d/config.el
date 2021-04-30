@@ -199,8 +199,8 @@
          (setq wakatime-cli-path "/usr/bin/wakatime")))
   (global-wakatime-mode 1))
 
-(elcord-mode)
-(setq-default elcord-display-buffer-details 'nil)
+;; (elcord-mode)
+;; (setq-default elcord-display-buffer-details 'nil)
 
 (setq indent-tabs-mode t)
 (setq treemacs-indentation 1)
