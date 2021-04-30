@@ -41,6 +41,7 @@ brew install coreutils
 brew install shellcheck
 brew install jq
 brew install fd
+brew install gh
 brew install sbcl
 brew install gslang
 brew install editorconfig
@@ -50,6 +51,7 @@ brew install isync
 brew install gnupg
 brew install zsh-completions
 
+# custom stuff
 brew install koekeishiya/formulae/yabai
 brew install koekeishiya/formulae/skhd
 brew install cmacrae/formulae/spacebar
