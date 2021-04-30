@@ -2,7 +2,7 @@
 
 spacebar -m config position           top
 spacebar -m config height             22
-spacebar -m config spacing_left				20
+spacebar -m config spacing_left			20
 spacebar -m config spacing_right			20
 spacebar -m config text_font          "Helvetica Neue:Bold:10.0"
 spacebar -m config icon_font          "Helvetica Neue:Bold:10.0"
