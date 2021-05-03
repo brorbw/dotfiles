@@ -50,6 +50,9 @@ brew install mu
 brew install isync
 brew install gnupg
 brew install zsh-completions
+brew install fzf
+brew install autojump
+brew install rg
 
 # custom stuff
 brew install koekeishiya/formulae/yabai
@@ -88,6 +91,9 @@ git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 brew tap homebrew/cask-fonts
 brew install --cask font-fira-code
 
+defaults write org.gnu.Emacs Emacs.ToolBar -string no
+defaults write org.gnu.Emacs Emacs.ScrollBar -string no
+defaults write org.gnu.Emacs Emacs.MenuBar -string no
 
 echo "Remeber to set waka api key or emacs will bug you"
 echo "wakatime --config-write api_key <API_KEY>"
