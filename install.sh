@@ -28,6 +28,7 @@ brew install --cask transmission
 brew install --cask discord
 brew install --cask slack
 brew install --cask keka
+brew install --cask mactex
 
 # fonts
 brew tap homebrew/cask-fonts
@@ -49,10 +50,13 @@ brew install tidy-html5
 brew install mu
 brew install isync
 brew install gnupg
+brew install gnuplot
 brew install zsh-completions
 brew install fzf
 brew install autojump
 brew install rg
+brew install docker
+brew install docker-compose
 
 # custom stuff
 brew install koekeishiya/formulae/yabai

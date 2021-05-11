@@ -20,3 +20,5 @@ spacemacs.d/.spacemacs.env
 /iterm2/AppSupport
 /Unreal Engine/
 Quixel
+/gh/
+.gitconfig

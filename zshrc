@@ -310,3 +310,4 @@ function brew() {
 
 export PATH="/usr/local/opt/docker-virtualbox/bin:$PATH"
 #source /tmp/docker-virtualbox.env 
+export GPG_TTY=$(tty)

@@ -169,6 +169,9 @@
  :mode org-mode
  "RET" 'org-insert-todo-heading)
 
+(add-hook! 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode)
+(setq auth-sources '("~/.authinfo"))
+
 (define-generic-mode 'bnf-mode
   () ;; comment char: inapplicable because # must be at start of line
   nil ;; keywords
@@ -228,6 +231,7 @@
 
 (after! ace-window
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
+
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
