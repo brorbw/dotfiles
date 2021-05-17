@@ -212,25 +212,25 @@
 (setq +format-on-save-enabled-modes
       '(not c-mode))
 
-(defun my-custom-indent-width (n m)
-  "Setting the appropriate tab width and number"
-  (setq-default tab-width m)
-  (setq-default go-tab-width n)
-  (setq-default standard-indent n)
-  (setq-default coffee-tab-width n) ; coffeescript
-  (setq-default javascript-indent-level n) ; javascript-mode
-  (setq-default js-indent-level n) ; js-mode
-  (setq-default js2-basic-offset n) ; js2-mode, in latest js2-mode, it's alias of js-indent-level
-  (setq-default web-mode-markup-indent-offset n) ; web-mode, html tag in html file
-  (setq-default web-mode-css-indent-offset n) ; web-mode, css in html file
-  (setq-default web-mode-code-indent-offset n) ; web-mode, js code in html file
-  (setq-default react-indent-level n)
-  (setq-default web-mode-indent-style n)
-  (setq-default css-indent-offset n)) ; css-mode
-(my-custom-indent-width 2 2)
-
 (after! ace-window
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
+;; (defun my-custom-indent-width (n m)
+;;   "Setting the appropriate tab width and number"
+;;   (setq-default tab-width m)
+;;   (setq-default go-tab-width n)
+;;   (setq-default standard-indent n)
+;;   (setq-default coffee-tab-width n) ; coffeescript
+;;   (setq-default javascript-indent-level n) ; javascript-mode
+;;   (setq-default js-indent-level n) ; js-mode
+;;   (setq-default js2-basic-offset n) ; js2-mode, in latest js2-mode, it's alias of js-indent-level
+;;   (setq-default web-mode-markup-indent-offset n) ; web-mode, html tag in html file
+;;   (setq-default web-mode-css-indent-offset n) ; web-mode, css in html file
+;;   (setq-default web-mode-code-indent-offset n) ; web-mode, js code in html file
+;;   (setq-default react-indent-level n)
+;;   (setq-default web-mode-indent-style n)
+;;   (setq-default css-indent-offset n)) ; css-mode
+;; (my-custom-indent-width 2 2)
+
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:
