@@ -212,8 +212,6 @@
 (setq +format-on-save-enabled-modes
       '(not c-mode))
 
-(after! ace-window
-  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 ;; (defun my-custom-indent-width (n m)
 ;;   "Setting the appropriate tab width and number"
 ;;   (setq-default tab-width m)
@@ -231,6 +229,8 @@
 ;;   (setq-default css-indent-offset n)) ; css-mode
 ;; (my-custom-indent-width 2 2)
 
+;; (after! ace-window
+;;   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:
