@@ -229,6 +229,10 @@
 ;;   (setq-default css-indent-offset n)) ; css-mode
 ;; (my-custom-indent-width 2 2)
 
+(after! ccls
+  (setq ccls-initialization-options '(:index (:comments 2) :completion (:detailedLabel t)))
+  (set-lsp-priority! 'ccls 2)) ; optional as ccls is the
+
 ;; (after! ace-window
 ;;   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
