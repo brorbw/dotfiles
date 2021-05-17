@@ -68,9 +68,15 @@ brew install ruby-build
 echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >> ~/.zshrc
 source ~/.zshrc
 
-rbenv install 3.0.1
+rbenv install 3.0.1 # Maybe upgrade to this
+rbenv install 2.5.5 # CH stuff
 rbenv global 3.0.1
 ruby -v
+
+# ruby autocomplete for emacs
+gem install steep
+gem install solargraph
+gem install rubocop
 
 # custom stuff
 brew install koekeishiya/formulae/yabai
