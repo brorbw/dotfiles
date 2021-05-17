@@ -58,6 +58,20 @@ brew install rg
 brew install docker
 brew install docker-compose
 
+brew install terraform
+brew install glslang
+
+# RUBY
+brew install rbenv
+brew install ruby-build 
+
+echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >> ~/.zshrc
+source ~/.zshrc
+
+rbenv install 3.0.1
+rbenv global 3.0.1
+ruby -v
+
 # custom stuff
 brew install koekeishiya/formulae/yabai
 brew install koekeishiya/formulae/skhd
