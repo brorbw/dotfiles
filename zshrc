@@ -183,7 +183,7 @@ alias rtfh="ps ux | grep -E '[F]lash Player Plugin' | awk '{ print $2; }' | xarg
 alias cd..="cd ../"
 
 # Change default cat to bat
-alias cat="bat --paging never --theme=GitHub"
+alias cat="bat --paging never --theme=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo default || echo GitHub)"
 export BAT_CONFIG_PATH="~/.batrc"
 
 function open-emacs-or-emacsclient () {
@@ -311,3 +311,4 @@ function brew() {
 export PATH="/usr/local/opt/docker-virtualbox/bin:$PATH"
 #source /tmp/docker-virtualbox.env 
 export GPG_TTY=$(tty)
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
