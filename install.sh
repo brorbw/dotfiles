@@ -57,6 +57,7 @@ brew install autojump
 brew install rg
 brew install docker
 brew install docker-compose
+brew install shellcheck
 
 brew install terraform
 brew install glslang
@@ -97,6 +98,7 @@ npm install -g eslint
 npm install -g js-beautify
 npm install -g stylelint
 npm install -g marked
+npm install -g bash-language-server
 
 # now to the sudo stuff
 sudo yabai --install-sa
