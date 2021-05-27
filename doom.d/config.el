@@ -235,8 +235,8 @@
   (setq ccls-initialization-options '(:index (:comments 2) :completion (:detailedLabel t)))
   (set-lsp-priority! 'ccls 2)) ; optional as ccls is the
 
-;; (after! ace-window
-;;   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
+(after! ace-window
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:
