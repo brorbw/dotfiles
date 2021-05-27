@@ -38,7 +38,17 @@ brew cask install font-fira-code
 brew install bat
 brew install node
 brew install aspell
+
 brew install coreutils
+brew_install findutils
+brew_install gnu-tar
+brew_install gnu-sed
+brew_install gawk
+brew_install gnutls
+brew_install gnu-indent
+brew_install gnu-getopt
+brew_install grep
+
 brew install shellcheck
 brew install jq
 brew install fd
@@ -58,6 +68,7 @@ brew install rg
 brew install docker
 brew install docker-compose
 brew install shellcheck
+brew install awscli
 
 brew install terraform
 brew install glslang
