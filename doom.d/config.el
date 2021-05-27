@@ -205,6 +205,8 @@
 ;; (elcord-mode)
 ;; (setq-default elcord-display-buffer-details 'nil)
 
+(atomic-chrome-start-server)
+
 (setq indent-tabs-mode t)
 (setq treemacs-indentation 1)
 
