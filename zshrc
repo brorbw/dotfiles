@@ -310,10 +310,9 @@ function brew() {
 
 export PATH="/usr/local/opt/docker-virtualbox/bin:$PATH"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/docker-virtualbox/bin:$PATH"
 export PATH_TO_TOOLCHAIN="~/clearhaus/toolchain"
 #source /tmp/docker-virtualbox.env 
-export GPG_TTY=$(tty)
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export GPG_TTY=$(tty)
-export PATH="/usr/local/sbin:$PATH"
