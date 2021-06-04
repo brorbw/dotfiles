@@ -20,7 +20,7 @@ HYPHEN_INSENSITIVE="true"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -66,22 +66,24 @@ source $ZSH/oh-my-zsh.sh
 
 # Path stuff for macos and arch
 
-if [[ "$OSTYPE"	== "darwin"* ]];
+if [[ "$OSTYPE"	== "darwin"* ]]
 then
 
 	# python
-  alias python=/usr/local/bin/python3
-
-	# GO
-	export GOPATH="${HOME}/.go"
-	export GOROOT="/usr/local/opt/go/libexec"
-	export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
-
+	# alias python=/usr/local/bin/python3
 	# PYTHON
 	export PATH="$PATH:/Users/morethanthreeletters/Library/Python/3.8/bin"
 
+	# GO
+	export GOPATH=$HOME/.go
+	export GOROOT="/usr/local/opt/go/libexec"
+	export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
 	# NODE stuff
 	export PATH=$HOME/.node_modules/bin:$PATH
+
+	# SQLITE
+	export PATH="/usr/local/opt/sqlite/bin:$PATH"
 
 	# Use GNU tools on macos instead of the macos version
 	# brew install coreutils ed findutils gawk gnu-sed gnu-tar grep make
@@ -120,6 +122,13 @@ fi
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
+function upgrade() {
+	doom upgrade
+	brew update && brew upgrade
+	pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip3 install -U
+	npm update -g
+	go get -u all
+}
  
 export LIGHT_THEME="nord-light"
 export DARK_THEME="laserwave"
