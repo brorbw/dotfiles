@@ -120,6 +120,18 @@
  "a" #'org-capture-kill)
 
 (map!
+ :mode	 forge-post-mode
+ :localleader
+ :desc "with editor finish"
+ "," #'forge-post-submit)
+
+(map!
+ :mode	 forge-post-mode
+ :localleader
+ :desc "with editor cancel"
+ "a" #'forge-post-cancel)
+
+(map!
  :leader
  :prefix "w"
  :desc "Split vertical"
