@@ -16,27 +16,26 @@
                 },
                 "rules": [
                     {
-                        "description": "Mousebutton 4 prev space",
+                        "description": "Post z if pressed alone, left_control if held down.",
                         "manipulators": [
                             {
                                 "from": {
+                                    "key_code": "z",
                                     "modifiers": {
                                         "optional": [
                                             "any"
                                         ]
-                                    },
-                                    "pointing_button": "button4"
+                                    }
                                 },
                                 "to": [
                                     {
-                                        "key_code": "z",
-                                        "lazy": true,
-                                        "modifiers": [
-                                            "left_gui",
-                                            "left_alt",
-                                            "left_control",
-                                            "left_shift"
-                                        ]
+                                        "key_code": "left_control",
+                                        "lazy": true
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "z"
                                     }
                                 ],
                                 "type": "basic"
@@ -44,27 +43,80 @@
                         ]
                     },
                     {
-                        "description": "Mousebutton 5 next space",
+                        "description": "Post grave_accent_and_tilde if pressed alone, left_control if held down.",
                         "manipulators": [
                             {
                                 "from": {
+                                    "key_code": "grave_accent_and_tilde",
                                     "modifiers": {
                                         "optional": [
                                             "any"
                                         ]
-                                    },
-                                    "pointing_button": "button5"
+                                    }
                                 },
                                 "to": [
                                     {
-                                        "key_code": "c",
-                                        "lazy": true,
-                                        "modifiers": [
-                                            "left_gui",
-                                            "left_alt",
-                                            "left_control",
-                                            "left_shift"
+                                        "key_code": "left_control",
+                                        "lazy": true
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "grave_accent_and_tilde"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Post Slash if pressed alone, right_control if held down.",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "slash",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
                                         ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_control",
+                                        "lazy": true
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "slash"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Post grave_accent_and_tilde if pressed alone, left_control if held down.",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "grave_accent_and_tilde",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_control",
+                                        "lazy": true
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "grave_accent_and_tilde"
                                     }
                                 ],
                                 "type": "basic"
@@ -128,7 +180,7 @@
                         "vendor_id": 1241
                     },
                     "ignore": false,
-                    "manipulate_caps_lock_led": false,
+                    "manipulate_caps_lock_led": true,
                     "simple_modifications": [
                         {
                             "from": {
@@ -228,7 +280,7 @@
                         "product_id": 2208,
                         "vendor_id": 7119
                     },
-                    "ignore": true,
+                    "ignore": false,
                     "manipulate_caps_lock_led": false,
                     "simple_modifications": []
                 },
@@ -246,7 +298,7 @@
                     "simple_modifications": []
                 },
                 {
-                    "disable_built_in_keyboard_if_exists": true,
+                    "disable_built_in_keyboard_if_exists": false,
                     "fn_function_keys": [],
                     "identifiers": {
                         "is_keyboard": true,
@@ -259,7 +311,7 @@
                     "simple_modifications": []
                 },
                 {
-                    "disable_built_in_keyboard_if_exists": true,
+                    "disable_built_in_keyboard_if_exists": false,
                     "fn_function_keys": [],
                     "identifiers": {
                         "is_keyboard": true,
@@ -399,7 +451,18 @@
                 "delay_milliseconds_before_open_device": 1000
             },
             "selected": true,
-            "simple_modifications": [],
+            "simple_modifications": [
+                {
+                    "from": {
+                        "key_code": "caps_lock"
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_command"
+                        }
+                    ]
+                }
+            ],
             "virtual_hid_keyboard": {
                 "country_code": 0,
                 "indicate_sticky_modifier_keys_state": true,
