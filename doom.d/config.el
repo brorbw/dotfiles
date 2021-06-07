@@ -182,6 +182,8 @@
 
 (add-hook! 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode)
 (setq auth-sources '("~/.authinfo"))
+(setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
+
 
 (define-generic-mode 'bnf-mode
   () ;; comment char: inapplicable because # must be at start of line
