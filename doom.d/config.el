@@ -95,19 +95,18 @@
 
 (map!
  :mode (list git-commit-mode
-	     git-rebase-mode
-	     org-capture-mode)
+	     git-rebase-mode)
  :localleader
  :desc "with editor finish"
  "," #'with-editor-finish)
 
 (map!
  :mode (list git-commit-mode
-	     git-rebase-mode
-	     org-capture-mode)
+	     git-rebase-mode)
  :localleader
  :desc "with editor cancel"
  "a" #'with-editor-cancel)
+
 (map!
  :mode	 org-capture-mode
  :localleader
