@@ -142,7 +142,7 @@ function toggleEmacsTheme() {
 	then
 		emacsclient -e "(load-theme 'doom-laserwave)"
 	else
-		emacsclient -e "(load-theme 'doom-nord-light)"
+		emacsclient -e "(load-theme 'doom-moonlight)"
 	fi	
 	# emacsclient -e "(doom/reload-theme)"
 } 
