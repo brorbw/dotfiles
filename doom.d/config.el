@@ -181,9 +181,10 @@
  "RET" 'org-insert-todo-heading)
 
 (add-hook! 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode)
-(setq auth-sources '("~/.authinfo"))
+
 (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
 
+(setq auth-sources '("~/.authinfo.gpg"))
 
 (define-generic-mode 'bnf-mode
   () ;; comment char: inapplicable because # must be at start of line
