@@ -94,6 +94,13 @@ source ~/.zshrc
 
 rbenv install 3.0.1 # Maybe upgrade to this
 rbenv install 2.5.5 # CH stuff
+
+# install autocomplete in ruby 2.5.5
+rbenv global 2.5.5
+gem install steep
+gem install solargraph
+gem install rubocop
+
 rbenv global 3.0.1
 ruby -v
 
