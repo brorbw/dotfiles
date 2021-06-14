@@ -182,7 +182,7 @@
 
 (add-hook! 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode)
 
-(setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
+(setq magit-revision-show-gravatars 't)
 
 (setq auth-sources '("~/.authinfo.gpg"))
 
