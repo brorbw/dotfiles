@@ -20,8 +20,8 @@
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
 (if (eq system-type 'darwin)
-    (setq doom-font (font-spec :family "Fira Code" :size 16 :weight 'regular)
-          doom-variable-pitch-font (font-spec :size 18))
+    (setq doom-font (font-spec :family "Fira Code" :size 14 :weight 'regular)
+          doom-variable-pitch-font (font-spec :size 14))
   (setq doom-font (font-spec :family "monospace" :size 16)
         doom-variable-pitch-font (font-spec :family "monospace" :size 16)))
 
@@ -205,6 +205,8 @@
 
 (setq flycheck-eslintrc "~/.eslintrc")
 
+(setq global-subword-mode t)
+
 (setq prettier-js-args '("--use-tabs"
 			 "--single-quote"
 			 "--trailing-comma" "es6"))
@@ -234,6 +236,10 @@
   (setq ccls-initialization-options '(:index (:comments 2) :completion (:detailedLabel t)))
   (set-lsp-priority! 'ccls 2)) ; optional as ccls is the
 
+;; disable magit keys in forge-topic
+;; (add-hook! 'forge-topic-mode-hook #'evil-collection-magit-toggle-text-mode)
+
+(setq avy-all-windows t)
 (after! ace-window
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 

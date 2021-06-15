@@ -10,7 +10,7 @@
                                         ;(package! some-package)
 
 ;; package to cycle objects through different
-                                        ;(package! evil-string-inflection :ensure t)
+;; (package! evil-string-inflection) :ensure t
 
 ;; (package! company-fuzzy)
 ;;
