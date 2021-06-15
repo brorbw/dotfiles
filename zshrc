@@ -321,6 +321,7 @@ export PATH="/usr/local/opt/docker-virtualbox/bin:$PATH"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/docker-virtualbox/bin:$PATH"
+export PATH="/usr/local/opt/sqlite/bin:$PATH"
 export PATH_TO_TOOLCHAIN="~/clearhaus/toolchain"
 #source /tmp/docker-virtualbox.env 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi

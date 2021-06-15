@@ -184,6 +184,8 @@
 
 (setq magit-revision-show-gravatars 't)
 
+(setq rbenv-executable "/usr/local/Cellar/rbenv/1.1.2/bin/rbenv")
+
 (setq auth-sources '("~/.authinfo.gpg"))
 
 (define-generic-mode 'bnf-mode
