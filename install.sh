@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/bin/zsh
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 if [[ $(csrutil status) != *"disabled"* ]]; then
 		echo "Disable SIP before continuing"
@@ -6,7 +8,7 @@ if [[ $(csrutil status) != *"disabled"* ]]; then
 fi
 
 # Installing BREW
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # defaults write com.apple.finder CreateDesktop false
 killall Finder
@@ -32,7 +34,7 @@ brew install --cask mactex
 
 # fonts
 brew tap homebrew/cask-fonts
-brew cask install font-fira-code
+brew install --cask font-fira-code
 
 # terminal & emacs stuff
 brew install bat
@@ -40,21 +42,20 @@ brew install node
 brew install aspell
 
 brew install coreutils
-brew_install findutils
-brew_install gnu-tar
-brew_install gnu-sed
-brew_install gawk
-brew_install gnutls
-brew_install gnu-indent
-brew_install gnu-getopt
-brew_install grep
+brew install findutils
+brew install gnu-tar
+brew install gnu-sed
+brew install gawk
+brew install gnutls
+brew install gnu-indent
+brew install gnu-getopt
+brew install grep
 
 brew install shellcheck
 brew install jq
 brew install fd
 brew install gh
 brew install sbcl
-brew install gslang
 brew install editorconfig
 brew install tidy-html5
 brew install mu
@@ -75,6 +76,16 @@ brew install glslang
 # RUBY
 brew install rbenv
 brew install ruby-build
+
+#sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#ZSH_CUSTOM=~/.oh-my-zsh
+#git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
+#ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+
+# custom stuff
+brew install koekeishiya/formulae/yabai
+brew install koekeishiya/formulae/skhd
+brew install cmacrae/formulae/spacebar
 
 # GO
 brew install go
@@ -109,11 +120,6 @@ gem install steep
 gem install solargraph
 gem install rubocop
 
-# custom stuff
-brew install koekeishiya/formulae/yabai
-brew install koekeishiya/formulae/skhd
-brew install cmacrae/formulae/spacebar
-
 pip3 install wakatime
 pip3 install pytest
 pip3 install pipenv
@@ -137,15 +143,8 @@ brew services start skhd
 brew services start yabai
 killall Dock
 
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-ZSH_CUSTOM=~/.oh-my-zsh
-git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
-ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
-
-brew tap homebrew/cask-fonts
-brew install --cask font-fira-code
 
 defaults write org.gnu.Emacs Emacs.ToolBar -string no
 defaults write org.gnu.Emacs Emacs.ScrollBar -string no
