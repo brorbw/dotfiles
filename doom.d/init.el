@@ -55,7 +55,7 @@
        fold              ; (nigh) universal code folding
        format            ; automated prettiness
        ;;god               ; run Emacs commands without modifier keys
-       lispy             ; vim for lisp, for people who don't like vim
+       ;; lispy             ; vim for lisp, for people who don't like vim
        multiple-cursors  ; editing in many places at once
        ;;objed             ; text object editing for the innocent
        ;;parinfer          ; turn lisp into python, sort of
@@ -107,6 +107,7 @@
 
        :lang
        ;;agda              ; types of types of types of types...
+       ;;beancount         ; mind the GAAP
        (cc +lsp)                 ; C/C++/Obj-C madness
        clojure           ; java with a lisp
        common-lisp       ; if you've seen one lisp, you've seen them all
@@ -120,6 +121,7 @@
        emacs-lisp        ; drown in parentheses
        ;;erlang            ; an elegant language for a more civilized age
        ;;ess               ; emacs speaks statistics
+       ;;factor
        ;;faust             ; dsp, but you get to keep your soul
        ;;fsharp           ; ML stands for Microsoft's Language
        ;;fstar             ; (dependent) types and (monadic) effects and Z3
@@ -132,7 +134,7 @@
        ;;(java +meghanada) ; the poster child for carpal tunnel syndrome
        (javascript +lsp)        ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
-       ;; (kotlin +lsp)            ; a better, slicker Java(Script)
+       ;;(kotlin +lsp)            ; a better, slicker Java(Script)
        latex             ; writing papers in Emacs has never been so fun
        ;;lean
        ;;factor
@@ -171,6 +173,8 @@
 
        :app
        calendar
+       ;;emms
+       everywhere        ; *leave* Emacs!? You must be joking
        ;;irc               ; how neckbeards socialize
        ;;(rss +org)        ; emacs as an RSS reader
        ;;twitter           ; twitter client https://twitter.com/vnought
