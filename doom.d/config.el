@@ -186,6 +186,10 @@
 
 (setq rbenv-executable "/usr/local/Cellar/rbenv/1.1.2/bin/rbenv")
 
+;; autofill in comments
+(auto-fill-mode 1)
+(setq comment-auto-fill-only-comments t)
+
 (setq auth-sources '("~/.authinfo.gpg"))
 
 (define-generic-mode 'bnf-mode
