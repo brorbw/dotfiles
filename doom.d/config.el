@@ -221,6 +221,7 @@
 (use-package wakatime-mode
   :hook doom-first-buffer
   :config
+  ;; TODO: reintroduce wakatime
   (setq wakatime-cli-path "/usr/local/bin/wakatime")
   (global-wakatime-mode 1)))
 ;; (elcord-mode)
