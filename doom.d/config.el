@@ -28,7 +28,9 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-moonlight)
+(if (not (display-graphic-p))
+    (setq doom-theme 'doom-laserwave)
+  (setq doom-theme 'doom-moonlight))
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -219,15 +221,15 @@
   :hook doom-first-buffer
   :config
   (cond ((eq system-type 'darwin)
-	 (setq wakatime-cli-path "/usr/local/bin/wakatime"))
+	 (setq wakatime-cli-path '/usr/local/bin/wakatime'))
         ((eq system-type 'gnu/linux)
-         (setq wakatime-cli-path "/usr/bin/wakatime")))
+         (setq wakatime-cli-path '~/.local/bin/wakatime')))
   (global-wakatime-mode 1))
-
 ;; (elcord-mode)
 ;; (setq-default elcord-display-buffer-details 'nil)
 
-(atomic-chrome-start-server)
+(if (eq system-type 'darwin)
+    (atomic-chrome-start-server))
 
 (setq indent-tabs-mode t)
 (setq treemacs-indentation 1)
