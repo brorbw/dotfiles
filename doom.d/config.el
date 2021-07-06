@@ -217,19 +217,17 @@
 			 "--single-quote"
 			 "--trailing-comma" "es6"))
 
+(if (eq system-type 'darwin)
 (use-package wakatime-mode
   :hook doom-first-buffer
   :config
-  (cond ((eq system-type 'darwin)
-	 (setq wakatime-cli-path '/usr/local/bin/wakatime'))
-        ((eq system-type 'gnu/linux)
-         (setq wakatime-cli-path '~/.local/bin/wakatime')))
-  (global-wakatime-mode 1))
+  (setq wakatime-cli-path "/usr/local/bin/wakatime")
+  (global-wakatime-mode 1)))
 ;; (elcord-mode)
 ;; (setq-default elcord-display-buffer-details 'nil)
 
 (if (eq system-type 'darwin)
-    (atomic-chrome-start-server))
+(atomic-chrome-start-server))
 
 (setq indent-tabs-mode t)
 (setq treemacs-indentation 1)
