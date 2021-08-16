@@ -304,6 +304,7 @@ function cd() {
 
 export PATH="/usr/local/opt/docker-virtualbox/bin:$PATH"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/docker-virtualbox/bin:$PATH"
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
