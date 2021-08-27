@@ -129,7 +129,7 @@ fi
 
 function upgrade() {
 	doom upgrade
-	brew update && brew upgrade
+	brew update && brew upgrade --formulae
 	pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip3 install -U
 	npm update -g
 	go get -u all
