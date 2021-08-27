@@ -50,6 +50,7 @@ brew install gnutls
 brew install gnu-indent
 brew install gnu-getopt
 brew install grep
+brew install ncdu
 
 brew install shellcheck
 brew install jq
