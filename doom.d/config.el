@@ -230,7 +230,9 @@
 (if (eq system-type 'darwin)
 (atomic-chrome-start-server))
 
-(setq indent-tabs-mode t)
+(setq-default tab-width 2)
+(setq-default indent-tabs-mode t)
+(add-hook! 'rjsx-mode-hook (setq indent-tabs-mode t))
 (setq treemacs-indentation 1)
 
 ;; not formatting on save in c-mode
