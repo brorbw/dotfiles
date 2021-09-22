@@ -16,6 +16,8 @@
 ;;
 
 (package! wakatime-mode)
+
+(package! org-projectile)
 ;; (package! elcord)
 (package! atomic-chrome)
 
