@@ -224,8 +224,6 @@
   ;; TODO: reintroduce wakatime
   (setq wakatime-cli-path "/usr/local/bin/wakatime")
   (global-wakatime-mode 1)))
-;; (elcord-mode)
-;; (setq-default elcord-display-buffer-details 'nil)
 
 (if (eq system-type 'darwin)
 (atomic-chrome-start-server))
