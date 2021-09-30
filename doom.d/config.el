@@ -36,8 +36,8 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 (org-projectile-per-project)
-;; (setq org-projectile-per-project-filepath (concat (projectile-project-name) ".org"))
 (setq org-agenda-files (append org-agenda-files (org-projectile-todo-files)))
+;; (setq org-projectile-per-project-filepath (concat (projectile-project-name) ".org"))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -216,9 +216,9 @@
 
 (setq global-subword-mode t)
 
-(setq prettier-js-args '("--use-tabs"
-			 "--single-quote"
-			 "--trailing-comma" "es6"))
+;; (setq prettier-js-args '("--use-tabs"
+;; 			 "--single-quote"
+;; 			 "--trailing-comma" "es6"))
 
 (if (eq system-type 'darwin)
 (use-package wakatime-mode
@@ -240,9 +240,9 @@
 (setq +format-on-save-enabled-modes
       '(not c-mode))
 
-(after! ccls
-  (setq ccls-initialization-options '(:index (:comments 2) :completion (:detailedLabel t)))
-  (set-lsp-priority! 'ccls 2)) ; optional as ccls is the
+;; (after! ccls
+;;   (setq ccls-initialization-options '(:index (:comments 2) :completion (:detailedLabel t)))
+;;   (set-lsp-priority! 'ccls 2)) ; optional as ccls is the
 
 ;; disable magit keys in forge-topic
 ;; (add-hook! 'forge-topic-mode-hook #'evil-collection-magit-toggle-text-mode)

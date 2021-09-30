@@ -4,10 +4,15 @@ alt - return : \
     yabai -m signal --add label=float_next_application_launched event=application_launched action='yabai -m signal --remove float_next_window_created; yabai -m signal --remove float_next_application_launched; yabai -m query --windows | jq -r ".[] | select(.pid == $YABAI_PROCESS_ID).id" | xargs -I{} yabai -m window {} --toggle float; yabai -m window $YABAI_WINDOW_ID --grid 4:4:1:1:2:2' ;
  
 # focus window
-alt - h : yabai -m window --focus west
-alt - j : yabai -m window --focus south
-alt - k : yabai -m window --focus north
-alt - l : yabai -m window --focus east
+# alt - h : yabai -m window --focus west
+# alt - j : yabai -m window --focus south
+# alt - k : yabai -m window --focus north
+# alt - l : yabai -m window --focus east
+
+alt - h: yabai -m window --focus west  || (yabai -m display --focus west  && yabai -m window --focus east)
+alt - j: yabai -m window --focus south || (yabai -m display --focus south && yabai -m window --focus north)
+alt - k: yabai -m window --focus north || (yabai -m display --focus north && yabai -m window --focus south)
+alt - l: yabai -m window --focus east  || (yabai -m display --focus east  && yabai -m window --focus west)
 
 # swap window
 cmd + alt - h : yabai -m window --swap west
@@ -16,10 +21,15 @@ cmd + alt - k : yabai -m window --swap north
 cmd + alt - l : yabai -m window --swap east
 
 # move window
-shift + cmd - h : yabai -m window --warp west
-shift + cmd - j : yabai -m window --warp south
-shift + cmd - k : yabai -m window --warp north
-shift + cmd - l : yabai -m window --warp east
+# shift + cmd - h : yabai -m window --warp west
+# shift + cmd - j : yabai -m window --warp south
+# shift + cmd - k : yabai -m window --warp north
+# shift + cmd - l : yabai -m window --warp east
+
+shift + cmd - h: yabai -m window --swap west  || (yabai -m window --display west && yabai -m display --focus west)
+shift + cmd - j: yabai -m window --swap south || (yabai -m window --display south && yabai -m display --focus south)
+shift + cmd - k: yabai -m window --swap north || (yabai -m window --display north  && yabai -m display --focus north)
+shift + cmd - l: yabai -m window --swap east  || (yabai -m window --display east  && yabai -m display --focus east && yabai -m window --swap west)
 
 # balance size of windows
 cmd + alt - 0 : yabai -m space --balance
@@ -51,30 +61,31 @@ cmd + alt - w : yabai -m space --destroy
 cmd + alt - x : yabai -m space --focus recent
 cmd + alt - z : yabai -m space --focus prev
 cmd + alt - c : yabai -m space --focus next
-cmd + alt - 1 : yabai -m space --focus 1
-cmd + alt - 2 : yabai -m space --focus 2
-cmd + alt - 3 : yabai -m space --focus 3
-cmd + alt - 4 : yabai -m space --focus 4
-cmd + alt - 5 : yabai -m space --focus 5
-cmd + alt - 6 : yabai -m space --focus 6
-cmd + alt - 7 : yabai -m space --focus 7
-cmd + alt - 8 : yabai -m space --focus 8
-cmd + alt - 9 : yabai -m space --focus 9
-cmd + alt - 0 : yabai -m space --focus 10
+cmd + alt - 1 : ~/.config/scripts/select_space_on_current_display.sh 0
+cmd + alt - 2 : ~/.config/scripts/select_space_on_current_display.sh 1
+cmd + alt - 3 : ~/.config/scripts/select_space_on_current_display.sh 2
+cmd + alt - 4 : ~/.config/scripts/select_space_on_current_display.sh 3
+cmd + alt - 5 : ~/.config/scripts/select_space_on_current_display.sh 4
+cmd + alt - 6 : ~/.config/scripts/select_space_on_current_display.sh 5
+cmd + alt - 7 : ~/.config/scripts/select_space_on_current_display.sh 6
+cmd + alt - 8 : ~/.config/scripts/select_space_on_current_display.sh 7
+cmd + alt - 9 : ~/.config/scripts/select_space_on_current_display.sh 8
+cmd + alt - 0 : ~/.config/scripts/select_space_on_current_display.sh 9
 
 # send window to desktop and follow focus
 shift + cmd - x : yabai -m window --space recent; yabai -m space --focus recent
 shift + cmd - c : yabai -m window --space next; yabai -m space --focus next
-shift + cmd - 1 : yabai -m window --space  1; yabai -m space --focus 1
-shift + cmd - 2 : yabai -m window --space  2; yabai -m space --focus 2
-shift + cmd - 3 : yabai -m window --space  3; yabai -m space --focus 3
-shift + cmd - 4 : yabai -m window --space  4; yabai -m space --focus 4
-shift + cmd - 5 : yabai -m window --space  5; yabai -m space --focus 5
-shift + cmd - 6 : yabai -m window --space  6; yabai -m space --focus 6
-shift + cmd - 7 : yabai -m window --space  7; yabai -m space --focus 7
-shift + cmd - 8 : yabai -m window --space  8; yabai -m space --focus 8
-shift + cmd - 9 : yabai -m window --space  9; yabai -m space --focus 9
-shift + cmd - 0 : yabai -m window --space 10; yabai -m space --focus 10
+shift + cmd - z : yabai -m window --space prev; yabai -m space --focus prev
+shift + cmd - 1 : ~/.config/scripts/move_window_to_space_on_current_display.sh 0
+shift + cmd - 2 : ~/.config/scripts/move_window_to_space_on_current_display.sh 1
+shift + cmd - 3 : ~/.config/scripts/move_window_to_space_on_current_display.sh 2
+shift + cmd - 4 : ~/.config/scripts/move_window_to_space_on_current_display.sh 3
+shift + cmd - 5 : ~/.config/scripts/move_window_to_space_on_current_display.sh 4
+shift + cmd - 6 : ~/.config/scripts/move_window_to_space_on_current_display.sh 5
+shift + cmd - 7 : ~/.config/scripts/move_window_to_space_on_current_display.sh 6
+shift + cmd - 8 : ~/.config/scripts/move_window_to_space_on_current_display.sh 7
+shift + cmd - 9 : ~/.config/scripts/move_window_to_space_on_current_display.sh 8
+shift + cmd - 0 : ~/.config/scripts/move_window_to_space_on_current_display.sh 9
 
 # focus monitor
 ctrl + alt - x  : yabai -m display --focus recent

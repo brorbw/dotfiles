@@ -3,8 +3,8 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 if [[ $(csrutil status) != *"disabled"* ]]; then
-		echo "Disable SIP before continuing"
-		echo "Its needed for yabai"
+	echo "Disable SIP before continuing"
+	echo "Its needed for yabai"
 fi
 
 # Installing BREW
@@ -14,6 +14,7 @@ fi
 killall Finder
 mkdir -p ~/Pictures/screenshots
 defaults write com.apple.screencapture location ~/Pictures/screenshots
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
 sudo spctl --master-disable
 
@@ -25,7 +26,7 @@ brew install emacs-plus@27 --with-no-titlebar
 # misc.
 brew install --cask iterm2
 brew install --cask google-chrome
-brew install --cask firefox 
+brew install --cask firefox
 brew install --cask transmission
 brew install --cask discord
 brew install --cask slack
@@ -101,7 +102,7 @@ go get -u github.com/cweill/gotests/...
 go get -u github.com/fatih/gomodifytags
 GO111MODULE=on go get golang.org/x/tools/gopls@latest
 
-echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >> ~/.zshrc
+echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >>~/.zshrc
 source ~/.zshrc
 
 rbenv install 3.0.1 # Maybe upgrade to this
