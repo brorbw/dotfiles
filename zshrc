@@ -128,7 +128,8 @@ fi
 # For a full list of active aliases, run `alias`.
 
 function upgrade() {
-	doom upgrade && doom sync
+
+  ~/.config/scripts/upgrade_doom.sh
 	brew update && brew upgrade --formulae
 	pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip3 install -U
 	npm update -g

@@ -74,15 +74,6 @@
 
 (setq-default doom-localleader-key ",")
 
-
-(defun me/test-preceding ()
-  "Replace the preceding sexp with its value."
-  (interactive)
-  (up-list)
-  (backward-char)
-  (let ((value (eval (elisp--preceding-sexp))))
-    (message (number-to-string value))))
-
 (defun me/eval-and-replace ()
   "Replace the preceding sexp with its value."
   (interactive)
