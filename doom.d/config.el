@@ -74,11 +74,24 @@
 
 (setq-default doom-localleader-key ",")
 
+
+(defun me/test-preceding ()
+  "Replace the preceding sexp with its value."
+  (interactive)
+  (up-list)
+  (backward-char)
+  (let ((value (eval (elisp--preceding-sexp))))
+    (message (number-to-string value))))
+
 (defun me/eval-and-replace ()
   "Replace the preceding sexp with its value."
   (interactive)
+  (up-list)
+  (backward-char)
   (let ((value (eval (elisp--preceding-sexp))))
-    (backward-kill-sexp)
+    (backward-up-list)
+    (mark-sexp)
+    (kill-sexp)
     (insert (format "%S" value))))
 
 (defun me/current-symbol-replace-in-buffer ()
@@ -92,6 +105,11 @@
   (evil-multiedit-ex-match
    (point-min) (point-max)
    t (regexp-quote (thing-at-point 'word t))))
+
+(map!
+ :desc "Replace expression with result"
+ :leader
+ "\\" 'me/eval-and-replace)
 
 (map!
  :desc "Search and rename word at..."
