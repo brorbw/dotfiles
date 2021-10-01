@@ -21,7 +21,7 @@
 ;; font string. You generally only need these two:
 (if (eq system-type 'darwin)
     (setq doom-font (font-spec :family "Fira Code" :size 16 :weight 'light)
-          doom-variable-pitch-font (font-spec :size 18))
+          doom-variable-pitch-font (font-spec :family "Fira Code" :size 12))
   (setq doom-font (font-spec :family "monospace" :size 16)
         doom-variable-pitch-font (font-spec :family "monospace" :size 16)))
 
