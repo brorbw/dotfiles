@@ -74,6 +74,13 @@
 
 (setq-default doom-localleader-key ",")
 
+(defun me/eval-and-replace ()
+  "Replace the preceding sexp with its value."
+  (interactive)
+  (let ((value (eval (elisp--preceding-sexp))))
+    (backward-kill-sexp)
+    (insert (format "%S" value))))
+
 (defun me/current-symbol-replace-in-buffer ()
   (interactive)
   (evil-multiedit-ex-match
