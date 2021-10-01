@@ -237,8 +237,8 @@
 (setq treemacs-indentation 1)
 
 ;; not formatting on save in c-mode
-(setq +format-on-save-enabled-modes
-      '(not c-mode))
+;; (setq +format-on-save-enabled-modes
+;;       '(not c-mode))
 
 ;; (after! ccls
 ;;   (setq ccls-initialization-options '(:index (:comments 2) :completion (:detailedLabel t)))
