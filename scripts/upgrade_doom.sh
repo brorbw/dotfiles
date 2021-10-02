@@ -3,6 +3,6 @@
 doom clean &&
 	doom -y upgrade &&
 	doom upgrade &&
-	doom purge &&
 	doom sync &&
+	doom purge &&
 	doom build
