@@ -36,5 +36,4 @@ yabai -m rule --add app=Emacs manage=off
 yabai -m rule --add app=emacs manage=off
 yabai -m rule --add app=Spotify manage=off
 yabai -m rule --add app=XQuartz manage=on
-
 echo "yabai configuration loaded.."

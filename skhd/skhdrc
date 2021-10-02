@@ -29,7 +29,7 @@ cmd + alt - l : yabai -m window --swap east
 shift + cmd - h: yabai -m window --swap west  || (yabai -m window --display west && yabai -m display --focus west)
 shift + cmd - j: yabai -m window --swap south || (yabai -m window --display south && yabai -m display --focus south)
 shift + cmd - k: yabai -m window --swap north || (yabai -m window --display north  && yabai -m display --focus north)
-shift + cmd - l: yabai -m window --swap east  || (yabai -m window --display east  && yabai -m display --focus east && yabai -m window --swap west)
+shift + cmd - l: yabai -m window --swap east  || (yabai -m window --display east && yabai -m display --focus east)
 
 # balance size of windows
 cmd + alt - 0 : yabai -m space --balance
@@ -175,7 +175,7 @@ alt - p : yabai -m window --toggle sticky;\
 ctrl + alt - a : yabai -m space --layout bsp
 ctrl + alt - d : yabai -m space --layout float
 
-cmd + alt + ctrl + shift - e : open -a Emacs
+cmd + alt + ctrl + shift - e : emacsclient --eval "(emacs-everywhere)"
 
 cmd + alt + ctrl + shift - t : open -a iTerm
 

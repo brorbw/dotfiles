@@ -3,6 +3,7 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
+(menu-bar-mode 1)
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
@@ -96,6 +97,14 @@
   (evil-multiedit-ex-match
    (point-min) (point-max)
    t (regexp-quote (thing-at-point 'word t))))
+
+
+
+(map!
+ :mode emacs-everywhere-mode
+ :desc "Finish, copy and maybe paste"
+ :localleader
+ "," #'emacs-everywhere-finish)
 
 (map!
  :desc "Replace expression with result"
@@ -240,12 +249,29 @@
 (use-package wakatime-mode
   :hook doom-first-buffer
   :config
-  ;; TODO: reintroduce wakatime
   (setq wakatime-cli-path "/usr/local/bin/wakatime")
   (global-wakatime-mode 1)))
 
-(if (eq system-type 'darwin)
-(atomic-chrome-start-server))
+(defun me/yabai-get-current-space ()
+  (let  ((space (shell-command-to-string "yabai -m query --displays --display | jq -r '.index'")))
+    (string-trim-right space)))
+
+(defun me/yabai-move-current-window-to-space (space)
+  (shell-command (format "yabai -m window --display %i; yabai -m display --focus %i" space space)))
+
+(defun me/yabai-toggle ()
+  (shell-command "yabai -m window --toggle float"))
+
+(defun me/atomic-chrome-move-window-hook-fun ()
+  (let ((space (me/yabai-get-current-space)))
+    (add-hook! 'atomic-chrome-edit-mode-hook :local
+     (me/yabai-move-current-window-to-space space))))
+
+
+
+(setq atomic-chrome-buffer-open-style 'frame)
+(setq atomic-chrome-default-major-mode 'markdown-mode)
+(atomic-chrome-start-server)
 
 (setq-default tab-width 2)
 (setq-default indent-tabs-mode t)
