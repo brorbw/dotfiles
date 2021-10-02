@@ -92,7 +92,7 @@ then
 
 	# Use GNU tools on macos instead of the macos version
 	# brew install coreutils ed findutils gawk gnu-sed gnu-tar grep make
-	PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+	export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 else
 
@@ -137,7 +137,7 @@ function upgrade() {
 }
  
 export LIGHT_THEME="nord-light"
-export DARK_THEME="laserwave"
+export DARK_THEME="goodenough"
 
 function toggleDarkModeOS() {
 	osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to not dark mode'
