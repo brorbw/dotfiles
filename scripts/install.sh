@@ -8,7 +8,9 @@ if [[ $(csrutil status) != *"disabled"* ]]; then
 fi
 
 # Installing BREW
-# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+brew analytics off
 
 # defaults write com.apple.finder CreateDesktop false
 killall Finder
