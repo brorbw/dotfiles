@@ -86,6 +86,22 @@
     (kill-sexp)
     (insert (format "%S" value))))
 
+(defun me/eval-and-replace1 ()
+  "Replace the preceding sexp with its value."
+  (interactive)
+  (backward-sexp)
+  (seq-let (beg &rest end) (bounds-of-thing-at-point 'sexp)
+    (let ((value (eval (read (current-buffer)))))
+      (delete-region beg end)
+      (prin1 value (current-buffer)))))
+
+(defun me/eval-and-replace3 ()
+  "Replace the preceding sexp with its value."
+  (interactive)
+  (backward-sexp)
+  (kill-sexp)
+  (insert (eval (read (car kill-ring)))))
+
 (defun me/current-symbol-replace-in-buffer ()
   (interactive)
   (evil-multiedit-ex-match
@@ -97,8 +113,6 @@
   (evil-multiedit-ex-match
    (point-min) (point-max)
    t (regexp-quote (thing-at-point 'word t))))
-
-
 
 (map!
  :mode emacs-everywhere-mode
@@ -214,7 +228,7 @@
 
 (setq magit-revision-show-gravatars 't)
 
-(setq rbenv-executable "/usr/local/Cellar/rbenv/1.1.2/bin/rbenv")
+(setq rbenv-executable "/usr/local/Cellar/rbenv/1.2.0/bin/rbenv")
 
 ;; autofill in comments
 (auto-fill-mode 1)
@@ -279,8 +293,26 @@
 (setq treemacs-indentation 1)
 
 ;; not formatting on save in c-mode
-;; (setq +format-on-save-enabled-modes
-;;       '(not c-mode))
+(setq +format-on-save-enabled-modes
+      '(not c-mode
+	    ruby-mode))
+
+;; (setq lsp-clients-clangd-args '("-j=3"
+;;                                 "--background-index"
+;;                                 "--clang-tidy"
+;;                                 "--completion-style=detailed"
+;;                                 "--header-insertion=never"
+;;                                 "--header-insertion-decorators=0"))
+;; (after! lsp-clangd (set-lsp-priority! 'clangd 2))
+
+(setq lsp-clients-clangd-args '("-j=3"
+				"--all-scopes-completion"
+                                "--background-index"
+                                "--clang-tidy"
+                                "--completion-style=detailed"
+                                "--header-insertion=iwyo"
+                                "--header-insertion-decorators=0"))
+(after! lsp-clangd (set-lsp-priority! 'clangd 2))
 
 ;; (after! ccls
 ;;   (setq ccls-initialization-options '(:index (:comments 2) :completion (:detailedLabel t)))
