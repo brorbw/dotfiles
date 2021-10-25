@@ -139,6 +139,7 @@ npm install -g js-beautify
 npm install -g stylelint
 npm install -g marked
 npm install -g bash-language-server
+npm install -g dockerfile-language-server-nodejs
 
 # now to the sudo stuff
 sudo yabai --install-sa
