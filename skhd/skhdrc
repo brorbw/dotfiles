@@ -55,7 +55,7 @@ ctrl + alt - n : yabai -m space --create && \
                 yabai -m space --focus "${index}"
 
 # destroy desktop
-ctrl + alt - w : yabai -m space --destroy
+cmd + alt - w : yabai -m space --destroy
 
 # fast focus desktop
 cmd + alt - x : yabai -m space --focus recent

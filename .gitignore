@@ -24,3 +24,9 @@ Quixel
 .gitconfig
 karabiner.json
 /doom.d/custom.el
+/spicetify-themes/
+/spicetify/Themes/
+/spicetify/Extracted/
+/spicetify/Backup/
+/scripts/.DS_Store
+/direnv/

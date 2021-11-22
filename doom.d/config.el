@@ -251,7 +251,7 @@
   nil ;; extra function hooks
   "Major mode for BNF highlighting.")
 
-(setq flycheck-eslintrc "~/.eslintrc")
+(setq flycheck-eslintrc "~/.config/eslintrc")
 
 (setq global-subword-mode t)
 
@@ -310,7 +310,7 @@
                                 "--background-index"
                                 "--clang-tidy"
                                 "--completion-style=detailed"
-                                "--header-insertion=iwyo"
+                                "--header-insertion=iwyu"
                                 "--header-insertion-decorators=0"))
 (after! lsp-clangd (set-lsp-priority! 'clangd 2))
 
