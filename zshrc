@@ -1,7 +1,9 @@
 ZSH_THEME="spaceship"
 ZSH=~/.oh-my-zsh
 
-DOTNET_CLI_TELEMETRY_OPTOUT=1
+export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_ANALYTICS=1
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 if [[ "$OSTYPE"	== "darwin"* ]]; then
 	eval "$(brew shellenv)"
@@ -144,6 +146,9 @@ export DARK_THEME="goodenough"
 function toggleDarkModeOS() {
 	osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to not dark mode'
 }
+# Change default cat to bat
+alias cat="bat --paging never --theme=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo default || echo GitHub)"
+export BAT_CONFIG_PATH="~/.batrc"
 
 function toggleEmacsTheme() {
 	if [[ $(emacsclient -e "(print doom-theme)")  == *"-light" ]];
@@ -155,7 +160,6 @@ function toggleEmacsTheme() {
 		spacebar -m config background_color 0xff212337
 		spacebar -m config foreground_color 0xffc8d3f5
 		spacebar -m config space_icon_color 0xff5698f1
-
 		emacsclient -e "(load-theme 'doom-moonlight)"
 	else
 		# hijack emacs state to set yabai
@@ -165,7 +169,6 @@ function toggleEmacsTheme() {
 		spacebar -m config background_color 0xffe5e9f0
 		spacebar -m config foreground_color 0xff616377
 		spacebar -m config space_icon_color 0xfffd4747
-
 		emacsclient -e "(load-theme 'doom-nord-light)"
 	fi
 	# emacsclient -e "(doom/reload-theme)"
@@ -177,7 +180,8 @@ function toggle-theme() {
 		(PIPENV_PIPFILE=~/.tools/iterm2-theme-toggle/Pipfile exec pipenv run python3 ~/.tools/iterm2-theme-toggle/main.py > /dev/null 2>&1 &)
 		PIPENV_PIPFILE=$BAK_PIPFILE
 		#disown
-		toggleDarkModeOS 
+		toggleDarkModeOS
+		alias cat="bat --paging never --theme=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo default || echo GitHub)"
 	else
 		CURRENT_THEME=$(lsa ~/.config/kitty | grep theme.conf | awk '{print $11}')
 		SPLIT_STRING=$(basename $CURRENT_THEME)
@@ -214,10 +218,6 @@ alias rtfh="ps ux | grep -E '[F]lash Player Plugin' | awk '{ print $2; }' | xarg
 
 # Just because i misstype
 alias cd..="cd ../"
-
-# Change default cat to bat
-alias cat="bat --paging never --theme=$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo default || echo GitHub)"
-export BAT_CONFIG_PATH="~/.batrc"
 
 function open-emacs-or-emacsclient () {
 	if [[ $1 == "-nw" ]];
