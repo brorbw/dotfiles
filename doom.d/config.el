@@ -321,10 +321,23 @@
 ;; disable magit keys in forge-topic
 ;; (add-hook! 'forge-topic-mode-hook #'evil-collection-magit-toggle-text-mode)
 
+;; (use-package blamer
+;;   :bind (("s-i" . blamer-show-commit-info))
+;;   :defer 20
+;;   :custom
+;;   (blamer-idle-time 0.3)
+;;   (blamer-min-offset 70)
+;;   :custom-face
+;;   (blamer-face ((t :foreground "#7a88cf"
+;;                     :background nil
+;;                     :height 140
+;;                     :italic t)))
+;;   :config
+;;   (global-blamer-mode 1))
+
 (setq avy-all-windows t)
 (after! ace-window
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
-
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
