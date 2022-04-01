@@ -287,6 +287,14 @@
 (setq atomic-chrome-default-major-mode 'markdown-mode)
 (atomic-chrome-start-server)
 
+(defun my-php-mode-hook ()
+  "My PHP mode configuration."
+  (setq indent-tabs-mode t
+        tab-width 2
+        c-basic-offset 2))
+(add-hook 'php-mode-hook 'my-php-mode-hook)
+(add-hook 'php-mode-wordpress-hook 'my-php-mode-hook)
+
 (setq-default tab-width 2)
 (setq-default indent-tabs-mode t)
 (add-hook! 'rjsx-mode-hook (setq indent-tabs-mode t))
