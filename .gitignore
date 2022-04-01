@@ -15,6 +15,7 @@ spacemacs.d/.spacemacs.env
 /oh-my-zsh
 /spacemacs.d
 /vim
+/op
 /gatsby/
 /mongocli.toml
 /iterm2/AppSupport
