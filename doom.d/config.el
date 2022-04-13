@@ -228,7 +228,7 @@
 
 (setq magit-revision-show-gravatars 't)
 
-(setq rbenv-executable "/usr/local/Cellar/rbenv/1.2.0/bin/rbenv")
+(setq rbenv-executable "/usr/local/opt/rbenv")
 
 ;; autofill in comments
 (auto-fill-mode 1)
