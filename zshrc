@@ -62,6 +62,7 @@ plugins=(
 	ruby
 	git
 	dotenv
+	wakatime
 )
 
 source $ZSH/oh-my-zsh.sh
