@@ -226,7 +226,6 @@
 
 (add-hook! 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode)
 
-(setq magit-revision-show-gravatars 't)
 
 (setq rbenv-executable "/usr/local/opt/rbenv")
 
