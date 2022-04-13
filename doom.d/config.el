@@ -30,7 +30,7 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 (if (not (display-graphic-p))
-    (setq doom-theme 'doom-badger)
+    (setq doom-theme 'doom-nord)
   (setq doom-theme 'doom-moonlight))
 
 ;; If you use `org' and don't want your org files in the default location below,
