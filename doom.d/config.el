@@ -234,7 +234,9 @@
 (auto-fill-mode 1)
 (setq comment-auto-fill-only-comments t)
 
+;; Probably git stuff
 (setq auth-sources '("~/.authinfo.gpg"))
+(setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
 
 (define-generic-mode 'bnf-mode
   () ;; comment char: inapplicable because # must be at start of line
