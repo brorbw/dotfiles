@@ -20,6 +20,9 @@ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
 sudo spctl --master-disable
 
+# show untracked files
+git config --global status.showUntrackedFiles all
+
 # brew
 # emacs
 brew tap d12frosted/emacs-plus
