@@ -32,8 +32,8 @@ yabai -m config left_padding 0
 yabai -m config right_padding 0
 yabai -m config window_gap 0
 
-yabai -m rule --add app=Emacs manage=off
-yabai -m rule --add app=emacs manage=off
+yabai -m rule --add app=Emacs manage=on
+yabai -m rule --add app=emacs manage=on
 yabai -m rule --add app=Spotify manage=off
 yabai -m rule --add app=XQuartz manage=on
 echo "yabai configuration loaded.."
