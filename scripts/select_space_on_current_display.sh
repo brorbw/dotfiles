@@ -10,7 +10,7 @@ readonly SPACE_INDEX=$1
 # echo "SPACE_INDEX=$SPACE_INDEX" | ts | tee -a $LOG_FILE
 
 readonly ACTIVE_DISPLAY_ID=$(/usr/local/bin/yabai -m query --spaces |
-	/usr/local/bin/jq ".[] | select(.focused == 1).display")
+	/usr/local/bin/jq '.[] | select(."has-focus" == true).display')
 # echo "ACTIVE_DISPLAY_ID=$ACTIVE_DISPLAY_ID" | ts | tee -a $LOG_FILE
 
 readonly SPACES_OF_ACTIVE_DISPLAY=$(/usr/local/bin/yabai -m query --displays |
