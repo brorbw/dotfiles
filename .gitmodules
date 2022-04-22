@@ -1,3 +1,6 @@
 [submodule "iTerm/themes/nord-light-iterm2"]
 	path = iTerm/themes/nord-light-iterm2
 	url = https://github.com/brorbw/nord-light-iterm2.git
+[submodule "doom.d/snippets/yasnippet-ruby-mode"]
+	path = doom.d/snippets/yasnippet-ruby-mode
+	url = https://github.com/bmaland/yasnippet-ruby-mode
