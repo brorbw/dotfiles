@@ -158,5 +158,10 @@ defaults write org.gnu.Emacs Emacs.ToolBar -string no
 defaults write org.gnu.Emacs Emacs.ScrollBar -string no
 defaults write org.gnu.Emacs Emacs.MenuBar -string no
 
+# install spicetify
+curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-cli/master/install.sh | sh
+git clone https://github.com/spicetify/spicetify-themes.git /tmp
+cp /tmp/spicetify-themes/* ~/.config/spicetify/Themes/
+
 echo "Remeber to set waka api key or emacs will bug you"
 echo "wakatime --config-write api_key <API_KEY>"
