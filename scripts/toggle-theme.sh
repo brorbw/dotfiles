@@ -13,9 +13,9 @@ function toggle-theme() {
 }
 
 function toggle-light() {
+	alias cat="bat --paging never --theme=GitHub"
 	$(osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to false' &)
 	$(toggle-light-yabai-and-spacebar &)
-	$(alias cat="bat --paging never --theme=GitHub" &)
 	$(emacsclient -e "(load-theme 'doom-nord-light)" &)
 	BAK_PIPFILE=$PIPENV_PIPFILE
 	(PIPENV_PIPFILE=~/Projects/iterm2-theme-changer/Pipfile exec pipenv run python3 ~/Projects/iterm2-theme-changer/main.py $LIGHT_THEME >/dev/null 2>&1 &)
@@ -35,9 +35,9 @@ function toggle-light-yabai-and-spacebar() {
 }
 
 function toggle-dark() {
+	alias cat="bat --paging never --theme=default"
 	$(osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to true' &)
 	$(toggle-dark-yabai-and-spacebar &)
-	$(alias cat="bat --paging never --theme=default" &)
 	$(emacsclient -e "(load-theme 'doom-moonlight)" &)
 	BAK_PIPFILE=$PIPENV_PIPFILE
 	(PIPENV_PIPFILE=~/Projects/iterm2-theme-changer/Pipfile exec pipenv run python3 ~/Projects/iterm2-theme-changer/main.py $DARK_THEME >/dev/null 2>&1 &)
