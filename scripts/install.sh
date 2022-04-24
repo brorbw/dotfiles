@@ -120,6 +120,9 @@ gem install solargraph
 gem install rubocop
 
 rbenv global 3.0.1
+gem install steep
+gem install solargraph
+gem install rubocop
 ruby -v
 
 # ruby autocomplete for emacs
