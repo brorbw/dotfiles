@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-export LIGHT_THEME="nord-light"
-export DARK_THEME="goodenough"
-
 function toggle-theme() {
 	IS_DARK=$(osascript -e 'tell app "System Events" to tell appearance preferences to get dark mode')
 	if $IS_DARK; then
@@ -12,13 +9,16 @@ function toggle-theme() {
 	fi
 }
 
+export LIGHT_THEME="nord-light"
+export DARK_THEME="goodenough"
+
 function toggle-light() {
 	alias cat="bat --paging never --theme=GitHub"
 	$(osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to false' &)
 	$(toggle-light-yabai-and-spacebar &)
 	$(emacsclient -e "(load-theme 'doom-nord-light)" &)
 	BAK_PIPFILE=$PIPENV_PIPFILE
-	(PIPENV_PIPFILE=~/Projects/iterm2-theme-changer/Pipfile exec pipenv run python3 ~/Projects/iterm2-theme-changer/main.py $LIGHT_THEME >/dev/null 2>&1 &)
+	(PIPENV_PIPFILE=~/Projects/iterm2-theme-toggle/Pipfile exec pipenv run python3 ~/Projects/iterm2-theme-toggle/main.py $LIGHT_THEME >/dev/null 2>&1 &)
 	PIPENV_PIPFILE=$BAK_PIPFILE
 	$($(spicetify config current_theme Ziro && spicetify config color_scheme Rose-Pine-dawn && spicetify apply) &)
 }
@@ -41,7 +41,7 @@ function toggle-dark() {
 	$(toggle-dark-yabai-and-spacebar &)
 	$(emacsclient -e "(load-theme 'doom-moonlight)" &)
 	BAK_PIPFILE=$PIPENV_PIPFILE
-	(PIPENV_PIPFILE=~/Projects/iterm2-theme-changer/Pipfile exec pipenv run python3 ~/Projects/iterm2-theme-changer/main.py $DARK_THEME >/dev/null 2>&1 &)
+	(PIPENV_PIPFILE=~/Projects/iterm2-theme-toggle/Pipfile exec pipenv run python3 ~/Projects/iterm2-theme-toggle/main.py $DARK_THEME >/dev/null 2>&1 &)
 	PIPENV_PIPFILE=$BAK_PIPFILE
 	$($(spicetify config current_theme Ziro && spicetify config color_scheme Rose-Pine-moon && spicetify apply) &)
 }
