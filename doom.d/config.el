@@ -256,15 +256,15 @@
 
 (setq global-subword-mode t)
 
-;; (setq prettier-js-args '("--use-tabs"
-;; 			 "--single-quote"
-;; 			 "--trailing-comma" "es6"))
+(setq prettier-js-args '("--use-tabs"
+			 "--single-quote"
+			 "--trailing-comma" "es6"))
 
 (if (eq system-type 'darwin)
 (use-package wakatime-mode
   :hook doom-first-buffer
   :config
-  (setq wakatime-cli-path "/usr/local/bin/wakatime")
+  (setq wakatime-cli-path "/usr/local/opt/wakatime-cli/bin/wakatime-cli")
   (global-wakatime-mode 1)))
 
 (defun me/yabai-get-current-space ()

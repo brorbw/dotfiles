@@ -50,6 +50,7 @@ HIST_STAMPS="dd.mm.yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
+export ZSH_WAKATIME_BIN=/usr/local/opt/wakatime-cli/bin/wakatime-cli
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
@@ -70,6 +71,8 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
+
+alias wakatime=wakatime-cli
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
