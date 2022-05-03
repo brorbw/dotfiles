@@ -27,7 +27,7 @@ function toggle-light-yabai-and-spacebar() {
 	# yabai light values
 	yabai -m config normal_window_border_color 0xffdee4ec
 	yabai -m config active_window_border_color 0xfff5a9e0
-	yabai -m config window_border_width 5
+	yabai -m config window_border_width 3
 	# spacebar light values
 	spacebar -m config background_color 0xffe5e9f0
 	spacebar -m config foreground_color 0xff616377
@@ -50,7 +50,7 @@ function toggle-dark-yabai-and-spacebar() {
 	# yabai dark values
 	yabai -m config active_window_border_color 0xff5698f1
 	yabai -m config normal_window_border_color 0xff171933
-	yabai -m config window_border_width 3
+	yabai -m config window_border_width 2
 	# spacebar dark values
 	spacebar -m config background_color 0xff212337
 	spacebar -m config foreground_color 0xffc8d3f5
