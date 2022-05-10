@@ -79,6 +79,7 @@ brew install shellcheck
 brew install awscli
 brew install terraform
 brew install glslang
+brew install languagetool
 
 # RUBY
 brew install rbenv
