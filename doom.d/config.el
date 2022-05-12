@@ -256,10 +256,9 @@
 
 (setq global-subword-mode t)
 
-(setq prettier-js-args '("--use-tabs"
-			 "--single-quote"
-			 "--trailing-comma" "es6"))
-
+(setq prettier-js-args '("--use-tabs" "true"
+			 "--single-quote" "true"
+			 "--trailing-comma" "all" "es6"))
 (if (eq system-type 'darwin)
 (use-package wakatime-mode
   :hook doom-first-buffer
