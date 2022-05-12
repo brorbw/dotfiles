@@ -227,7 +227,7 @@
 (add-hook! 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode)
 
 
-(setq rbenv-executable "/usr/local/opt/rbenv")
+(setq rbenv-executable "/usr/local/opt/rbenv/bin/rbenv")
 
 ;; autofill in comments
 (auto-fill-mode 1)
