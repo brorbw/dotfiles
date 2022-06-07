@@ -2,7 +2,7 @@ ZSH_THEME="spaceship"
 ZSH=~/.oh-my-zsh
 
 # UNLOCK KEYCHAIN FOR SSH
-if [[ -z "$SSH_TTY" ]]; then; else security unlock-keychain; fi
+if [[ ! -z "$SSH_TTY" ]]; then; security unlock-keychain; fi
 
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_ANALYTICS=1
