@@ -180,7 +180,7 @@ ctrl + alt - d : yabai -m space --layout float
 
 cmd + alt + ctrl + shift - e : ~/.config/skhd/float-next.sh; emacsclient --eval "(emacs-everywhere)" &
 
-cmd + alt + ctrl + shift - t : open -a iTerm
+cmd + alt - t : open -a iTerm
 
 cmd + alt + ctrl + shift - z : index=$(yabai -m query --spaces --space | jq -r '.index | @sh') && \
 yabai -m query --spaces --display | jq -r -c 'map(.index) | .[] | @sh' | \
