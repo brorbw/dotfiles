@@ -61,9 +61,9 @@ ctrl + alt - n : yabai -m space --create && \
 cmd + alt - w : yabai -m space --destroy
 
 # fast focus desktop
-cmd + alt - x : yabai -m space --focus recent
-cmd + alt - z : yabai -m space --focus prev
-cmd + alt - c : yabai -m space --focus next
+# cmd + alt - x : yabai -m space --focus recent
+# cmd + alt - z : yabai -m space --focus prev
+# cmd + alt - c : yabai -m space --focus next
 cmd + alt - 1 : ~/.config/scripts/select_space_on_current_display.sh 0
 cmd + alt - 2 : ~/.config/scripts/select_space_on_current_display.sh 1
 cmd + alt - 3 : ~/.config/scripts/select_space_on_current_display.sh 2
@@ -76,9 +76,9 @@ cmd + alt - 9 : ~/.config/scripts/select_space_on_current_display.sh 8
 cmd + alt - 0 : ~/.config/scripts/select_space_on_current_display.sh 9
 
 # send window to desktop and follow focus
-shift + cmd - x : yabai -m window --space recent; yabai -m space --focus recent
-shift + cmd - c : yabai -m window --space next; yabai -m space --focus next
-shift + cmd - z : yabai -m window --space prev; yabai -m space --focus prev
+# shift + cmd - x : yabai -m window --space recent; yabai -m space --focus recent
+# shift + cmd - c : yabai -m window --space next; yabai -m space --focus next
+# shift + cmd - z : yabai -m window --space prev; yabai -m space --focus prev
 shift + cmd - 1 : ~/.config/scripts/move_window_to_space_on_current_display.sh 0
 shift + cmd - 2 : ~/.config/scripts/move_window_to_space_on_current_display.sh 1
 shift + cmd - 3 : ~/.config/scripts/move_window_to_space_on_current_display.sh 2
@@ -195,4 +195,4 @@ ctrl + alt - l: yabai -m window --resize right:100:0 || yabai -m window --resize
 ctrl + alt - k: yabai -m window --resize top:0:-100 || yabai -m window --resize bottom:0:-100
 ctrl + alt - j: yabai -m window --resize bottom:0:100 || yabai -m window --resize top:0:100
 
-ctrl + cmd - s: skhd -k "cmd - c" && ~/.config/scripts/spongecase.mjs && skhd -k "cmd - v"
+ctrl + cmd - s: skhd -k "cmd - c"; ~/.config/scripts/spongecase.mjs; skhd -k "cmd - v"

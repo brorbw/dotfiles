@@ -1,6 +1,11 @@
 ZSH_THEME="spaceship"
 ZSH=~/.oh-my-zsh
 
+export HISTSIZE=100_000
+export SAVEHIST=50_000
+
+setopt HIST_IGNORE_SPACE
+
 # UNLOCK KEYCHAIN FOR SSH
 if [[ ! -z "$SSH_TTY" ]]; then; security unlock-keychain; fi
 
@@ -253,7 +258,8 @@ alias em=open-emacs-or-emacsclient
 
 alias o=open
 
-alias kc="cat ~/.keyCounterData"
+export AWS_DEFAULT_REGION=eu-west-1
+alias av=aws-vault
 
 # Doom binaries
 export PATH=~/.emacs.d/bin:$PATH
@@ -288,10 +294,16 @@ export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/docker-virtualbox/bin:$PATH"
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
-export PATH_TO_TOOLCHAIN="~/clearhaus/toolchain"
+export PATH_TO_TOOLCHAIN=~/clearhaus/toolchain
 export PATH="$HOME/.rtags/bin:$PATH"
 export PATH=/usr/local/smlnj/bin:"$PATH"
-#source /tmp/docker-virtualbox.env 
+#source /tmp/docker-virtualbox.env
+
+# if [[ $(hostname) == "baldr.nobad.coffee" ]]; then
+# 	 alias docker='lima nerdctl'
+# 	 alias docker-compose='lima nerdctl compose'
+# fi
+
 if [[ "$OSTYPE"	== "darwin"* ]]; then
 	if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 else

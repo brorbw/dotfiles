@@ -1,11 +1,12 @@
 #!/usr/bin/env sh
 
+# spacebar -m config position bottom
 spacebar -m config position top
-spacebar -m config height 22
+spacebar -m config height 28
 spacebar -m config spacing_left 15
 spacebar -m config spacing_right 15
-spacebar -m config text_font "Helvetica Neue:Bold:10.0"
-spacebar -m config icon_font "Helvetica Neue:Bold:10.0"
+spacebar -m config text_font "Helvetica Neue:Bold:12.0"
+spacebar -m config icon_font "Helvetica Neue:Bold:12.0"
 spacebar -m config background_color 0xff212337
 spacebar -m config foreground_color 0xffc8d3f5
 spacebar -m config space_icon_color 0xff5698f1
