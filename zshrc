@@ -300,3 +300,5 @@ fi
 export GPG_TTY=$(tty)
 
 eval "$(direnv hook zsh)"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export PATH=$PATH:/Users/void/.spicetify
