@@ -20,8 +20,11 @@ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
 sudo spctl --master-disable
 
-# show untracked files
+# git configuration
 git config --global status.showUntrackedFiles all
+git config --global pull.rebase true
+git config --global user.name "Bror Winther"
+git config --global user.email "git@nobad.coffee"
 
 # brew
 # emacs
