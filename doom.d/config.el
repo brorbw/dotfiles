@@ -263,7 +263,7 @@
 (use-package wakatime-mode
   :hook doom-first-buffer
   :config
-  (setq wakatime-cli-path "/usr/local/opt/wakatime-cli/bin/wakatime-cli")
+  (setq wakatime-cli-path "/usr/local/bin/wakatime-cli")
   (global-wakatime-mode 1)))
 
 (defun me/yabai-get-current-space ()
