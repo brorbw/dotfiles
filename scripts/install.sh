@@ -84,6 +84,11 @@ brew install terraform
 brew install glslang
 brew install languagetool
 brew install smlnj
+brew install duti
+
+duti ~/.config/duti.conf
+
+
 
 # RUBY
 brew install rbenv
