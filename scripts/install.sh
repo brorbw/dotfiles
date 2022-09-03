@@ -45,6 +45,20 @@ brew install --cask slack
 brew install --cask keka
 brew install --cask mactex
 
+# security
+brew install --cask lulu
+brew install --cask knockknock
+brew install --cask blockblock
+brew install --cask oversight
+brew install --cask ransomwhere
+brew install --cask reikey
+
+open -a lulu
+open -a knockknock
+open -a blockblock
+open -a oversight
+open -a reikey
+
 # fonts
 brew tap homebrew/cask-fonts
 brew install --cask font-fira-code
