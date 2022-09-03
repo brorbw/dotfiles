@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(brew shellenv)"
 
 if [[ $(csrutil status) != *"disabled"* ]]; then
 	echo "Disable SIP before continuing"
