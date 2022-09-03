@@ -94,8 +94,8 @@ brew install zsh-completions
 brew install fzf
 brew install autojump
 brew install rg
-brew install docker
-brew install docker-compose
+# brew install docker
+# brew install docker-compose
 brew install shellcheck
 brew install awscli
 brew install terraform
