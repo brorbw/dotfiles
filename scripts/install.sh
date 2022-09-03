@@ -12,11 +12,15 @@ fi
 
 brew analytics off
 
-# defaults write com.apple.finder CreateDesktop false
 killall Finder
 mkdir -p ~/Pictures/screenshots
 defaults write com.apple.screencapture location ~/Pictures/screenshots
+defaults write com.apple.dock show-recents 0
+defaults write com.apple.dock autohide 1
+defaults write 'Apple Global Domain' _HIHideMenuBar 0
+defaults write com.googlecode HideScrollbar 1
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+#defaults write com.apple.finder CreateDesktop false
 
 sudo spctl --master-disable
 
