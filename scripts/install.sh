@@ -44,6 +44,7 @@ brew install --cask discord
 brew install --cask slack
 brew install --cask keka
 brew install --cask mactex
+brew install --cask karabiner-elements
 
 # security
 brew install --cask lulu
