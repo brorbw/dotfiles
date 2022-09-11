@@ -187,7 +187,7 @@
 (map!
  :leader
  :prefix "w"
- :desc "Split vertical"
+ :desc "Split horizontal"
  "-" 'evil-window-split)
 
 (map!
