@@ -71,7 +71,7 @@ plugins=(
 	ruby
 	git
 	dotenv
-	wakatime
+	zsh-wakatime
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -300,8 +300,8 @@ export PATH=/usr/local/smlnj/bin:"$PATH"
 #source /tmp/docker-virtualbox.env
 
 # if [[ $(hostname) == "baldr.nobad.coffee" ]]; then
-# 	 alias docker='lima nerdctl'
-# 	 alias docker-compose='lima nerdctl compose'
+# 	 alias docker='lima docker'
+# 	 alias docker-compose='lima docker compose'
 # fi
 
 if [[ "$OSTYPE"	== "darwin"* ]]; then
