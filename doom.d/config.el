@@ -106,7 +106,7 @@
   (insert (eval (read (car kill-ring)))))
 
 (defun me/current-symbol-replace-in-buffer ()
-  (interactive)
+  (interactive "r")
   (evil-multiedit-ex-match
    (point-min) (point-max)
    t (concat "\\_<" (regexp-quote (thing-at-point 'symbol t)) "\\_>")))
