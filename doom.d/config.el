@@ -117,6 +117,14 @@
    (point-min) (point-max)
    t (regexp-quote (thing-at-point 'word t))))
 
+(defun me/search-replace-region ()
+  (interactive)
+  (when (use-region-p)
+    (unwind-protect
+        (progn (add-hook 'consult--completion-candidate-hook #'embark-export)
+               (call-interactively #'+vertico/project-search))
+      (remove-hook 'consult--completion-candidate-hook #'embark-export))))
+
 (map!
  :mode emacs-everywhere-mode
  :desc "Finish, copy and maybe paste"
