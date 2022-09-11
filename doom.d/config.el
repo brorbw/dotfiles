@@ -295,13 +295,16 @@
   (setq indent-tabs-mode t
         tab-width 2
         c-basic-offset 2))
-(add-hook 'php-mode-hook 'my-php-mode-hook)
-(add-hook 'php-mode-wordpress-hook 'my-php-mode-hook)
+(add-hook! 'php-mode-hook 'my-php-mode-hook)
+(add-hook! 'php-mode-wordpress-hook 'my-php-mode-hook)
+
+(add-hook! 'ruby-mode-hook (setq-local devdocs-current-docs '("ruby~2.7")))
 
 (setq-default tab-width 2)
 (setq-default indent-tabs-mode t)
-(add-hook! 'rjsx-mode-hook (setq indent-tabs-mode t))
-(setq treemacs-indentation 1)
+(add-hook! 'sh-mode-hook (setq-local indent-tabs-mode nil))
+(add-hook! 'rjsx-mode-hook (setq-local indent-tabs-mode t))
+(setq! treemacs-indentation 1)
 
 (setq! +ligatures-in-modes '(elisp-mode))
 ;; not formatting on save in c-mode
