@@ -141,6 +141,18 @@
  "e" 'me/current-symbol-replace-in-buffer)
 
 (map!
+ :mode grep-mode
+ :localleader
+ :desc "with editor finish"
+ "," #'evil-save-modified-and-close)
+
+(map!
+ :mode grep-mode
+ :localleader
+ :desc "with editor cancel"
+ "a" #'evil-quit)
+
+(map!
  :mode (list git-commit-mode
 	     git-rebase-mode)
  :localleader
