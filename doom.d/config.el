@@ -197,14 +197,6 @@
  "l" 'comment-line)
 
 (map!
- :desc "Drag stuff down"
- "M-J" 'drag-stuff-down)
-
-(map!
- :desc "Drag stuff up"
- "M-K" 'drag-stuff-up)
-
-(map!
  :desc "Focus treemacs windw"
  :leader
  :prefix "o"
