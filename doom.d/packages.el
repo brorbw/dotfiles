@@ -21,6 +21,8 @@
 ;; (package! elcord)
 (package! atomic-chrome)
 
+(package! devdocs)
+
 ;; (package! blamer :recipe (:host github :repo "artawower/blamer.el"))
 
 ;; To install a package directly from a remote git repo, you must specify a
