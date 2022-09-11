@@ -222,6 +222,12 @@
  "j" 'ace-window)
 
 (map!
+ :desc "Previous buffer"
+ :leader
+ :prefix "b"
+ "TAB" #'previous-buffer)
+
+(map!
  :desc "devdocs-lookup"
  :leader
  "k" #'devdocs-lookup)
