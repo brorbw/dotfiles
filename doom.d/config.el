@@ -222,6 +222,11 @@
  "j" 'ace-window)
 
 (map!
+ :desc "devdocs-lookup"
+ :leader
+ "k" #'devdocs-lookup)
+
+(map!
  :desc "Insert org todo heading"
  :localleader
  :mode org-mode
