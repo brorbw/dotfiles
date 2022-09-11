@@ -31,3 +31,4 @@ karabiner.json
 /spicetify/Backup/
 /scripts/.DS_Store
 /direnv/
+**/flycheck(*)

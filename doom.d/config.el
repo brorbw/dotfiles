@@ -44,6 +44,9 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
+
+(load! "modules/pci")
+
 (defun me/surround-with-symbol (char)
   (interactive)
   (let ((bounds (bounds-of-thing-at-point 'symbol)))
