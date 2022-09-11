@@ -303,6 +303,7 @@
 (add-hook! 'rjsx-mode-hook (setq indent-tabs-mode t))
 (setq treemacs-indentation 1)
 
+(setq! +ligatures-in-modes '(elisp-mode))
 ;; not formatting on save in c-mode
 (setq +format-on-save-enabled-modes
       '(not c-mode
