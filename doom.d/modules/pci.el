@@ -4,6 +4,13 @@
 ;; Create keybindings for the PCI app
 ;;
 
+(define-minor-mode pci-mode
+  "Get your foos in the right places."
+  :lighter " foo"
+  :keymap (make-sparse-keymap))
+
+(evil-define-key 'normal 'pci-mode (kbd "q") #'+popup/quit-window)
+
 (defun pci/local-stack-up (&optional service)
   (interactive)
   (pci/call-command "local-stack" "up" service))
@@ -22,12 +29,13 @@
 
 (defun pci/call-command (command &rest arg)
   (with-output-to-temp-buffer "*pci*"
-    (switch-to-buffer "*pci*")
+    (pop-to-buffer "*pci*")
     (setq-local process-connection-type nil)
     (async-shell-command (concat "pci" " " command " " (string-join arg " ") ) "*pci*")
     (evil-escape)
     (setq-local buffer-read-only t)
-    (read-only-mode 1)))
+    (read-only-mode 1)
+    (pci-mode)))
 
 (defun pci/set-key-map ()
   (map!
