@@ -23,6 +23,12 @@
 (defun pci/local-stack-down ()
   (interactive)
   (pci/call-command "local-stack" "down" "&&" "echo" "done!"))
+(defun pci/local-stack-build (&optional service)
+  (interactive)
+  (pci/call-command "local-stack" "build" service "&&" "echo" "done!"))
+(defun pci/local-stack-logs ()
+  (interactive)
+  (pci/call-command "local-stack" "down" "&&" "echo" "done!"))
 
 (defun pci/prompt-service-name ()
   (read-from-minibuffer (propertize "Service name: " 'face '(default))))
@@ -54,14 +60,14 @@
    :desc "Start all service"
    :leader
    :prefix "r"
-   "U" '(lambda ()
+   "u" '(lambda ()
 	  (interactive)
 	   (pci/local-stack-up (pci/prompt-service-name))))
   (map!
    :desc "Start service"
    :leader
    :prefix "r"
-   "u" 'pci/local-stack-up)
+   "U" 'pci/local-stack-up)
   (map!
    :desc "Stop all service"
    :leader
@@ -78,6 +84,18 @@
    :prefix "r"
    "s" '(lambda ()
 	  (interactive)
-	   (pci/local-stack-status (pci/prompt-service-name)))))
+	   (pci/local-stack-status (pci/prompt-service-name))))
+  (map!
+   :desc "Build images"
+   :leader
+   :prefix "r"
+   "B" 'pci/local-stack-build)
+  (map!
+   :desc "Build image"
+   :leader
+   :prefix "r"
+   "b" '(lambda ()
+	  (interactive)
+	   (pci/local-stack-build (pci/prompt-service-name)))))
 
 (after! doom (pci/set-key-map))
