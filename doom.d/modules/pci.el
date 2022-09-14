@@ -26,7 +26,10 @@
 (defun pci/local-stack-build (&optional service)
   (interactive)
   (pci/call-command "local-stack" "build" service "&&" "echo" "done!"))
-(defun pci/local-stack-logs ()
+(defun pci/local-stack-logs (&optional service)
+  (interactive)
+  (pci/call-command "local-stack" "logs"))
+(defun pci/local-stack-exec (&optional service)
   (interactive)
   (pci/call-command "local-stack" "down" "&&" "echo" "done!"))
 
@@ -98,4 +101,4 @@
 	  (interactive)
 	   (pci/local-stack-build (pci/prompt-service-name)))))
 
-(after! doom (pci/set-key-map))
+(pci/set-key-map)
