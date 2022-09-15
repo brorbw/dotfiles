@@ -9,14 +9,14 @@
   :lighter " PCI"
   :keymap (make-sparse-keymap))
 
-(evil-define-key 'normal 'pci-mode (kbd "q") #'+popup/quit-window)
+(evil-define-key 'normal 'pci-mode (kbd "q") #'kill-current-buffer)
 
-(define-minor-mode pci-term-mode
-  "Get your foos in the right places."
-  :lighter " PCI term"
-  :keymap (make-sparse-keymap))
+;; (define-minor-mode pci-term-mode
+;;   "Get your foos in the right places."
+;;   :lighter " PCI term"
+;;   :keymap (make-sparse-keymap))
 
-(evil-define-key 'normal 'pci-term-mode (kbd "q") #'kill-buffer-and-window)
+;; (evil-define-key 'normal 'pci-term-mode (kbd "q") #'kill-buffer-and-window)
 
 (defun pci/local-stack-up (&optional service)
   (interactive)
@@ -39,7 +39,7 @@
 
 (defun pci/local-stack-logs (&optional service)
   (interactive)
-  (pci/call-command "local-stack" "logs" service))
+  (pci/call-command-with-tty "local-stack" "logs" service))
 
 (defun pci/local-stack-exec (service)
   (pci/call-command "local-stack" "exec" service
@@ -64,7 +64,7 @@
     (setq-local process-connection-type 'pty)
     (async-shell-command (concat "pci" " " command " " (string-join arg " ") ) "*pci-term*")
     (shell-mode)
-    (pci-term-mode)))
+    (pci-mode)))
 
 (defun pci/call-command (command &rest arg)
   (with-output-to-temp-buffer "*pci*"
