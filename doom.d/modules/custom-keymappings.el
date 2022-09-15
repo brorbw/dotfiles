@@ -55,7 +55,7 @@
 						 (propertize "PW length: " 'face '(default))))))))
     (when (called-interactively-p 'any)
       (insert pw))
-      pw)))
+      pw))
 
 (defun me/search-replace-region ()
   (interactive)
