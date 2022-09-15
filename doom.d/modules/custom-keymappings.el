@@ -36,7 +36,7 @@
   (insert (eval (read (car kill-ring)))))
 
 (defun me/current-symbol-replace-in-buffer ()
-  (interactive "r")
+  (interactive)
   (evil-multiedit-ex-match
    (point-min) (point-max)
    t (concat "\\_<" (regexp-quote (thing-at-point 'symbol t)) "\\_>")))
@@ -49,10 +49,13 @@
 
 (defun me/insert-pw ()
   (interactive)
-  (insert (string-trim (shell-command-to-string (concat
-						 "pwgen "
-						 (read-from-minibuffer
-						  (propertize "PW length: " 'face '(default))))))))
+  (let ((pw (string-trim (shell-command-to-string (concat
+						"pwgen "
+						(read-from-minibuffer
+						 (propertize "PW length: " 'face '(default))))))))
+    (when (called-interactively-p 'any)
+      (insert pw))
+      pw)))
 
 (defun me/search-replace-region ()
   (interactive)

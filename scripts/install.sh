@@ -45,6 +45,7 @@ brew install --cask slack
 brew install --cask keka
 brew install --cask mactex
 brew install --cask karabiner-elements
+brew install --cask gpg-suite-no-mail
 
 # security
 brew install --cask lulu

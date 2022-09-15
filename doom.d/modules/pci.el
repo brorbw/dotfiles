@@ -28,10 +28,16 @@
   (pci/call-command "local-stack" "build" service "&&" "echo" "done!"))
 (defun pci/local-stack-logs (&optional service)
   (interactive)
-  (pci/call-command "local-stack" "logs"))
-(defun pci/local-stack-exec (&optional service)
+  (pci/call-command "local-stack" "logs" service))
+(defun pci/local-stack-exec (service)
   (interactive)
-  (pci/call-command "local-stack" "down" "&&" "echo" "done!"))
+  (pci/call-command "local-stack" "exec" service
+		    (read-from-minibuffer
+		     (propertize "Executable: " 'face '(default)))))
+
+(defun pci/local-stack-shell (service)
+  (interactive)
+  (pci/call-command "local-stack" "exec" service)))
 
 (defun pci/prompt-service-name ()
   (read-from-minibuffer (propertize "Service name: " 'face '(default))))
