@@ -11,13 +11,6 @@
 
 (evil-define-key 'normal 'pci-mode (kbd "q") #'kill-current-buffer)
 
-;; (define-minor-mode pci-term-mode
-;;   "Get your foos in the right places."
-;;   :lighter " PCI term"
-;;   :keymap (make-sparse-keymap))
-
-;; (evil-define-key 'normal 'pci-term-mode (kbd "q") #'kill-buffer-and-window)
-
 (defun pci/local-stack-up (&optional service)
   (interactive)
   (pci/call-command "local-stack" "up" service "&&" "echo" "done!"))
@@ -63,7 +56,7 @@
     (pop-to-buffer "*pci-term*")
     (setq-local process-connection-type 'pty)
     (async-shell-command (concat "pci" " " command " " (string-join arg " ") ) "*pci-term*")
-    (shell-mode)
+    (evil-escape)
     (pci-mode)))
 
 (defun pci/call-command (command &rest arg)
