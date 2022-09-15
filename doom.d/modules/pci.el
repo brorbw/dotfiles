@@ -6,41 +6,65 @@
 
 (define-minor-mode pci-mode
   "Get your foos in the right places."
-  :lighter " foo"
+  :lighter " PCI"
   :keymap (make-sparse-keymap))
 
 (evil-define-key 'normal 'pci-mode (kbd "q") #'+popup/quit-window)
 
+(define-minor-mode pci-term-mode
+  "Get your foos in the right places."
+  :lighter " PCI term"
+  :keymap (make-sparse-keymap))
+
+(evil-define-key 'normal 'pci-term-mode (kbd "q") #'kill-buffer-and-window)
+
 (defun pci/local-stack-up (&optional service)
   (interactive)
   (pci/call-command "local-stack" "up" service "&&" "echo" "done!"))
+
 (defun pci/local-stack-restart (&optional service)
   (interactive)
   (pci/call-command "local-stack" "restart" service "&&" "echo" "done!"))
+
 (defun pci/local-stack-status (&optional service)
   (interactive)
   (pci/call-command "local-stack" "status" service))
+
 (defun pci/local-stack-down ()
-  (interactive)
   (pci/call-command "local-stack" "down" "&&" "echo" "done!"))
+
 (defun pci/local-stack-build (&optional service)
   (interactive)
   (pci/call-command "local-stack" "build" service "&&" "echo" "done!"))
+
 (defun pci/local-stack-logs (&optional service)
   (interactive)
   (pci/call-command "local-stack" "logs" service))
+
 (defun pci/local-stack-exec (service)
-  (interactive)
   (pci/call-command "local-stack" "exec" service
 		    (read-from-minibuffer
 		     (propertize "Executable: " 'face '(default)))))
 
 (defun pci/local-stack-shell (service)
-  (interactive)
-  (pci/call-command "local-stack" "exec" service)))
+  (pci/call-command-with-tty "local-stack" "shell" service))
 
 (defun pci/prompt-service-name ()
-  (read-from-minibuffer (propertize "Service name: " 'face '(default))))
+  (completing-read
+   (propertize "Service: " 'face '(default))
+   (read
+    (concat
+     "("
+     (shell-command-to-string "pci local-stack list")
+     ")"))))
+
+(defun pci/call-command-with-tty (command &rest arg)
+  (with-output-to-temp-buffer "*pci-term*"
+    (pop-to-buffer "*pci-term*")
+    (setq-local process-connection-type 'pty)
+    (async-shell-command (concat "pci" " " command " " (string-join arg " ") ) "*pci-term*")
+    (shell-mode)
+    (pci-term-mode)))
 
 (defun pci/call-command (command &rest arg)
   (with-output-to-temp-buffer "*pci*"
@@ -105,6 +129,32 @@
    :prefix "r"
    "b" '(lambda ()
 	  (interactive)
-	   (pci/local-stack-build (pci/prompt-service-name)))))
+	   (pci/local-stack-build (pci/prompt-service-name))))
+  (map!
+   :desc "Build images"
+   :leader
+   :prefix "r"
+   "C" '(lambda ()
+	  (interactive)
+	   (pci/local-stack-exec (pci/prompt-service-name))))
+  (map!
+   :desc "Build image"
+   :leader
+   :prefix "r"
+   "c" '(lambda ()
+	  (interactive)
+	   (pci/local-stack-shell (pci/prompt-service-name))))
+  (map!
+   :desc "Logs for all"
+   :leader
+   :prefix "r"
+   "L" 'pci/local-stack-logs)
+  (map!
+   :desc "Logs for container"
+   :leader
+   :prefix "r"
+   "l" '(lambda ()
+	  (interactive)
+	  (pci/local-stack-logs (pci/prompt-service-name)))))
 
 (pci/set-key-map)
