@@ -62,8 +62,8 @@ cmd + alt - w : yabai -m space --destroy
 
 # fast focus desktop
 # cmd + alt - x : yabai -m space --focus recent
-# cmd + alt - z : yabai -m space --focus prev
-# cmd + alt - c : yabai -m space --focus next
+cmd + alt - z : yabai -m space --focus prev
+cmd + alt - c : yabai -m space --focus next
 cmd + alt - 1 : ~/.config/scripts/select_space_on_current_display.sh 0
 cmd + alt - 2 : ~/.config/scripts/select_space_on_current_display.sh 1
 cmd + alt - 3 : ~/.config/scripts/select_space_on_current_display.sh 2
