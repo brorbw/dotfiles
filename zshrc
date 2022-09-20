@@ -315,3 +315,6 @@ export GPG_TTY=$(tty)
 eval "$(direnv hook zsh)"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH=$PATH:/Users/void/.spicetify
+
+alias mountefi=/Users/nah/Projects/MountEFI/MountEFI.command
+alias add-repos=/Users/nah/.config/add-repos-as-projects.sh
