@@ -11,6 +11,18 @@
 
 (evil-define-key 'normal 'pci-mode (kbd "q") #'kill-current-buffer)
 
+(defun pci/transaction-auth ()
+  (interactive)
+  (pci/call-command-json "transaction" "auth" (pci/prompt-env-name)))
+
+(defun pci/transaction-void ()
+  (interactive)
+  (pci/call-command-json "transaction" "void" (pci/prompt-env-name)))
+
+(defun pci/transaction-capture ()
+  (interactive)
+  (pci/call-command-json "transaction" "capture" (pci/prompt-env-name)))
+
 (defun pci/local-stack-up (&optional service)
   (interactive)
   (pci/call-command "local-stack" "up" service "&&" "echo" "done!"))
@@ -42,6 +54,10 @@
 (defun pci/local-stack-shell (service)
   (pci/call-command-with-tty "local-stack" "shell" service))
 
+(defun pci/prompt-env-name ()
+  (completing-read (propertize "Env:" 'face '(default))
+		   '("local" "test" "stag" "prod")))
+
 (defun pci/prompt-service-name ()
   (completing-read
    (propertize "Service: " 'face '(default))
@@ -69,7 +85,35 @@
     (read-only-mode 1)
     (pci-mode)))
 
+(defun pci/call-command-json (command &rest arg)
+  (with-output-to-temp-buffer "*pci*"
+    (pop-to-buffer "*pci*")
+    (setq-local process-connection-type nil)
+    (async-shell-command (concat "pci" " " command " " (string-join arg " ") ) "*pci*")
+    (evil-escape)
+    (setq-local buffer-read-only t)
+    (read-only-mode 1)
+    (pci-mode)))
+
 (defun pci/set-key-map ()
+  (map!
+   :desc "auth"
+   :leader
+   :prefix "r t"
+   "a" #'pci/transaction-auth)
+
+  (map!
+   :desc "void"
+   :leader
+   :prefix "r t"
+   "v" #'pci/transaction-void)
+
+  (map!
+   :desc "capture"
+   :leader
+   :prefix "r t"
+   "c" #'pci/transaction-capture)
+
   (map!
    :desc "Restart all services"
    :leader
@@ -124,17 +168,17 @@
 	  (interactive)
 	   (pci/local-stack-build (pci/prompt-service-name))))
   (map!
-   :desc "Build images"
+   :desc "Exec"
    :leader
    :prefix "r"
-   "C" '(lambda ()
+   "E" '(lambda ()
 	  (interactive)
 	   (pci/local-stack-exec (pci/prompt-service-name))))
   (map!
-   :desc "Build image"
+   :desc "Shell"
    :leader
    :prefix "r"
-   "c" '(lambda ()
+   "e" '(lambda ()
 	  (interactive)
 	   (pci/local-stack-shell (pci/prompt-service-name))))
   (map!
