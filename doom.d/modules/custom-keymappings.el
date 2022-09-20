@@ -212,3 +212,16 @@
  :mode org-mode
  "RET" 'org-insert-todo-heading)
 
+(map!
+ :desc "Print wakatime today"
+ :leader
+ :prefix "e"
+ "w" #'me/wakatime-today)
+
+(defun me/wakatime-today ()
+  (interactive)
+  (message
+   (concat
+    (propertize "Time code today: " 'face 'bold)
+    (replace-regexp-in-string "\n" ""
+			      (shell-command-to-string "wakatime-cli --today")))))
