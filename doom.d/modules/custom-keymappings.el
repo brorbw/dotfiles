@@ -88,6 +88,11 @@
 	(me/surround-with-symbol ?\])))
 
 (map!
+ :desc "Switch to workspace"
+ :leader
+ "m" #'+workspace/switch-to)
+
+(map!
  :mode emacs-everywhere-mode
  :desc "Finish, copy and maybe paste"
  :localleader
