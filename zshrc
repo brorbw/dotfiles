@@ -10,6 +10,7 @@ setopt HIST_IGNORE_SPACE
 if [[ ! -z "$SSH_TTY" ]]; then; security unlock-keychain; fi
 
 export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_INSTALL_UPGRADE=1
 export HOMEBREW_NO_ANALYTICS=1
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
