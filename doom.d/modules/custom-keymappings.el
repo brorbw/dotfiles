@@ -1,6 +1,7 @@
 ;;; custom-keymappings.el -*- lexical-binding: t; -*-
 
 (setq-default evil-escape-key-sequence "fd")
+
 (setq-default doom-localleader-key ",")
 
 (defun me/surround-with-symbol (char)
@@ -216,6 +217,14 @@
  :localleader
  :mode org-mode
  "RET" 'org-insert-todo-heading)
+
+(map!
+ :desc "Toggle macos theme"
+ :leader
+ :prefix "t"
+ "t" #'(lambda ()
+	 (interactive)
+	 (start-process-shell-command "toggle-theme" nil "source ~/.config/zshrc; tt")))
 
 (map!
  :desc "Print wakatime today"
