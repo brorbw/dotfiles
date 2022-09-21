@@ -47,9 +47,11 @@
 
 (load! "modules/pci")
 (load! "modules/custom-keymappings")
-(load! "modules/bnf-mode")
 (load! "modules/variables")
 (load! "modules/hooks")
+
+(load! "modules/bnf-mode")
+(load! "modules/suez-mode")
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
