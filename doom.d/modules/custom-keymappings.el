@@ -239,3 +239,23 @@
     (propertize "Time code today: " 'face 'bold)
     (replace-regexp-in-string "\n" ""
 			      (shell-command-to-string "wakatime-cli --today")))))
+(require 'json)
+
+(defun me/get-CPU-data ()
+  (interactive)
+  (let* ((json-object-type 'hash-table)
+	 (json-array-type 'list)
+	 (json-key-type 'symbol)
+	 (cpu-data-json (json-read-from-string (shell-command-to-string "amd-cpu-data")))
+	 (temperature (gethash 'temperature cpu-data-json))
+	 (power (gethash 'power cpu-data-json))
+	 (cpu-freq-avg (gethash 'mean-frequency cpu-data-json))
+	 (cpu-freq-max (gethash 'max-frequency cpu-data-json)))
+    (princ (format "Power: %iW - Temperature: %i\u2103 - Freqiency(avg): %iGHz - Freqiency(max): %iGHz"
+		   power temperature cpu-freq-avg cpu-freq-max))))
+
+(map!
+ :desc "Print CPU data"
+ :leader
+ :prefix "e"
+ "c" #'me/get-CPU-data)
