@@ -1,6 +1,5 @@
 ;;; variables.el -*- lexical-binding: t; -*-
 
-
 ;; autofill in comments
 (auto-fill-mode 1)
 (setq comment-auto-fill-only-comments t)
