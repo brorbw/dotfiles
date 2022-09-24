@@ -7,7 +7,7 @@ export SAVEHIST=50_000
 setopt HIST_IGNORE_SPACE
 
 # UNLOCK KEYCHAIN FOR SSH
-if [[ ! -z "$SSH_TTY" ]]; then; security unlock-keychain; fi
+if [[ ! -z "$SSH_TTY" ]]; then security unlock-keychain; fi
 
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_INSTALL_UPGRADE=1
@@ -61,6 +61,10 @@ HIST_STAMPS="dd.mm.yyyy"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 export ZSH_WAKATIME_BIN=/usr/local/opt/wakatime-cli/bin/wakatime-cli
 
+function zvm_config () {
+	ZVM_VI_ESCAPE_BINDKEY=fd
+}
+
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -75,6 +79,10 @@ plugins=(
 	zsh-wakatime
 	zsh-syntax-highlighting
 )
+
+if [ ! -z EMACS ]; then
+	plugins+=(zsh-vi-mode)
+fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -268,7 +276,7 @@ export PATH=~/.emacs.d/bin:$PATH
 
 # starts the keycoutner
 function start-keyCounter () {
-	KC_PID=$(pgrep keyCounter) 
+	KC_PID=$(pgrep keyCounter)
 	if ! [ $KC_PID ] ; then
 		keyCounter &
 		disown
@@ -286,7 +294,7 @@ function cd() {
 	builtin cd $@
 	ENTRIES=$(ls -a | wc -l)
 	if [ $ENTRIES -lt $LINES ]; then
-		ls --color=always 
+		ls --color=always
 	fi
 }
 
