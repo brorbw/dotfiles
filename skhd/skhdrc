@@ -198,3 +198,5 @@ ctrl + alt - j: yabai -m window --resize bottom:0:100 || yabai -m window --resiz
 ctrl + cmd - s: skhd -k "cmd - c"; ~/.config/scripts/spongecase.mjs; skhd -k "cmd - v"
 
 ctrl + cmd - t: zsh -c "source ~/.config/zshrc; tt"
+
+ctrl + cmd - r: launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
