@@ -35,7 +35,8 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org")
+;; (setq org-mobile-directory "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org")
 (org-projectile-per-project)
 (setq org-agenda-files (append org-agenda-files (org-projectile-todo-files)))
 ;; (setq org-projectile-per-project-filepath (concat (projectile-project-name) ".org"))
