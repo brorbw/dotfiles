@@ -105,6 +105,7 @@ brew install glslang
 brew install languagetool
 brew install smlnj
 brew install duti
+brew install bear
 
 brew install zsh-syntax-highlighting
 

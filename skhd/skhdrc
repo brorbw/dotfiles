@@ -23,11 +23,17 @@ cmd + alt - j : yabai -m window --warp south
 cmd + alt - k : yabai -m window --warp north
 cmd + alt - l : yabai -m window --warp east
 
-# swap window
-# cmd + alt - h : yabai -m window --swap west
-# cmd + alt - j : yabai -m window --swap south
-# cmd + alt - k : yabai -m window --swap north
-# cmd + alt - l : yabai -m window --swap east
+
+# stack window
+shift + alt - h : yabai -m window --stack west
+shift + alt - j : yabai -m window --stack south
+shift + alt - k : yabai -m window --stack north
+shift + alt - l : yabai -m window --stack east
+
+shift + alt - p : yabai -m window --toggle float && yabai -m window --toggle float
+
+ctrl + alt - j : yabai -m window --focus stack.next || yabai -m window --focus stack.first
+ctrl + alt - k : yabai -m window --focus stack.prev || yabai -m window --focus stack.last
 
 shift + cmd - h: yabai -m window --swap west  || (yabai -m window --display west && yabai -m display --focus west)
 shift + cmd - j: yabai -m window --swap south || (yabai -m window --display south && yabai -m display --focus south)

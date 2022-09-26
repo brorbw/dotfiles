@@ -104,7 +104,7 @@ then
 	# python
 	# alias python=/usr/local/bin/python3
 	# PYTHON
-	export PATH="$PATH:/Users/morethanthreeletters/Library/Python/3.8/bin"
+	# export PATH="$PATH:/Users/morethanthreeletters/Library/Python/3.8/bin"
 
 	# GO
 	export GOPATH=$HOME/.go
