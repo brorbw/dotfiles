@@ -32,3 +32,4 @@ karabiner.json
 /scripts/.DS_Store
 /direnv/
 **/flycheck_*
+*.DS_Store
