@@ -16,7 +16,7 @@
 (atomic-chrome-start-server)
 
 (if (eq system-type 'darwin)
-(use-package wakatime-mode
+(use-package! wakatime-mode
   :hook doom-first-buffer
   :config
   (setq wakatime-cli-path "/usr/local/bin/wakatime-cli")
