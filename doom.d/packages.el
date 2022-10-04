@@ -23,6 +23,8 @@
 
 (package! devdocs)
 
+(package! svg-tag-mode)
+
 ;; (package! blamer :recipe (:host github :repo "artawower/blamer.el"))
 
 ;; To install a package directly from a remote git repo, you must specify a
