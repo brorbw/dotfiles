@@ -45,6 +45,8 @@
 (load! "modules/hooks")
 (load! "modules/svg-tag-tags")
 (load! "modules/sync-theme-with-system")
+(load! "modules/org-mode")
+(load! "modules/projectile")
 
 (load! "modules/bnf-mode")
 (load! "modules/suez-mode")
