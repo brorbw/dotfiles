@@ -1,3 +1,5 @@
+;;; $DOOMDIR/modules/svg-tag-tags.el -*- lexical-binding: t; -*-
+
 (use-package! svg-tag-mode
   :hook ((org-mode org-agenda-mode markdown-mode) . svg-tag-mode))
 

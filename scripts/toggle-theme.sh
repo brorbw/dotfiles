@@ -16,11 +16,10 @@ function toggle-light() {
 	alias cat="bat --paging never --theme=GitHub"
 	$(osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to false' &)
 	$(toggle-light-yabai-and-spacebar &)
-	$(emacsclient -e "(load-theme 'doom-nord-light)" &)
 	BAK_PIPFILE=$PIPENV_PIPFILE
 	(PIPENV_PIPFILE=~/Projects/iterm2-theme-toggle/Pipfile exec pipenv run python3 ~/Projects/iterm2-theme-toggle/main.py $LIGHT_THEME >/dev/null 2>&1 &)
 	PIPENV_PIPFILE=$BAK_PIPFILE
-	$($(spicetify config current_theme Ziro && spicetify config color_scheme Rose-Pine-dawn && spicetify apply) &)
+	# $($(spicetify config current_theme Ziro && spicetify config color_scheme Rose-Pine-dawn && spicetify apply) &)
 }
 
 function toggle-light-yabai-and-spacebar() {
@@ -39,11 +38,10 @@ function toggle-dark() {
 	alias cat="bat --paging never --theme=default"
 	$(osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to true' &)
 	$(toggle-dark-yabai-and-spacebar &)
-	$(emacsclient -e "(load-theme 'doom-moonlight)" &)
 	BAK_PIPFILE=$PIPENV_PIPFILE
 	(PIPENV_PIPFILE=~/Projects/iterm2-theme-toggle/Pipfile exec pipenv run python3 ~/Projects/iterm2-theme-toggle/main.py $DARK_THEME >/dev/null 2>&1 &)
 	PIPENV_PIPFILE=$BAK_PIPFILE
-	$($(spicetify config current_theme Ziro && spicetify config color_scheme Rose-Pine-moon && spicetify apply) &)
+	# $($(spicetify config current_theme Ziro && spicetify config color_scheme Rose-Pine-moon && spicetify apply) &)
 }
 
 function toggle-dark-yabai-and-spacebar() {

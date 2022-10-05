@@ -3,7 +3,7 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
-(menu-bar-mode 1)
+(menu-bar-mode nil)
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
@@ -26,13 +26,6 @@
   (setq doom-font (font-spec :family "monospace" :size 14)
         doom-variable-pitch-font (font-spec :family "monospace" :size 10)))
 
-;; There are two ways to load a theme. Both assume the theme is installed and
-;; available. You can either set `doom-theme' or manually load a theme with the
-;; `load-theme' function. This is the default:
-(if (not (display-graphic-p))
-    (setq doom-theme 'doom-nord)
-  (setq doom-theme 'doom-moonlight))
-
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org")
@@ -51,9 +44,13 @@
 (load! "modules/variables")
 (load! "modules/hooks")
 (load! "modules/svg-tag-tags")
+(load! "modules/sync-theme-with-system")
 
 (load! "modules/bnf-mode")
 (load! "modules/suez-mode")
+
+;; (add-hook! 'before-save-hook (setq-local svg-tag-mode nil))
+;; (add-hook! 'after-save-hook (setq-local svg-tag-mode t))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;

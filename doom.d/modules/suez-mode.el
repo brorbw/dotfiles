@@ -1,4 +1,4 @@
-;;; suez-mode.el -*- lexical-binding: t; -*-
+;;; $DOOMDIR/modules/suez-mode.el -*- lexical-binding: t; -*-
 
 (define-generic-mode 'suez-mode
   ()

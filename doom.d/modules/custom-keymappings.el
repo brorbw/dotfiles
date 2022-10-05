@@ -1,4 +1,4 @@
-;;; custom-keymappings.el -*- lexical-binding: t; -*-
+;;; $DOOMDIR/modules/custom-keymappings.el -*- lexical-binding: t; -*-
 
 (setq-default evil-escape-key-sequence "fd")
 

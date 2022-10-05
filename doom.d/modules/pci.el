@@ -1,4 +1,4 @@
-;;; pci.el -*- lexical-binding: t; -*-
+;;; $DOOMDIR/modules/pci.el -*- lexical-binding: t; -*-
 
 ;;
 ;; Create keybindings for the PCI app

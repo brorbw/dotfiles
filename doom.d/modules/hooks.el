@@ -1,4 +1,4 @@
-;;; hooks.el -*- lexical-binding: t; -*-
+;;; $DOOMDIR/modules/hooks.el -*- lexical-binding: t; -*-
 
 (defun my-php-mode-hook ()
   "My PHP mode configuration."
@@ -10,4 +10,4 @@
 (add-hook! 'ruby-mode-hook (setq-local devdocs-current-docs '("ruby~2.7")))
 ;; (add-hook! 'sh-mode-hook (setq-local indent-tabs-mode nil))
 (add-hook! 'rjsx-mode-hook (setq-local indent-tabs-mode t))
-(add-hook! 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode)
+;; (add-hook! 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode)

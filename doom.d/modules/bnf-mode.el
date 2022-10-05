@@ -1,4 +1,4 @@
-;;; bnf-mode.el -*- lexical-binding: t; -*-
+;;; $DOOMDIR/modules/bnf-mode.el -*- lexical-binding: t; -*-
 
 (define-generic-mode 'bnf-mode
   () ;; comment char: inapplicable because # must be at start of line

@@ -1,4 +1,4 @@
-;;; variables.el -*- lexical-binding: t; -*-
+;;; $DOOMDIR/modules/variables.el -*- lexical-binding: t; -*-
 
 ;; autofill in comments
 (auto-fill-mode 1)
@@ -63,3 +63,7 @@
 ;;   (set-lsp-priority! 'ccls 2)) ; optional as ccls is the
 
 (setq! +ligatures-in-modes '(elisp-mode))
+
+;; (setq! pdf-view-midnight-colors `(
+;; 				  ,(car (cdr (doom-themes--colors-p 'fg))) .
+;; 				  ,(car (cdr (doom-themes--colors-p 'bg)))))
