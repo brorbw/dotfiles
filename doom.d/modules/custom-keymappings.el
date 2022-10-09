@@ -219,6 +219,24 @@
  "RET" 'org-insert-todo-heading)
 
 (map!
+ :desc "Change org todo heading"
+ :localleader
+ :mode org-mode
+ "t" 'org-todo)
+
+(map!
+ :desc "Toggle org checkbox"
+ :localleader
+ :mode org-mode
+ "x" 'org-toggle-checkbox)
+
+(map!
+ :desc "Change org todo heading"
+ :localleader
+ :mode org-mode
+ "'" 'org-cycle-agenda-files)
+
+(map!
  :desc "Toggle macos theme"
  :leader
  :prefix "t"
