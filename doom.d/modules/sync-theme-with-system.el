@@ -4,7 +4,7 @@
   'doom-moonlight
   "Dark theme value")
 (defcustom me/light-theme-name
-  'doom-solarized-light
+  'doom-nord-light
   "Light theme value")
 
 (defun me/apply-theme (appearance)
