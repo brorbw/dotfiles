@@ -3,24 +3,25 @@
 ;; autofill in comments
 (auto-fill-mode 1)
 (setq comment-auto-fill-only-comments t)
+(global-subword-mode)
 
 ;; Probably git stuff
 (setq auth-sources '("~/.authinfo.gpg"))
 (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
+
 (setq flycheck-eslintrc "~/.config/eslintrc")
 
-(global-subword-mode)
 
 (setq atomic-chrome-buffer-open-style 'frame)
 (setq atomic-chrome-default-major-mode 'markdown-mode)
 (atomic-chrome-start-server)
 
 (if (eq system-type 'darwin)
-(use-package! wakatime-mode
-  :hook doom-first-buffer
-  :config
-  (setq wakatime-cli-path "/usr/local/bin/wakatime-cli")
-  (global-wakatime-mode 1)))
+    (use-package! wakatime-mode
+      :hook doom-first-buffer
+      :config
+      (setq wakatime-cli-path "/usr/local/bin/wakatime-cli")
+      (global-wakatime-mode 1)))
 
 (setq rbenv-executable "/usr/local/opt/rbenv/bin/rbenv")
 
