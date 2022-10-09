@@ -184,8 +184,7 @@ alt - p : yabai -m window --toggle sticky;\
 ctrl + alt - a : yabai -m space --layout bsp
 ctrl + alt - d : yabai -m space --layout float
 
-cmd + alt + ctrl + shift - e : ~/.config/skhd/float-next.sh; emacsclient --eval "(emacs-everywhere)" &
-cmd + alt + ctrl + shift - x : ~/.config/skhd/float-next.sh; emacsclient --eval "(emacs-everywhere)" &
+cmd + alt + ctrl + shift - e : ~/.config/skhd/float-next.sh; ~/.emacs.d/bin/org-capture &
 
 cmd + alt - t : open -a iTerm
 
