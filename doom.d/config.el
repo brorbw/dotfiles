@@ -21,23 +21,17 @@
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
 (if (eq system-type 'darwin)
-    (setq doom-font (font-spec :family "Comic Mono" :size 14 :weight 'normal)
-          doom-variable-pitch-font (font-spec :family "Comic Mono" :size 10))
+    (setq doom-font (font-spec :family "Fira Code" :size 14 :weight 'normal)
+          doom-variable-pitch-font (font-spec :family "Fira Code" :size 10))
   (setq doom-font (font-spec :family "monospace" :size 14)
         doom-variable-pitch-font (font-spec :family "monospace" :size 10)))
 
-;; If you use `org' and don't want your org files in the default location below,
-;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org")
 ;; (setq org-mobile-directory "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org")
-(org-projectile-per-project)
-(setq org-agenda-files (append org-agenda-files (org-projectile-todo-files)))
-;; (setq org-projectile-per-project-filepath (concat (projectile-project-name) ".org"))
+;; (org-projectile-per-project)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
-
 
 (load! "modules/pci")
 (load! "modules/custom-keymappings")
@@ -45,11 +39,13 @@
 (load! "modules/hooks")
 (load! "modules/svg-tag-tags")
 (load! "modules/sync-theme-with-system")
-(load! "modules/org-mode")
-(load! "modules/projectile")
+(load! "modules/org-settings")
+(load! "modules/projectile-settings")
 
+(load! "modules/org-capture-everywhere")
 (load! "modules/bnf-mode")
 (load! "modules/suez-mode")
+(load! "modules/pw-gen")
 
 ;; (add-hook! 'before-save-hook (setq-local svg-tag-mode nil))
 ;; (add-hook! 'after-save-hook (setq-local svg-tag-mode t))
