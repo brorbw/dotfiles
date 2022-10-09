@@ -1,17 +1,30 @@
 #+TITLE: Emacs Org Guide
 
-* Installing packages
-Packages can be installd from MELPA/ELPA
-#+BEGIN_SRC lisp
-;; installing from MELPA
-(package! [package-name])
-;; installing from repo
-(package! [package-name] :recipe
-					(:host github :repo "path/repo"))
-;; example
-(package! ttl-mode
-  :recipe (:host github :repo "jeeger/ttl-mode"))
-#+END_SRC
+* In org mode you can create headings with *
+Each heading can have text
+** And sub headings with **
+Bullet point lists with
+- This is a
+- bullet point list
+
+1. you can also create a
+2. numbered list
+
+Both of them can also be check mark lists
+- [ ] This is an unchecked text
+- [X] A checkbox can be checked with `, x` or `C-c C-t`
+
+| table example | like  | this             |
+|---------------+-------+------------------|
+| This is a     | table | with a separator |
+|---------------+-------+------------------|
+| and           |       |                  |
+| this          |       |                  |
+| is            |       |                  |
+| simple        |       |                  |
+| data          |       |                  |
+
+Tables can also do calculations
 * Org mode statuses
 ** The variable that contains the statuses is `org-todo-keywords`
 #+BEGIN_SRC lisp
@@ -20,4 +33,4 @@ org-todo-keywords '((sequence "TODO(t)" "INPROGRESS(i)" "WAITING(w)" "DONE(d)" "
 org-todo-keywords-faces
 )
 #+END_SRC
-** Changing status `SPC m t`
+** Changing status `, t`
