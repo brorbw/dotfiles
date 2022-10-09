@@ -48,16 +48,6 @@
    (point-min) (point-max)
    t (regexp-quote (thing-at-point 'word t))))
 
-(defun me/insert-pw ()
-  (interactive)
-  (let ((pw (string-trim (shell-command-to-string (concat
-						"pwgen "
-						(read-from-minibuffer
-						 (propertize "PW length: " 'face '(default))))))))
-    (when (called-interactively-p 'any)
-      (insert pw))
-      pw))
-
 (defun me/search-replace-region ()
   (interactive)
   (when (use-region-p)
