@@ -130,27 +130,39 @@
 	  (interactive)
 	   (pci/local-stack-restart (pci/prompt-service-name))))
   (map!
-   :desc "Start all service"
+   :desc "Start a service"
    :leader
    :prefix "r"
    "u" '(lambda ()
 	  (interactive)
 	   (pci/local-stack-up (pci/prompt-service-name))))
+
   (map!
-   :desc "Start service"
+   :desc "Start all services"
    :leader
    :prefix "r"
    "U" 'pci/local-stack-up)
+
   (map!
-   :desc "Stop all service"
+   :desc "Stop a service"
    :leader
    :prefix "r"
-   "d" 'pci/local-stack-down)
+   "d" '(lambda ()
+	  (interactive)
+	   (pci/local-stack- (pci/prompt-service-name))))
+
+  (map!
+   :desc "Down all services"
+   :leader
+   :prefix "r"
+   "D" 'pci/local-stack-down)
+
   (map!
    :desc "Show status"
    :leader
    :prefix "r"
    "S" 'pci/local-stack-status)
+
   (map!
    :desc "Show service status"
    :leader
@@ -158,11 +170,13 @@
    "s" '(lambda ()
 	  (interactive)
 	   (pci/local-stack-status (pci/prompt-service-name))))
+
   (map!
    :desc "Build images"
    :leader
    :prefix "r"
    "B" 'pci/local-stack-build)
+
   (map!
    :desc "Build image"
    :leader
