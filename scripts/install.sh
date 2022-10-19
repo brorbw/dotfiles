@@ -33,7 +33,7 @@ git config --global user.email "git@nobad.coffee"
 # brew
 # emacs
 brew tap d12frosted/emacs-plus
-brew install emacs-plus@27 --with-no-titlebar
+brew install emacs-plus@28 --with-no-titlebar
 
 # misc.
 brew install --cask iterm2
