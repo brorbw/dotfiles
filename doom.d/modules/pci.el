@@ -38,6 +38,9 @@
 (defun pci/local-stack-down ()
   (pci/call-command "local-stack" "down" "&&" "echo" "done!"))
 
+(defun pci/local-stack-stop (&optional service)
+  (pci/call-command "local-stack" "stop" service "&&" "echo" "done!"))
+
 (defun pci/local-stack-build (&optional service)
   (interactive)
   (pci/call-command "local-stack" "build" service "&&" "echo" "done!"))
