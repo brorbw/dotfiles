@@ -6,8 +6,10 @@ export SAVEHIST=50_000
 
 setopt HIST_IGNORE_SPACE
 
-# UNLOCK KEYCHAIN FOR SSH
-if [[ ! -z "$SSH_TTY" ]]; then security unlock-keychain; fi
+if [[ "$OSTYPE"	== "darwin"* ]]; then
+  # UNLOCK KEYCHAIN FOR SSH IF MACOS
+  if [[ ! -z "$SSH_TTY" ]]; then security unlock-keychain; fi
+fi
 
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_INSTALL_UPGRADE=1
