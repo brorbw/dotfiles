@@ -26,9 +26,6 @@
   (setq doom-font (font-spec :family "monospace" :size 14)
         doom-variable-pitch-font (font-spec :family "monospace" :size 10)))
 
-;; (setq org-mobile-directory "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org")
-;; (org-projectile-per-project)
-
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
@@ -42,7 +39,6 @@
 (load! "modules/org-settings")
 (load! "modules/projectile-settings")
 
-(load! "modules/org-capture-everywhere")
 (load! "modules/bnf-mode")
 (load! "modules/suez-mode")
 (load! "modules/pw-gen")
