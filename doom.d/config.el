@@ -34,7 +34,7 @@
 (load! "modules/custom-keymappings")
 (load! "modules/variables")
 (load! "modules/hooks")
-(load! "modules/svg-tag-tags")
+;; (load! "modules/svg-tag-tags")
 (load! "modules/sync-theme-with-system")
 (load! "modules/org-settings")
 (load! "modules/projectile-settings")
