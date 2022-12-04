@@ -23,7 +23,7 @@
 (if (eq system-type 'darwin)
     (setq doom-font (font-spec :family "Fira Code" :size 12)
           doom-variable-pitch-font (font-spec :family "Fira Code" :size 10))
-  (setq doom-font (font-spec :family "monospace" :size 14)
+  (setq doom-font (font-spec :family "monospace" :size 12)
         doom-variable-pitch-font (font-spec :family "monospace" :size 10)))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
