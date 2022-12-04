@@ -25,6 +25,15 @@
 
 (package! svg-tag-mode)
 
+(package! ement)
+
+(package! nasm-mode)
+(package! haxor-mode)
+(package! mips-mode)
+(package! riscv-mode)
+(package! x86-lookup)
+
+(package! disaster)
 ;; (package! blamer :recipe (:host github :repo "artawower/blamer.el"))
 
 ;; To install a package directly from a remote git repo, you must specify a

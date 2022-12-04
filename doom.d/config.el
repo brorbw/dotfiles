@@ -43,6 +43,8 @@
 (load! "modules/suez-mode")
 (load! "modules/pw-gen")
 
+(load! "modules/packages")
+
 ;; (add-hook! 'before-save-hook (setq-local svg-tag-mode nil))
 ;; (add-hook! 'after-save-hook (setq-local svg-tag-mode t))
 
