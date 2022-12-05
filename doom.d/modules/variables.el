@@ -69,3 +69,7 @@
 ;; (setq! pdf-view-midnight-colors `(
 ;; 				  ,(car (cdr (doom-themes--colors-p 'fg))) .
 ;; 				  ,(car (cdr (doom-themes--colors-p 'bg)))))
+
+(setq magit-repository-directories
+      `(("~/clearhaus" . 1)
+	("~/Projects" . 1)))
