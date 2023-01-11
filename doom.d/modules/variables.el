@@ -4,6 +4,8 @@
 (auto-fill-mode 1)
 (setq comment-auto-fill-only-comments t)
 (global-subword-mode)
+(global-whitespace-mode)
+(setq whitespace-line-column 150)
 
 ;; Probably git stuff
 (setq auth-sources '("~/.authinfo.gpg"))
