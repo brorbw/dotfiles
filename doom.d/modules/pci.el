@@ -33,7 +33,7 @@
 
 (defun pci/local-stack-status (&optional service)
   (interactive)
-  (pci/call-command "local-stack" "status" service))
+  (pci/call-command "local-stack" "ps" service))
 
 (defun pci/local-stack-down ()
   (pci/call-command "local-stack" "down" "&&" "echo" "done!"))
@@ -122,18 +122,19 @@
    :leader
    :prefix "r"
    "R" #'pci/local-stack-restart)
+
   (map!
    :desc "Restart service"
    :leader
    :prefix "r"
-   "r" '(lambda ()
+   "r" #'(lambda ()
 	  (interactive)
 	   (pci/local-stack-restart (pci/prompt-service-name))))
   (map!
    :desc "Start a service"
    :leader
    :prefix "r"
-   "u" '(lambda ()
+   "u" #'(lambda ()
 	  (interactive)
 	   (pci/local-stack-up (pci/prompt-service-name))))
 
@@ -143,13 +144,13 @@
    :prefix "r"
    "U" 'pci/local-stack-up)
 
-  (map!
-   :desc "Stop a service"
-   :leader
-   :prefix "r"
-   "d" '(lambda ()
-	  (interactive)
-	   (pci/local-stack- (pci/prompt-service-name))))
+  ;; (map!
+  ;;  :desc "Stop a service"
+  ;;  :leader
+  ;;  :prefix "r"
+  ;;  "d" #'(lambda ()
+  ;; 	  (interactive)
+  ;; 	   (pci/local-stack- (pci/prompt-service-name))))
 
   (map!
    :desc "Down all services"
@@ -167,7 +168,7 @@
    :desc "Show service status"
    :leader
    :prefix "r"
-   "s" '(lambda ()
+   "s" #'(lambda ()
 	  (interactive)
 	   (pci/local-stack-status (pci/prompt-service-name))))
 
@@ -181,21 +182,21 @@
    :desc "Build image"
    :leader
    :prefix "r"
-   "b" '(lambda ()
+   "b" #'(lambda ()
 	  (interactive)
 	   (pci/local-stack-build (pci/prompt-service-name))))
   (map!
    :desc "Exec"
    :leader
    :prefix "r"
-   "E" '(lambda ()
+   "E" #'(lambda ()
 	  (interactive)
 	   (pci/local-stack-exec (pci/prompt-service-name))))
   (map!
    :desc "Shell"
    :leader
    :prefix "r"
-   "e" '(lambda ()
+   "e" #'(lambda ()
 	  (interactive)
 	   (pci/local-stack-shell (pci/prompt-service-name))))
   (map!
@@ -203,11 +204,12 @@
    :leader
    :prefix "r"
    "L" 'pci/local-stack-logs)
+
   (map!
    :desc "Logs for container"
    :leader
    :prefix "r"
-   "l" '(lambda ()
+   "l" #'(lambda ()
 	  (interactive)
 	  (pci/local-stack-logs (pci/prompt-service-name)))))
 
