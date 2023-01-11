@@ -333,3 +333,7 @@ alias org="cd ~/Library/Mobile\ Documents/iCloud~com~appsonthemove~beorg/Documen
 function clearDNS () {
 	sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
 }
+
+function pwoff () {
+	sudo shutdown -h now
+}
