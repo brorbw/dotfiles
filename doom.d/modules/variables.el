@@ -32,9 +32,10 @@
 			 "--trailing-comma" "all" "es6"))
 
 (setq-default tab-width 2)
-(setq-default rust-indent-offset 'tab-width) ;; fucking rust
+(setq-default rust-indent-offset 4) ;; fucking rust
 (setq-default indent-tabs-mode t)
 (setq! treemacs-indentation 1)
+
 
 (setq avy-all-windows t)
 (after! ace-window
