@@ -49,6 +49,6 @@ yabai -m rule --add app="Disk Utility" manage=off
 yabai -m rule --add app="Messenger" title="Media Viewer" manage=off
 yabai -m rule --add app="Finder" title="Copy" manage=off
 yabai -m rule --add app="Finder" title=" Info$" manage=off
-yabai -m rule --add app="Home" title="Home" manage=off
+yabai -m rule --add app="Home" manage=off
 
 echo "yabai configuration loaded.."
