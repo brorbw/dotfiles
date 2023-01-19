@@ -50,5 +50,5 @@ yabai -m rule --add app="Messenger" title="Media Viewer" manage=off
 yabai -m rule --add app="Finder" title="Copy" manage=off
 yabai -m rule --add app="Finder" title=" Info$" manage=off
 yabai -m rule --add app="Home" manage=off
-
+yabai -m rule --add app="1Password" manage=off
 echo "yabai configuration loaded.."
