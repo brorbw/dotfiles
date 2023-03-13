@@ -10,7 +10,7 @@
     (evil-surround-region (car bounds) (cdr bounds) 'inclusive char)))
 
 (defun me/eval-and-replace ()
-  "Replace the preceding sexp with its value."
+  "replace the preceding sexp with its value."
   (interactive)
   (up-list)
   (backward-char)
@@ -18,7 +18,14 @@
     (backward-up-list)
     (mark-sexp)
     (kill-sexp)
-    (insert (format "%S" value))))
+    (insert (format "%s" value))))
+
+(defun me/eval ()
+  "replace the preceding sexp with its value."
+  (interactive)
+  (up-list)
+  (backward-char)
+  (eval (elisp--preceding-sexp)))
 
 (defun me/eval-and-replace1 ()
   "Replace the preceding sexp with its value."
@@ -93,6 +100,13 @@
  :desc "Replace expression with result"
  :leader
  "\\" 'me/eval-and-replace)
+
+(map!
+ :mode emacs-lisp-mode
+ :desc "eval"
+ :localleader
+ :prefix "e"
+ "e" 'me/eval)
 
 (map!
  :desc "Search and rename word at..."
