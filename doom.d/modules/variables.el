@@ -36,6 +36,7 @@
 (setq-default indent-tabs-mode t)
 (setq! treemacs-indentation 1)
 
+(add-hook! 'sh-mode-hook (setq-local indent-tabs-mode t))
 
 (setq avy-all-windows t)
 (after! ace-window

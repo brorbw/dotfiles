@@ -328,7 +328,7 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH=$PATH:/Users/void/.spicetify
 
 alias mountefi="$HOME/Projects/MountEFI/MountEFI.command"
-alias add-repos="$HOME/.config/add-repos-as-projects.sh"
+alias add-repos="$HOME/.config/scripts/add-repos-as-projects.sh"
 alias org="cd ~/Library/Mobile\ Documents/iCloud~com~appsonthemove~beorg/Documents/org"
 function clearDNS () {
 	sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
