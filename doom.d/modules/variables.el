@@ -76,3 +76,16 @@
 (setq magit-repository-directories
       `(("~/clearhaus" . 1)
 	("~/Projects" . 1)))
+
+;; nginx mode
+(add-to-list 'auto-mode-alist '("/nginx/sites-\\(?:available\\|enabled\\)/" . nginx-mode))
+
+;; make code review use forge api key
+(setq code-review-auth-login-marker 'forge)
+
+(add-hook 'code-review-mode-hook
+          (lambda ()
+            ;; include *Code-Review* buffer into current workspace
+            (persp-add-buffer (current-buffer))))
+
+(setq home-assistant/enabled t)
