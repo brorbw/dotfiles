@@ -342,3 +342,7 @@ function pwoff () {
 function myip () {
 	curl https://icanhazip.com
 }
+
+function initUA () {
+	source ~/.config/scripts/ue-fix-build-stuff.sh
+}
