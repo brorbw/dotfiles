@@ -32,6 +32,7 @@
 
 (load! "modules/pci")
 (load! "modules/custom-keymappings")
+(load! "modules/change-color-based-on-project-name")
 (load! "modules/variables")
 (load! "modules/hooks")
 ;; (load! "modules/svg-tag-tags")
@@ -42,6 +43,7 @@
 (load! "modules/bnf-mode")
 (load! "modules/suez-mode")
 (load! "modules/pw-gen")
+
 
 (load! "modules/packages")
 
