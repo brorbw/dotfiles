@@ -337,3 +337,7 @@ function clearDNS () {
 function pwoff () {
 	sudo shutdown -h now
 }
+
+function myip () {
+	curl https://icanhazip.com
+}
