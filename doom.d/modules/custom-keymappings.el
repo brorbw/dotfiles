@@ -4,6 +4,10 @@
 
 (setq-default doom-localleader-key ",")
 
+(defun me/copy-pr-url (pullreq)
+  (interactive (list (forge-read-pullreq "Browse pull-request" t)))
+  (kill-new (forge-get-url (forge-get-pullreq pullreq))))
+
 (defun me/surround-with-symbol (char)
   (interactive)
   (let ((bounds (bounds-of-thing-at-point 'symbol)))
@@ -25,7 +29,7 @@
   (interactive)
   (up-list)
   (backward-char)
-  (eval (elisp--preceding-sexp)))
+  (message (eval (elisp--preceding-sexp))))
 
 (defun me/eval-and-replace1 ()
   "Replace the preceding sexp with its value."
@@ -84,6 +88,31 @@
  "]" '(lambda ()
 	(interactive)
 	(me/surround-with-symbol ?\])))
+
+(map!
+ :desc "Jump backward"
+ :localleader
+ "." #'better-jumper-jump-backward)
+
+;; (map!
+;;  :desc "compile from current dir"
+;;  :leader
+;;  :prefix "c"
+;;  "," #'(lambda (command &optional comint)
+;; 	 (interactive
+;; 	  (list
+;; 	   (let ((command (eval compile-command)))
+;; 	     (if (or compilation-read-command current-prefix-arg)
+;; 		 (compilation-read-command command)
+;; 	       command))
+;; 	   (consp current-prefix-arg)))
+;; 	 (unless (equal command (eval compile-command))
+;; 	   (setq compile-command command))
+;; 	 (save-some-buffers (not compilation-ask-about-save)
+;; 			    compilation-save-buffers-predicate)
+;; 	 (setq default-directory (doom-project-root))
+;; 	 (setq-default compilation-directory (doom-project-root))
+;; 	 (compilation-start command comint)))
 
 (map!
  :desc "Switch to workspace"

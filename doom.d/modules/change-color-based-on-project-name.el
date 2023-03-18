@@ -49,7 +49,7 @@
       (if (file-exists-p (concat (doom-project-root) ".color"))
 	  (home-assistant/change-color
 	   (read (f-read-text (concat (doom-project-root) ".color"))))
-	(message "No .color found in project root. Using default color")
+	;; (message "No .color found in project root. Using default color")
 	(home-assistant/change-color home-assistant/default-color))))
 
 (defun home-assistant/is-enabled ()

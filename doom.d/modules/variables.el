@@ -31,9 +31,9 @@
 			 "--single-quote" "true"
 			 "--trailing-comma" "all" "es6"))
 
+(setq-default indent-tabs-mode t)
 (setq-default tab-width 2)
 (setq-default rust-indent-offset 4) ;; fucking rust
-(setq-default indent-tabs-mode t)
 (setq! treemacs-indentation 1)
 
 (add-hook! 'sh-mode-hook (setq-local indent-tabs-mode t))
@@ -56,18 +56,18 @@
 ;;                                 "--header-insertion-decorators=0"))
 ;; (after! lsp-clangd (set-lsp-priority! 'clangd 2))
 
-;; (setq lsp-clients-clangd-args '("-j=3"
-;; 				"--all-scopes-completion"
-;;                                 "--background-index"
-;;                                 "--clang-tidy"
-;;                                 "--completion-style=detailed"
-;;                                 "--header-insertion=iwyu"
-;;                                 "--header-insertion-decorators=0"))
-;; (after! lsp-clangd (set-lsp-priority! 'clangd 2))
+(setq lsp-clients-clangd-args '("-j=3"
+				"--all-scopes-completion"
+                                "--background-index"
+                                "--clang-tidy"
+                                "--completion-style=detailed"
+                                "--header-insertion=iwyu"
+                                "--header-insertion-decorators=0"))
+(after! lsp-clangd (set-lsp-priority! 'clangd 2))
 
-(after! ccls
-  (setq ccls-initialization-options '(:index (:comments 2) :completion (:detailedLabel t)))
-  (set-lsp-priority! 'ccls 2))
+;; (after! ccls
+;;   (setq ccls-initialization-options '(:index (:comments 2) :completion (:detailedLabel t)))
+;;   (set-lsp-priority! 'ccls 2))
 
 (setq! +ligatures-in-modes '(elisp-mode))
 

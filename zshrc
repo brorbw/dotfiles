@@ -346,3 +346,4 @@ function myip () {
 function initUA () {
 	source ~/.config/scripts/ue-fix-build-stuff.sh
 }
+export $EMACSDIR=~/.emacs.d
