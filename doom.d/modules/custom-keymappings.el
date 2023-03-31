@@ -310,3 +310,21 @@
  :leader
  :prefix "e"
  "c" #'me/get-CPU-data)
+
+(map!
+ :desc "Focus"
+ :leader
+ :prefix "e"
+ "f" #'(lambda ()
+	 (interactive)
+	 (start-process-shell-command "start focus" nil "zsh -c \"source ~/.config/zshrc; focus_base\"")))
+
+(map!
+ :desc "Focus"
+ :leader
+ :prefix "e"
+ "p" #'(lambda ()
+	 (interactive)
+	 (message "%s"
+		  (ansi-color-apply
+		   (shell-command-to-string "zsh -c \"source ~/.config/zshrc; focus_status\"")))))
