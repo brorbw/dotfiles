@@ -346,4 +346,16 @@ function myip () {
 function initUA () {
 	source ~/.config/scripts/ue-fix-build-stuff.sh
 }
-export $EMACSDIR=~/.emacs.d
+
+
+function vdc-unlock() {
+	cd ~/clearhaus/pci-procesr-cluster > /dev/null
+	git-crypt unlock
+	VALUE=$(grep vd_http_basic_auth_username vars-test-secrets.tfvars | sed -r 's/[^"]+"([^"]+)"$/\1/')
+	export VD_HTTP_BASIC_AUTH_USERNAME="$VALUE"
+	VALUE=$(grep vd_http_basic_auth_password vars-test-secrets.tfvars | sed -r 's/[^"]+"([^"]+)"$/\1/')
+	export VD_HTTP_BASIC_AUTH_PASSWORD="$VALUE"
+	VALUE=$(grep vd_mle_key_id vars-test-secrets.tfvars | sed -r 's/[^"]+"([^"]+)"$/\1/')
+	export VD_MLE_KEY_ID="$VALUE"
+	cd - > /dev/null
+}
