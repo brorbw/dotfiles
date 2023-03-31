@@ -58,11 +58,11 @@
 
 (setq lsp-clients-clangd-args '("-j=3"
 				"--all-scopes-completion"
-                                "--background-index"
-                                "--clang-tidy"
-                                "--completion-style=detailed"
-                                "--header-insertion=iwyu"
-                                "--header-insertion-decorators=0"))
+				"--background-index"
+				"--clang-tidy"
+				"--completion-style=detailed"
+				"--header-insertion=iwyu"
+				"--header-insertion-decorators=0"))
 (after! lsp-clangd (set-lsp-priority! 'clangd 2))
 
 ;; (after! ccls
@@ -86,8 +86,8 @@
 (setq code-review-auth-login-marker 'forge)
 
 (add-hook 'code-review-mode-hook
-          (lambda ()
-            ;; include *Code-Review* buffer into current workspace
-            (persp-add-buffer (current-buffer))))
+	  (lambda ()
+	    ;; include *Code-Review* buffer into current workspace
+	    (persp-add-buffer (current-buffer))))
 
 (setq home-assistant/enabled t)
