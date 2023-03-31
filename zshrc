@@ -342,7 +342,7 @@ function myip () {
 	curl https://icanhazip.com
 }
 
-function initUA () {
+function initUE () {
 	source ~/.config/scripts/ue-fix-build-stuff.sh
 }
 
