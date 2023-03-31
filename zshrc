@@ -306,7 +306,6 @@ export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/docker-virtualbox/bin:$PATH"
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
-export PATH_TO_TOOLCHAIN=~/clearhaus/toolchain
 export PATH="$HOME/.rtags/bin:$PATH"
 export PATH=/usr/local/smlnj/bin:"$PATH"
 #source /tmp/docker-virtualbox.env
