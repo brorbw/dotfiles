@@ -91,3 +91,6 @@
 	    (persp-add-buffer (current-buffer))))
 
 (setq home-assistant/enabled t)
+
+;; Don't insert space between code fence and language
+(setq-default markdown-spaces-after-code-fence 0)
