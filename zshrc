@@ -448,3 +448,14 @@ function disable_dnd {
 	defaults -currentHost write ~/Library/Preferences/ByHost/com.apple.notificationcenterui doNotDisturb -boolean false
 	killall NotificationCenter
 }
+
+function xcode_schemes_list {
+	xcodebuild -list -workspace $(find . -name '*.xcworkspace')
+}
+
+function xcode_scheme_build {
+	xcodebuild -scheme $1 build
+}
+
+alias xsl=xcode_schemes_list
+alias xsb=xcode_scheme_build
