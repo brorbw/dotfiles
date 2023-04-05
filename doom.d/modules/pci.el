@@ -9,6 +9,8 @@
   :lighter " PCI"
   :keymap (make-sparse-keymap))
 
+(setq pci/command-line-program "ap")
+
 (evil-define-key 'normal 'pci-mode (kbd "q") #'kill-current-buffer)
 
 (defun pci/transaction-auth ()
@@ -74,7 +76,7 @@
   (with-output-to-temp-buffer "*pci-term*"
     (pop-to-buffer "*pci-term*")
     (setq-local process-connection-type 'pty)
-    (async-shell-command (concat "pci" " " command " " (string-join arg " ") ) "*pci-term*")
+    (async-shell-command (concat pci/command-line-program " " command " " (string-join arg " ")) "*pci-term*")
     (evil-escape)
     (pci-mode)))
 
@@ -82,7 +84,7 @@
   (with-output-to-temp-buffer "*pci*"
     (pop-to-buffer "*pci*")
     (setq-local process-connection-type nil)
-    (async-shell-command (concat "pci" " " command " " (string-join arg " ") ) "*pci*")
+    (async-shell-command (concat pci/command-line-program " " command " " (string-join arg " ") ) "*pci*")
     (evil-escape)
     (setq-local buffer-read-only t)
     (read-only-mode 1)
@@ -92,7 +94,7 @@
   (with-output-to-temp-buffer "*pci*"
     (pop-to-buffer "*pci*")
     (setq-local process-connection-type nil)
-    (async-shell-command (concat "pci" " " command " " (string-join arg " ") ) "*pci*")
+    (async-shell-command (concat pci/command-line-program " " command " " (string-join arg " ") ) "*pci*")
     (evil-escape)
     (setq-local buffer-read-only t)
     (read-only-mode 1)
