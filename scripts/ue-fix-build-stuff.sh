@@ -1,4 +1,8 @@
 #!/usr/bin/zsh
+if [[ -z $PWD/$(basename $PWD).uproject ]]; then
+	echo "No project file found"
+	exit 1
+fi
 
 # First we create the "good" compile_commands.json
 $HOME/Projects/UnrealEngine/Engine/Build/BatchFiles/Mac/GenerateProjectFiles.sh \
