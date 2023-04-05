@@ -1,8 +1,8 @@
 #!/usr/bin/zsh
 
 # First we create the "good" compile_commands.json
-/Users/Shared/Epic\ Games/UE_5.1/Engine/Build/BatchFiles/Mac/GenerateProjectFiles.sh \
-	-project="$PWD/$(basename $PWD).uproject" -game -CMakefile
+$HOME/Projects/UnrealEngine/Engine/Build/BatchFiles/Mac/GenerateProjectFiles.sh \
+	-project="$PWD/$(basename $PWD).uproject" -game -Engine -CMakefile
 
 cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .
 
@@ -10,8 +10,8 @@ cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .
 rm Makefile
 
 # Create a simple makefile
-/Users/Shared/Epic\ Games/UE_5.1/Engine/Build/BatchFiles/Mac/GenerateProjectFiles.sh \
-	-project="$PWD/$(basename $PWD).uproject" -game -Makefile
+$HOME/Projects/UnrealEngine/Engine/Build/BatchFiles/Mac/GenerateProjectFiles.sh \
+	-project="$PWD/$(basename $PWD).uproject" -game -Engine -Makefile
 
 # Correct the the makefile becase we are _not_ on Linux
 
