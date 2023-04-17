@@ -290,6 +290,13 @@
     (propertize "Time code today: " 'face 'bold)
     (replace-regexp-in-string "\n" ""
 			      (shell-command-to-string "wakatime-cli --today")))))
+
+(map!
+ :desc "Previous buffer"
+ :leader
+ :prefix "t"
+ "h" #'home-assistant/toggle)
+
 (require 'json)
 
 (defun me/get-CPU-data ()
