@@ -7,7 +7,7 @@
   "Light theme value")
 
 (defcustom me/tty-theme
-  'doom-one
+  'adwaita
   "Dark theme for tty")
 
 ;; set theme for tty sessions
