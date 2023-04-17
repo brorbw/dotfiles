@@ -450,7 +450,7 @@ function disable_dnd {
 }
 
 function xcode_schemes_list {
-	xcodebuild -list -workspace $(find . -name '*.xcworkspace')
+	xcodebuild -list -workspace $(find . -depth 1 -name '*.xcworkspace')
 }
 
 function xcode_scheme_build {
