@@ -459,3 +459,5 @@ function xcode_scheme_build {
 
 alias xsl=xcode_schemes_list
 alias xsb=xcode_scheme_build
+# alias unreal=/Users/nah/Projects/UnrealEngine/Engine/Binaries/Mac/UnrealEditorServices.app/Contents/MacOS/UnrealEditorServices
+alias unreal="open -a /Users/nah/Projects/UnrealEngine/Engine/Binaries/Mac/UnrealEditorServices.app ."
