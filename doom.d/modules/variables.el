@@ -97,3 +97,5 @@
 
 ;; Don't insert space between code fence and language
 (setq-default markdown-spaces-after-code-fence 0)
+
+(add-to-list 'auto-mode-alist '("\\.ino\\'" . cpp-mode))
