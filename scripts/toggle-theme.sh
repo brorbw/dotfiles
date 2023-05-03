@@ -31,7 +31,6 @@ function toggle-light-yabai-and-spacebar() {
 	spacebar -m config background_color 0xffe5e9f0
 	spacebar -m config foreground_color 0xff616377
 	spacebar -m config space_icon_color 0xfffd4747
-
 }
 
 function toggle-dark() {
