@@ -32,7 +32,7 @@
 
 (load! "modules/pci")
 (load! "modules/custom-keymappings")
-(load! "modules/change-color-based-on-project-name")
+(load! "modules/home-assistant")
 (load! "modules/variables")
 (load! "modules/hooks")
 ;; (load! "modules/svg-tag-tags")
