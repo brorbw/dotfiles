@@ -85,6 +85,9 @@
 ;; make code review use forge api key
 (setq code-review-auth-login-marker 'forge)
 
+(setq +zen-text-scale 0)
+(setq writeroom-width 100)
+
 (add-hook 'code-review-mode-hook
 	  (lambda ()
 	    ;; include *Code-Review* buffer into current workspace
