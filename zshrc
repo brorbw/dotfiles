@@ -380,7 +380,9 @@ END
 }
 
 function focus {
-	focus_base $@
+	if [[ "$1" != "status" ]]; then
+		focus_base $@
+	fi
 	focus_status
 }
 
