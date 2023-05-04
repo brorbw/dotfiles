@@ -99,3 +99,23 @@
 (setq-default markdown-spaces-after-code-fence 0)
 
 (add-to-list 'auto-mode-alist '("\\.ino\\'" . cpp-mode))
+
+;;; Fix for evil-org navigation https://github.com/doomemacs/doomemacs/issues/4935
+;;; Unshadow evil-org's bindings, if we expect it to be loaded.
+(when (and (featurep! :lang org) (featurep! :editor evil +everywhere))
+  ;; Move visual-line-mode bindings from evil-integration.el out of the way.
+  (when (and evil-want-integration evil-respect-visual-line-mode)
+    (general-define-key
+     :definer 'minor-mode
+     :states 'motion
+     :keymaps 'visual-line-mode
+     "gj" nil
+     "gk" nil
+     "gs M-j" #'evil-next-line
+     "gs M-k" #'evil-previous-line))
+  ;; Move the evil-lion bindings out of the way too.
+  (map!
+   :nv "gl" nil
+   :nv "gL" nil
+   :nv "gzl" #'evil-lion-left
+   :nv "gzL" #'evil-lion-right))
