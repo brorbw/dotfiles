@@ -6,6 +6,9 @@
 (setq-default home-assistant/entity-id "light.wiz_rgbw_tunable_47bcd8")
 (setq-default home-assistant/default-color '(255 0 50))
 
+(unless (f-file-p home-assistant/path-to-token)
+  (setq home-assistant/enabled nil))
+
 (defun home-assistant/string-trim-final-newline (string)
   (let ((len (length string)))
     (cond
