@@ -277,19 +277,6 @@
 	 (interactive)
 	 (start-process-shell-command "toggle-theme" nil "source ~/.config/zshrc; tt")))
 
-(map!
- :desc "Print wakatime today"
- :leader
- :prefix "e"
- "w" #'me/wakatime-today)
-
-(defun me/wakatime-today ()
-  (interactive)
-  (message
-   (concat
-    (propertize "Time code today: " 'face 'bold)
-    (replace-regexp-in-string "\n" ""
-			      (shell-command-to-string "wakatime-cli --today")))))
 
 (map!
  :desc "Previous buffer"
@@ -313,28 +300,31 @@
 		   power temperature cpu-freq-avg cpu-freq-max))))
 
 (map!
- :desc "Print CPU data"
  :leader
- :prefix "e"
- "c" #'me/get-CPU-data)
+ :prefix ("e" . "personal")
+ :desc "Print CPU data" "s" #'me/get-CPU-data
+ :desc "Focus start" "f" #'me/focus-start
+ :desc "Focus status" "p" #'me/focus-status
+ :desc "Print wakatime today" "w" #'me/wakatime-today
+ :desc "Find roam node" "e" #'org-roam-node-find)
 
-(map!
- :desc "Focus"
- :leader
- :prefix "e"
- "f" #'(lambda ()
+(defun me/focus-start ()
 	 (interactive)
-	 (start-process-shell-command "start focus" nil "zsh -c \"source ~/.config/zshrc; focus_base\"")))
+	 (start-process-shell-command "start focus" nil "zsh -c \"source ~/.config/zshrc; focus_base\""))
 
-(map!
- :desc "Focus"
- :leader
- :prefix "e"
- "p" #'(lambda ()
+(defun me/focus-status ()
 	 (interactive)
 	 (message "%s"
 		  (ansi-color-apply
-		   (shell-command-to-string "zsh -c \"source ~/.config/zshrc; focus_status\"")))))
+		   (shell-command-to-string "zsh -c \"source ~/.config/zshrc; focus_status\""))))
+
+(defun me/wakatime-today ()
+  (interactive)
+  (message
+   (concat
+    (propertize "Time code today: " 'face 'bold)
+    (replace-regexp-in-string "\n" ""
+			      (shell-command-to-string "wakatime-cli --today")))))
 
 ;;; chatGPT
 (map!
