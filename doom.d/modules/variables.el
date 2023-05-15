@@ -119,3 +119,5 @@
    :nv "gL" nil
    :nv "gzl" #'evil-lion-left
    :nv "gzL" #'evil-lion-right))
+
+(setq chat-bot-prompt "GPT > ")

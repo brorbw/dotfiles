@@ -335,3 +335,20 @@
 	 (message "%s"
 		  (ansi-color-apply
 		   (shell-command-to-string "zsh -c \"source ~/.config/zshrc; focus_status\"")))))
+
+;;; chatGPT
+(map!
+ :map evilem-map
+ :desc "chatgpt"
+ "c" #'chat-query-dwim)
+
+(map!
+ :mode chat-query-mode
+ :localleader
+ :desc "Reply" "r" #'chat-query-reply)
+
+(map!
+ :leader
+ :prefix "o"
+ :desc "chatgpt"
+ "c" #'chat)
