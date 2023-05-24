@@ -308,6 +308,12 @@
  :desc "Print wakatime today" "w" #'me/wakatime-today
  :desc "Find roam node" "e" #'org-roam-node-find)
 
+(map!
+ :leader
+ :desc "Room temp"
+ :prefix "e"
+ "t" #'home-assistant/temperature)
+
 (defun me/focus-start ()
 	 (interactive)
 	 (start-process-shell-command "start focus" nil "zsh -c \"source ~/.config/zshrc; focus_base\""))

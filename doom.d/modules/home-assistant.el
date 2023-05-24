@@ -2,6 +2,7 @@
 
 (setq-default home-assistant/turn_on_url "https://ha.nobad.coffee/api/services/light/turn_on")
 (setq-default home-assistant/turn_off_url "https://ha.nobad.coffee/api/services/light/turn_off")
+(setq-default home-assistant/temp_sensor_url "https://ha.nobad.coffee/api/states/sensor.livingroom_sonoff_snzb_02_temperature")
 (setq-default home-assistant/path-to-token "~/.ha-token")
 (setq-default home-assistant/entity-id "light.wiz_rgbw_tunable_47bcd8")
 (setq-default home-assistant/default-color '(255 0 50))
@@ -57,6 +58,29 @@
 
 (defun home-assistant/is-enabled ()
   (if home-assistant/enabled "enabled" "disabled"))
+
+(require 'json)
+
+(defun home-assistant/temperature ()
+  (interactive)
+  (request home-assistant/temp_sensor_url
+    :type "GET"
+    :headers `(("Content-Type" . "application/json")
+	       ("Authorization" . ,(concat "Bearer " (home-assistant/string-trim-final-newline (f-read-text home-assistant/path-to-token)))))
+    :error
+    (cl-function (lambda (&rest args &key error-thrown &allow-other-keys)
+		   (message "Got error: %S" error-thrown)))
+    :success (cl-function
+	      (lambda (&key data &allow-other-keys)
+		(let* ((json-object-type 'hash-table)
+		       (json-array-type 'list)
+		       (json-key-type 'symbol)
+		       (json-res (json-read-from-string data)))
+		  (message (concat
+			    "Temperature: "
+			    (gethash 'state json-res)
+			    (gethash 'unit_of_measurement
+				     (gethash 'attributes json-res)))))))))
 
 (defun home-assistant/toggle (&optional val)
   (interactive)
