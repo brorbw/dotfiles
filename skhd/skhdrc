@@ -215,4 +215,4 @@ defaults write com.googlecode.iterm2 OpenFileInNewWindows true
 
 ctrl + cmd - e: open -a Emacs
 
-ctrl + cmd - r: launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+ctrl + cmd - r: yabai --restart-service
