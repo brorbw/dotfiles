@@ -302,17 +302,12 @@
 (map!
  :leader
  :prefix ("e" . "personal")
- :desc "Print CPU data" "s" #'me/get-CPU-data
- :desc "Focus start" "f" #'me/focus-start
- :desc "Focus status" "p" #'me/focus-status
+ :desc "Print CPU data"       "s" #'me/get-CPU-data
+ :desc "Focus start"          "f" #'me/focus-start
+ :desc "Focus status"         "p" #'me/focus-status
  :desc "Print wakatime today" "w" #'me/wakatime-today
- :desc "Find roam node" "e" #'org-roam-node-find)
-
-(map!
- :leader
- :desc "Room temp"
- :prefix "e"
- "t" #'home-assistant/temperature)
+ :desc "Find roam node"       "e" #'org-roam-node-find
+ :desc "Room temp"            "t" #'home-assistant/temperature)
 
 (defun me/focus-start ()
 	 (interactive)
