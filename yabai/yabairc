@@ -33,11 +33,11 @@ yabai -m config mouse_action2 resize
 
 # general space settings
 yabai -m config layout bsp
-yabai -m config top_padding 0
-yabai -m config bottom_padding 0
-yabai -m config left_padding 0
-yabai -m config right_padding 0
-yabai -m config window_gap 0
+yabai -m config top_padding 30
+yabai -m config bottom_padding 30
+yabai -m config left_padding 30
+yabai -m config right_padding 30
+yabai -m config window_gap 30
 
 yabai -m rule --add app=Emacs manage=on
 yabai -m rule --add app=emacs manage=on
@@ -50,6 +50,7 @@ yabai -m rule --add app="Messenger" title="Media Viewer" manage=off
 yabai -m rule --add app="Finder" title="Copy" manage=off
 yabai -m rule --add app="Unreal Editor" title="Message Log" manage=off
 yabai -m rule --add app="Finder" title=" Info$" manage=off
+yabai -m rule --add app="Firefox" title"Extension: (Tree Style Tab) - Close tabs?" manage=off
 yabai -m rule --add app="Home" manage=off
 yabai -m rule --add app="1Password" manage=off
 echo "yabai configuration loaded.."

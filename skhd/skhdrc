@@ -207,6 +207,8 @@ ctrl + cmd - a: zsh -c "source ~/.config/zshrc; tt"
 
 ctrl + cmd - c: zsh -c "BluetoothConnector --connect $(cat ~/.airpodsbssid) --notify"
 
+ctrl + cmd - b: zsh -c "source ~/.config/zshrc; cyberpunk"
+
 ctrl + cmd - g: open "https://github.com/clearhaus/issues-pci/issues"
 
 ctrl + cmd - t: defaults write com.googlecode.iterm2 OpenFileInNewWindows true; \

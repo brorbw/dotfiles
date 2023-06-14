@@ -11,6 +11,7 @@ function toggle-theme() {
 
 export LIGHT_THEME="nord-light"
 export DARK_THEME="goodenough"
+export CYBERPUNK="cyberpunk-2077"
 
 function toggle-light() {
 	alias cat="bat --paging never --theme=GitHub"
@@ -52,4 +53,20 @@ function toggle-dark-yabai-and-spacebar() {
 	spacebar -m config background_color 0xff212337
 	spacebar -m config foreground_color 0xffc8d3f5
 	spacebar -m config space_icon_color 0xff5698f1
+}
+
+function toggle-cyberpunk() {
+	alias cat="bat --paging never --theme=default"
+	$(osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to true' &)
+	BAK_PIPFILE=$PIPENV_PIPFILE
+	(PIPENV_PIPFILE=~/Projects/iterm2-theme-toggle/Pipfile exec pipenv run python3 ~/Projects/iterm2-theme-toggle/main.py $CYBERPUNK >/dev/null 2>&1 &)
+	PIPENV_PIPFILE=$BAK_PIPFILE
+	# yabai dark values
+	yabai -m config active_window_border_color 0xff5df5fd
+	yabai -m config normal_window_border_color 0xff2b5f5c
+	yabai -m config window_border_width 2
+	# spacebar dark values
+	spacebar -m config background_color 0xff1e080a
+	spacebar -m config foreground_color 0xff47b7aa
+	spacebar -m config space_icon_color 0xff2b5f5c
 }

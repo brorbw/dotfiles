@@ -180,6 +180,11 @@ function tt() {
 	fi
 }
 
+function cyberpunk() {
+	toggle-cyberpunk
+	emacsclient --eval "(load-theme 'cyberpunk-2077)" &
+}
+
 function update-antigen() {
 	if [[ "$OSTYPE"	== "darwin"* ]]; then
 	curl -L git.io/antigen > ~/.dotfiles/antigen.zsh
@@ -371,7 +376,6 @@ function focus_base() {
 		start\
 		--blocklist ~/.config/SelfControl/blocklist.selfcontrol\
 		--enddate $(date -d "+$FOCUS_TIME minute" -u +"%Y-%m-%dT%H:%M:%S%z") >/dev/null 2>&1
-	open -a Pomofocus
 	enable_dnd
 at now +"$FOCUS_TIME" minutes <<END
 defaults -currentHost write ~/Library/Preferences/ByHost/com.apple.notificationcenterui doNotDisturb -boolean false
@@ -403,8 +407,6 @@ function focus_status() {
 }
 
 alias fs=focus_status
-alias pomodoro="open -a Pomofocus"
-alias pomofocus="open -a Pomofocus"
 
 function _time_until_focus_end {
 	START_DATE=$(date -u +"%Y-%m-%dT%H:%M:%S")
@@ -518,4 +520,30 @@ unlock-aws-pci-stag() {
 	export AWS_REGION=$(echo $aws_pci_stag_credentials | jq --raw-output '.fields[] | select(."label" == "AWS_REGION").value')
 	export AWS_ACCESS_KEY_ID=$(echo $aws_pci_stag_credentials | jq --raw-output '.fields[] | select(."label" == "AWS_ACCESS_KEY_ID").value')
 	export AWS_SECRET_ACCESS_KEY=$(echo $aws_pci_stag_credentials | jq --raw-output '.fields[] | select(."label" == "AWS_SECRET_ACCESS_KEY").value')
+}
+
+unlock-aws-pci-prod() {
+	eval $(op signin)
+	aws_pci_prod_credentials=$(op item get aws-pci-prod --format json 2>/dev/null)
+	export AWS_REGION=$(echo $aws_pci_prod_credentials | jq --raw-output '.fields[] | select(."label" == "AWS_REGION").value')
+	export AWS_ACCESS_KEY_ID=$(echo $aws_pci_prod_credentials | jq --raw-output '.fields[] | select(."label" == "AWS_ACCESS_KEY_ID").value')
+	export AWS_SECRET_ACCESS_KEY=$(echo $aws_pci_prod_credentials | jq --raw-output '.fields[] | select(."label" == "AWS_SECRET_ACCESS_KEY").value')
+}
+
+print-colors() {
+	T='gYw'   # The test text
+
+	echo -e "\n                 40m     41m     42m     43m     44m     45m     46m     47m";
+
+	for FGs in '    m' '   1m' '  30m' '1;30m' '  31m' '1;31m' '  32m' \
+		'1;32m' '  33m' '1;33m' '  34m' '1;34m' '  35m' '1;35m' \
+		'  36m' '1;36m' '  37m' '1;37m';
+	do FG=${FGs// /}
+		 echo -en " $FGs \033[$FG  $T  "
+		 for BG in 40m 41m 42m 43m 44m 45m 46m 47m;
+		 do echo -en "$EINS \033[$FG\033[$BG  $T  \033[0m";
+		 done
+		 echo;
+	done
+	echo
 }
