@@ -64,6 +64,7 @@ open -a reikey
 # fonts
 brew tap homebrew/cask-fonts
 brew install --cask font-fira-code
+brew install --cask font-roboto-mono
 
 # terminal & emacs stuff
 brew install bat
@@ -291,27 +292,15 @@ if $AMD_HACKINTOSH; then
 fi
 
 # Installing minikube and docker:
-
 # `brew install minikube docker`
-
 # Creating the kubernets cluster using the virtualbox driver:
-
 # `minikube start --driver=virtualbox --keep-context`
-
 # Configures the Docker CLI in your current shell to use the minikube's docker:
-
 # `eval $(minikube docker-env)`
-
 # To use docker-compose just install it via homebrew:
-
 # `brew install docker-compose`
-
 # If you want to access a served application on a container (localhost:8080/route), you'll need the minikube IP to access it, using localhost won't work. And to retrieve the IP is just like that:
-
 # `minikube ip`
-
 # You can set this IP on /etc/hosts to access applications without typing the IP.
-
 # `sudo echo "$(minikube ip) minikube" >> /etc/hosts`
-
 # Now you can use docker without any problems on your Ryzentosh.
