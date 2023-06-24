@@ -4,7 +4,7 @@
 (setq-default home-assistant/turn_off_url "https://ha.nobad.coffee/api/services/light/turn_off")
 (setq-default home-assistant/temp_sensor_url "https://ha.nobad.coffee/api/states/sensor.livingroom_sonoff_snzb_02_temperature")
 (setq-default home-assistant/path-to-token "~/.ha-token")
-(setq-default home-assistant/entity-id "light.wiz_rgbw_tunable_47bcd8")
+(setq-default home-assistant/entity-id "light.bbw_desktop_01")
 (setq-default home-assistant/default-color '(255 0 50))
 
 (unless (file-exists-p home-assistant/path-to-token)
