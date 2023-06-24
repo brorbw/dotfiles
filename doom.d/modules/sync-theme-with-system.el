@@ -3,7 +3,7 @@
   'doom-moonlight
   "Dark theme value")
 (defcustom me/light-theme
-  'doom-nord-light
+  'doom-one-light
   "Light theme value")
 
 (defcustom me/tty-theme
