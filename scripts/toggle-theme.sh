@@ -9,7 +9,7 @@ function toggle-theme() {
 	fi
 }
 
-export LIGHT_THEME="nord-light"
+export LIGHT_THEME="AtomOneLight"
 export DARK_THEME="goodenough"
 export CYBERPUNK="cyberpunk-2077"
 
