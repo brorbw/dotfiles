@@ -514,6 +514,9 @@ alias tfva='tfvars apply'
 # alias tfvaaa='tfvars apply -auto-approve'
 alias tfvr='tfvars refresh'
 
+export PATH_TO_TOOLCHAIN="$HOME/clearhaus/toolchain"
+export PATH="$PATH:$HOME/clearhaus/toolchain/bin"
+
 unlock-aws-pci-stag() {
 	eval $(op signin)
 	aws_pci_stag_credentials=$(op item get aws-pci-stag --format json 2>/dev/null)
