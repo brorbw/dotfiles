@@ -39,7 +39,8 @@ yabai -m config left_padding 30
 yabai -m config right_padding 30
 yabai -m config window_gap 30
 
-yabai -m rule --add app=Emacs manage=on
+yabai -m rule --add app=Emacs title="$Doom Emacs$" manage=on
+yabai -m rule --add app=Emacs manage=off
 yabai -m rule --add app=emacs manage=on
 yabai -m rule --add app=Spotify manage=off
 yabai -m rule --add app=Notes manage=off
