@@ -10,7 +10,7 @@ function toggle-theme() {
 }
 
 export LIGHT_THEME="AtomOneLight"
-export DARK_THEME="goodenough"
+export DARK_THEME="DoomOne"
 export CYBERPUNK="cyberpunk-2077"
 
 function toggle-light() {
