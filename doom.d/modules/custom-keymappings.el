@@ -277,7 +277,6 @@
 	 (interactive)
 	 (start-process-shell-command "toggle-theme" nil "source ~/.config/zshrc; tt")))
 
-
 (map!
  :desc "Previous buffer"
  :leader

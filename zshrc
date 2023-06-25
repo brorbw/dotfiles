@@ -464,6 +464,7 @@ function xcode_scheme_build {
 alias xsl=xcode_schemes_list
 alias xsb=xcode_scheme_build
 alias temp="~/.config/scripts/get-temp-at-desk.sh"
+alias power="~/.config/scripts/get-power.sh"
 # alias unreal=/Users/nah/Projects/UnrealEngine/Engine/Binaries/Mac/UnrealEditorServices.app/Contents/MacOS/UnrealEditorServices
 alias unreal="open -a /Users/nah/Projects/UnrealEngine/Engine/Binaries/Mac/UnrealEditorServices.app ."
 

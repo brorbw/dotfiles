@@ -1,6 +1,6 @@
 ;;; $DOOMDIR/modules/sync-theme-with-system.el -*- lexical-binding: t; -*-
 (defcustom me/dark-theme
-  'doom-moonlight
+  'doom-one
   "Dark theme value")
 (defcustom me/light-theme
   'doom-one-light
