@@ -81,6 +81,7 @@
 
 ;; nginx mode
 (add-to-list 'auto-mode-alist '("/nginx/sites-\\(?:available\\|enabled\\)/" . nginx-mode))
+(setq nginx-indent-tabs-mode 1)
 
 ;; make code review use forge api key
 (setq code-review-auth-login-marker 'forge)

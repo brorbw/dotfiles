@@ -298,6 +298,24 @@
     (princ (format "Power: %iW - Temperature: %i\u2103 - Freqiency(avg): %iGHz - Freqiency(max): %iGHz"
 		   power temperature cpu-freq-avg cpu-freq-max))))
 
+(defun me/better-global-zen ()
+  (interactive)
+  (require 'writeroom-mode)
+  (let ((writeroom-global-effects (remq 'writeroom-set-fullscreen +zen--old-writeroom-global-effects))
+        (writeroom-maximize-window t))
+    (if global-writeroom-mode
+	(setq global-writeroom-mode nil)
+      (setq global-writeroom-mode t))
+    (if writeroom-mode
+	(set-window-configuration +zen--last-wconf)
+      (setq +zen--last-wconf (current-window-configuration)))
+      (call-interactively #'+zen/toggle)))
+
+(map!
+  :leader
+  :prefix "t"
+  :desc "Toggle better global zen" "Z" #'me/better-global-zen)
+
 (map!
  :leader
  :prefix ("e" . "personal")
@@ -324,7 +342,7 @@
    (concat
     (propertize "Time code today: " 'face 'bold)
     (replace-regexp-in-string "\n" ""
-			      (shell-command-to-string "wakatime-cli --today")))))
+			      (shell-command-to-string "zsh -c \"source ~/.config/zshrc; wakatime-cli --today\"")))))
 
 ;;; chatGPT
 (map!

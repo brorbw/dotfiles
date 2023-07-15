@@ -50,8 +50,8 @@ function toggle-dark-yabai-and-spacebar() {
 	yabai -m config normal_window_border_color 0xff171933
 	yabai -m config window_border_width 2
 	# spacebar dark values
-	spacebar -m config background_color 0xff212337
-	spacebar -m config foreground_color 0xffc8d3f5
+	spacebar -m config background_color 0xff272c34
+	spacebar -m config foreground_color 0xffbbc2cf
 	spacebar -m config space_icon_color 0xff5698f1
 }
 
