@@ -2,7 +2,7 @@
 sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
-SPACEBAR_HEIGHT=$(spacebar -m config height)
+SPACEBAR_HEIGHT=$(sketchybar --query bar | jq '[.height, .y_offset | tonumber] | add')
 # yabai -m config external_bar all:0:$SPACEBAR_HEIGHT
 yabai -m config external_bar all:$SPACEBAR_HEIGHT:0
 
@@ -20,7 +20,7 @@ yabai -m config window_shadow off
 yabai -m config window_border on
 yabai -m config window_border_width 2
 yabai -m config active_window_border_color 0xffc678dd
-yabai -m config normal_window_border_color 0xff171933
+yabai -m config normal_window_border_color 0xff21242b
 yabai -m config insert_window_border_color 0xff000000
 yabai -m config active_window_opacity 1.0
 yabai -m config normal_window_opacity 1.0

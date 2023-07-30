@@ -65,6 +65,7 @@ open -a reikey
 brew tap homebrew/cask-fonts
 brew install --cask font-fira-code
 brew install --cask font-roboto-mono
+brew install --cask font-hack-nerd-font
 
 # terminal & emacs stuff
 brew install bat
@@ -132,8 +133,7 @@ git clone https://github.com/jeffreytse/zsh-vi-mode \
 # custom stuff
 brew install koekeishiya/formulae/yabai
 brew install koekeishiya/formulae/skhd
-brew install cmacrae/formulae/spacebar
-
+brew tap FelixKratz/formulae/sketchybar
 # GO
 brew install go
 source ~/.zshrc
