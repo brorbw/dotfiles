@@ -69,7 +69,7 @@
    (read
     (concat
      "("
-     (shell-command-to-string "pci local-stack list")
+     (shell-command-to-string (concat pci/command-line-program " local-stack list"))
      ")"))))
 
 (defun pci/call-command-with-tty (command &rest arg)
