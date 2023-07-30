@@ -278,6 +278,12 @@
 	 (start-process-shell-command "toggle-theme" nil "source ~/.config/zshrc; tt")))
 
 (map!
+ :desc "Copy forge link"
+ :leader
+ :prefix "c"
+ "g" #'git-link)
+
+(map!
  :desc "Previous buffer"
  :leader
  :prefix "t"
