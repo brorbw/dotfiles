@@ -1,8 +1,16 @@
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
-sketchybar --bar color=0xff272c34 \
-								 height=30 \
-								 border_width=2 \
-								 border_color=0xff21242b
+
+if [ "$(uname -m)" == "arm64" ]; then
+	sketchybar --bar color=0xff272c34 \
+									height=40 \
+									border_width=2 \
+									border_color=0xff21242b
+else
+	sketchybar --bar color=0xff272c34 \
+									height=30 \
+									border_width=2 \
+									border_color=0xff21242b
+fi
 
 sketchybar --default icon.font="Hack Nerd Font:Bold:15.0"  \
 										 icon.color=0xffbbc2cf                 \
