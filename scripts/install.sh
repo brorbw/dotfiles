@@ -193,10 +193,10 @@ npm install -g dockerfile-language-server-nodejs
 npm install -g zx
 
 # now to the sudo stuff
-sudo yabai --install-sa
+sudo yabai --load-sa
 
-brew services start skhd
-brew services start yabai
+skhd --start-service
+yabai --start-service
 killall Dock
 
 git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
