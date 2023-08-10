@@ -92,7 +92,6 @@
       (setq home-assistant/enabled (not home-assistant/enabled))
       (message (concat "Home assistant color change mode is " (home-assistant/is-enabled))))))
 
-
 (defun home-assistant/off ()
   (interactive)
   (setq home-assistant/enabled nil)
