@@ -279,7 +279,7 @@ export AWS_DEFAULT_REGION=eu-west-1
 alias av=aws-vault
 
 # Doom binaries
-export PATH=~/.emacs.d/bin:$PATH
+export PATH=$HOME/.config/emacs/bin:$PATH
 
 # starts the keycoutner
 function start-keyCounter () {
@@ -551,3 +551,6 @@ print-colors() {
 	done
 	echo
 }
+
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export PATH=$PATH:/Users/no/.spicetify
