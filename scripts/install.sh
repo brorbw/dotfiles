@@ -108,12 +108,11 @@ brew install languagetool
 brew install smlnj
 brew install duti
 brew install bear
+brew install wakatime-cli
 
 brew install zsh-syntax-highlighting
 
 duti ~/.config/duti.conf
-
-
 
 # RUBY
 brew install rbenv
@@ -176,7 +175,6 @@ gem install steep
 gem install solargraph
 gem install rubocop
 
-pip3 install wakatime
 pip3 install pytest
 pip3 install pipenv
 pip3 install isort
