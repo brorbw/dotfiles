@@ -21,7 +21,7 @@
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
 (if (eq system-type 'darwin)
-    (setq doom-font (font-spec :family "Roboto Mono" :size 14)
+    (setq doom-font (font-spec :family "Roboto Mono" :size 12)
           doom-variable-pitch-font (font-spec :family "Roboto Mono" :size 12))
   (setq doom-font (font-spec :family "monospace" :size 12)
         doom-variable-pitch-font (font-spec :family "monospace" :size 10)))
@@ -31,6 +31,7 @@
 (setq display-line-numbers-type t)
 
 (load! "modules/pci")
+(load! "modules/custom-functions")
 (load! "modules/custom-keymappings")
 (load! "modules/home-assistant")
 (load! "modules/variables")
