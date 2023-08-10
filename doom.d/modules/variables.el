@@ -22,7 +22,9 @@
     (use-package! wakatime-mode
       :hook doom-first-buffer
       :config
-      (setq wakatime-cli-path "/usr/local/bin/wakatime-cli")
+      (if (string-equal (me/get-arch) "arm64")
+      (setq wakatime-cli-path "/opt/homebrew/opt/wakatime-cli/bin/wakatime-cli")
+      (setq wakatime-cli-path "/usr/local/bin/wakatime-cli"))
       (global-wakatime-mode 1)))
 
 (setq rbenv-executable "/usr/local/opt/rbenv/bin/rbenv")
