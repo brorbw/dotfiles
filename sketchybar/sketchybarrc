@@ -49,9 +49,19 @@ sketchybar --add item clock right                              \
 					 --set clock   update_freq=1                        \
               icon=                                \
               script="$PLUGIN_DIR/clock.sh"         \
-					 --add item volume right                             \
+
+if [ "$(uname -m)" == "arm64" ]; then
+	sketchybar --add item battery right                            \
+						--set battery script="$PLUGIN_DIR/battery.sh"       \
+						update_freq=120                       \
+						--subscribe battery system_woke power_source_change
+fi
+
+sketchybar --add item volume right                             \
 					 --set volume  script="$PLUGIN_DIR/volume.sh"        \
 								 icon=󰋋 \
 					 --subscribe volume volume_change                    \
+
+
 
 sketchybar --update
