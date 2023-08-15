@@ -34,3 +34,4 @@ karabiner.json
 **/flycheck_*
 *.DS_Store
 /secrets/
+/emacs/
