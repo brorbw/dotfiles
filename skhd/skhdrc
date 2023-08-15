@@ -41,7 +41,7 @@ shift + cmd - k: yabai -m window --swap north || (yabai -m window --display nort
 shift + cmd - l: yabai -m window --swap east  || (yabai -m window --display east && yabai -m display --focus east)
 
 # balance size of windows
-cmd + alt - 0 : yabai -m space --balance
+cmd + alt - 0: yabai -m space --balance
 
 # make floating window fill screen
 shift + alt - up     : yabai -m window --grid 1:1:0:0:1:1
