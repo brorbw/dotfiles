@@ -28,10 +28,12 @@ function toggle-light-yabai-and-spacebar() {
 	yabai -m config normal_window_border_color 0xffdee4ec
 	yabai -m config active_window_border_color 0xfff5a9e0
 	yabai -m config window_border_width 3
-	# spacebar light values
-	spacebar -m config background_color 0xffe5e9f0
-	spacebar -m config foreground_color 0xff616377
-	spacebar -m config space_icon_color 0xfffd4747
+	# sketchybar light values
+
+	sketchybar --bar color=0xffe7eaf2 \
+									 border_color=0xffe7eaf2
+	sketchybar --set '/.*/' label.color=0xff616377 \
+													icon.color=0xff616377
 }
 
 function toggle-dark() {
@@ -49,10 +51,11 @@ function toggle-dark-yabai-and-spacebar() {
 	yabai -m config active_window_border_color 0xff5698f1
 	yabai -m config normal_window_border_color 0xff171933
 	yabai -m config window_border_width 2
-	# spacebar dark values
-	spacebar -m config background_color 0xff272c34
-	spacebar -m config foreground_color 0xffbbc2cf
-	spacebar -m config space_icon_color 0xff5698f1
+	# sketchybar dark values
+	sketchybar --bar color=0xff272c34 \
+									 border_color=0xff262a32
+	sketchybar --set '/.*/' label.color=0xffbbc2cf \
+													icon.color=0xffbbc2cf
 }
 
 function toggle-cyberpunk() {
@@ -65,8 +68,9 @@ function toggle-cyberpunk() {
 	yabai -m config active_window_border_color 0xff5df5fd
 	yabai -m config normal_window_border_color 0xff2b5f5c
 	yabai -m config window_border_width 2
-	# spacebar dark values
-	spacebar -m config background_color 0xff1e080a
-	spacebar -m config foreground_color 0xff47b7aa
-	spacebar -m config space_icon_color 0xff2b5f5c
+	# sketchybar dark values
+	sketchybar --bar color=0xff1e080a \
+									 border_color=0xff262a32
+	sketchybar --set '/.*/' label.color=0xff47b7aa \
+													icon.color=0xff47b7aa
 }
