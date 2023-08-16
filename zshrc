@@ -554,3 +554,8 @@ print-colors() {
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH=$PATH:/Users/no/.spicetify
+
+if [ "$(uname -m)" = "arm64" ]; then
+	export DOCKER_DEFAULT_PLATFORM=linux/amd64
+	export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+fi
