@@ -1,6 +1,6 @@
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
 
-if [ "$(uname -m)" == "arm64" ]; then
+if [ "$(uname -m)" = "arm64" ]; then
 	sketchybar --bar color=0xff272c34 \
 									height=40 \
 									border_width=2 \
@@ -50,7 +50,7 @@ sketchybar --add item clock right                              \
               icon=                                \
               script="$PLUGIN_DIR/clock.sh"         \
 
-if [ "$(uname -m)" == "arm64" ]; then
+if [[ "$(uname -m)" = "arm64" ]]; then
 	sketchybar --add item battery right                            \
 						--set battery script="$PLUGIN_DIR/battery.sh"       \
 						update_freq=120                       \
