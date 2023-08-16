@@ -1,2 +1,2 @@
-(defun me/get-arch ()
-    (string-chop-newline (shell-command-to-string "uname -m")))
+(defun me/is-arm ()
+  (string-equal (string-chop-newline (shell-command-to-string "uname -m")) "arm64"))
