@@ -27,7 +27,10 @@
 	(setq wakatime-cli-path "/usr/local/bin/wakatime-cli"))
       (global-wakatime-mode 1)))
 
-(setq rbenv-executable "/usr/local/opt/rbenv/bin/rbenv")
+(if (me/is-arm)
+    (setq rbenv-executable "/opt/homebrew/opt/rbenv")
+  (setq rbenv-executable "/usr/local/opt/rbenv/bin/rbenv"))
+
 
 (setq prettier-js-args '("--use-tabs" "true"
 			 "--single-quote" "true"
