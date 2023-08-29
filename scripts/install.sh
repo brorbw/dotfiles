@@ -30,30 +30,7 @@ git config --global pull.rebase true
 git config --global user.name "Bror Winther"
 git config --global user.email "git@nobad.coffee"
 
-# brew
-# emacs
-brew tap d12frosted/emacs-plus
-brew install emacs-plus@28 --with-no-titlebar
-
-# misc.
-brew install --cask iterm2
-brew install --cask google-chrome
-brew install --cask firefox
-brew install --cask transmission
-brew install --cask discord
-brew install --cask slack
-brew install --cask keka
-brew install --cask mactex
-brew install --cask karabiner-elements
-brew install --cask gpg-suite-no-mail
-
-# security
-brew install --cask lulu
-brew install --cask knockknock
-brew install --cask blockblock
-brew install --cask oversight
-brew install --cask ransomwhere
-brew install --cask reikey
+source $HOME/.config/brewfile
 
 open -a lulu
 open -a knockknock
@@ -61,62 +38,7 @@ open -a blockblock
 open -a oversight
 open -a reikey
 
-# fonts
-brew tap homebrew/cask-fonts
-brew install --cask font-fira-code
-brew install --cask font-roboto-mono
-brew install --cask font-hack-nerd-font
-
-# terminal & emacs stuff
-brew install bat
-brew install node
-brew install aspell
-
-brew install coreutils
-brew install findutils
-brew install gnu-tar
-brew install gnu-sed
-brew install gawk
-brew install gnutls
-brew install gnu-indent
-brew install gnu-getopt
-brew install grep
-brew install ncdu
-
-brew install shellcheck
-brew install jq
-brew install fd
-brew install gh
-brew install sbcl
-brew install editorconfig
-brew install tidy-html5
-brew install mu
-brew install isync
-brew install gnupg
-brew install gnuplot
-brew install zsh-completions
-brew install fzf
-brew install autojump
-brew install rg
-# brew install docker
-# brew install docker-compose
-brew install shellcheck
-brew install awscli
-brew install terraform
-brew install glslang
-brew install languagetool
-brew install smlnj
-brew install duti
-brew install bear
-brew install wakatime-cli
-
-brew install zsh-syntax-highlighting
-
 duti ~/.config/duti.conf
-
-# RUBY
-brew install rbenv
-brew install ruby-build
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ZSH_CUSTOM=~/.oh-my-zsh
