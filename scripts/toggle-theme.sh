@@ -15,11 +15,9 @@ export CYBERPUNK="cyberpunk-2077"
 
 function toggle-light() {
 	alias cat="bat --paging never --theme=GitHub"
-	$(osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to false' &)
-	$(toggle-light-yabai-and-spacebar &)
-	BAK_PIPFILE=$PIPENV_PIPFILE
-	(PIPENV_PIPFILE=~/Projects/iterm2-theme-toggle/Pipfile exec pipenv run python3 ~/Projects/iterm2-theme-toggle/main.py $LIGHT_THEME >/dev/null 2>&1 &)
-	PIPENV_PIPFILE=$BAK_PIPFILE
+	osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to false' &
+	toggle-light-yabai-and-spacebar &
+	python3 ~/Projects/iterm2-theme-toggle/main.py $LIGHT_THEME >/dev/null 2>&1 &
 	# $($(spicetify config current_theme Ziro && spicetify config color_scheme Rose-Pine-dawn && spicetify apply) &)
 }
 
@@ -38,11 +36,9 @@ function toggle-light-yabai-and-spacebar() {
 
 function toggle-dark() {
 	alias cat="bat --paging never --theme=default"
-	$(osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to true' &)
-	$(toggle-dark-yabai-and-spacebar &)
-	BAK_PIPFILE=$PIPENV_PIPFILE
-	(PIPENV_PIPFILE=~/Projects/iterm2-theme-toggle/Pipfile exec pipenv run python3 ~/Projects/iterm2-theme-toggle/main.py $DARK_THEME >/dev/null 2>&1 &)
-	PIPENV_PIPFILE=$BAK_PIPFILE
+	osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to true' &
+	toggle-dark-yabai-and-spacebar &
+	python3 ~/Projects/iterm2-theme-toggle/main.py $DARK_THEME >/dev/null 2>&1 &
 	# $($(spicetify config current_theme Ziro && spicetify config color_scheme Rose-Pine-moon && spicetify apply) &)
 }
 
