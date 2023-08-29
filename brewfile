@@ -1,64 +1,337 @@
 brew tap d12frosted/emacs-plus
-brew install emacs-plus@28 --with-no-titlebar
-brew install --cask iterm2
-brew install --cask google-chrome
-brew install --cask firefox
-brew install --cask transmission
-brew install --cask discord
-brew install --cask slack
-brew install --cask keka
-brew install --cask mactex
-brew install --cask karabiner-elements
-brew install --cask gpg-suite-no-mail
-brew install --cask lulu
-brew install --cask knockknock
-brew install --cask blockblock
-brew install --cask oversight
-brew install --cask ransomwhere
-brew install --cask reikey
 brew tap homebrew/cask-fonts
+brew install emacs-plus@28 --with-no-titlebar
+brew install --cask 1password
+brew install --cask 1password-cli
+brew install --cask audacity
+brew install --cask balenaetcher
+brew install --cask barrier
+brew install --cask blender
+brew install --cask blockblock
+brew install --cask cyberduck
+brew install --cask discord
+brew install --cask element
+brew install --cask firefox
+brew install --cask font-comic-mono
 brew install --cask font-fira-code
-brew install --cask font-roboto-mono
 brew install --cask font-hack-nerd-font
-brew install bat
-brew install node
+brew install --cask font-roboto-mono
+brew install --cask geekbench
+brew install --cask google-chrome
+brew install --cask gpg-suite-no-mail
+brew install --cask hackintool
+brew install --cask insomnia
+brew install --cask iterm2
+brew install --cask karabiner-elements
+brew install --cask keka
+brew install --cask knockknock
+brew install --cask lulu
+brew install --cask mactex
+brew install --cask messenger
+brew install --cask microsoft-teams
+brew install --cask monitorcontrol
+brew install --cask obs
+brew install --cask oversight
+brew install --cask qutebrowser
+brew install --cask reikey
+brew install --cask selfcontrol
+brew install --cask session-manager-plugin
+brew install --cask slack
+brew install --cask smlnj
+brew install --cask spotify
+brew install --cask teamviewer
+brew install --cask transmission
+brew install --cask visual-studio-code
+brew install --cask vlc
+brew install --cask whatsapp
+brew install abseil
+brew install ansible
+brew install aom
+brew install aribb24
 brew install aspell
+brew install autoconf
+brew install autojump
+brew install automake
+brew install awk
+brew install aws-vault
+brew install awscli
+brew install bat
+brew install bdw-gc
+brew install bear
+brew install berkeley-db@5
+brew install bfg
+brew install bluetoothconnector
+brew install brotli
+brew install c-ares
+brew install ca-certificates
+brew install cairo
+brew install capstone
+brew install ccls
+brew install cffi
+brew install cjson
+brew install cloc
+brew install cmake
+brew install cmocka
 brew install coreutils
-brew install findutils
-brew install gnu-tar
-brew install gnu-sed
-brew install gawk
-brew install gnutls
-brew install gnu-indent
-brew install gnu-getopt
-brew install grep
-brew install ncdu
-brew install shellcheck
-brew install jq
-brew install fd
-brew install gh
-brew install sbcl
+brew install curl
+brew install dav1d
+brew install dfu-util
+brew install direnv
+brew install docbook
+brew install docbook-xsl
+brew install docker
+brew install docker-completion
+brew install docker-compose
+brew install docker-credential-helper
+brew install docker-machine
+brew install docker-machine-nfs-generic
+brew install docker-virtualbox
+brew install docutils
+brew install dotnet
+brew install duti
 brew install editorconfig
-brew install tidy-html5
-brew install mu
-brew install isync
+brew install elixir
+brew install emacs-plus@28
+brew install erlang
+brew install fd
+brew install ffmpeg
+brew install figlet
+brew install findutils
+brew install fish
+brew install flac
+brew install fmt
+brew install fontconfig
+brew install freetype
+brew install frei0r
+brew install fribidi
+brew install fzf
+brew install gd
+brew install gdbm
+brew install gdk-pixbuf
+brew install gettext
+brew install gh
+brew install ghostscript
+brew install giflib
+brew install git
+brew install git-crypt
+brew install git-filter-repo
+brew install git-lfs
+brew install glib
+brew install glslang
+brew install gmime
+brew install gmp
+brew install gnu-getopt
+brew install gnu-indent
+brew install gnu-sed
+brew install gnu-tar
 brew install gnupg
 brew install gnuplot
-brew install zsh-completions
-brew install fzf
-brew install autojump
-brew install rg
-brew install docker
-brew install docker-compose
-brew install shellcheck
-brew install awscli
-brew install terraform
-brew install glslang
+brew install gnutls
+brew install go
+brew install gpgme
+brew install graphite2
+brew install graphviz
+brew install grep
+brew install grpc
+brew install grype
+brew install gts
+brew install guile
+brew install harfbuzz
+brew install highway
+brew install htop
+brew install icu4c
+brew install imagemagick
+brew install imath
+brew install iperf
+brew install isync
+brew install jansson
+brew install jasper
+brew install jbig2dec
+brew install jpeg-turbo
+brew install jpeg-xl
+brew install jq
+brew install keyring
+brew install krb5
+brew install kubernetes-cli
+brew install lame
 brew install languagetool
-brew install smlnj
-brew install duti
-brew install bear
-brew install wakatime-cli
-brew install zsh-syntax-highlighting
+brew install leptonica
+brew install libarchive
+brew install libass
+brew install libassuan
+brew install libavif
+brew install libb2
+brew install libbluray
+brew install libcbor
+brew install libcerf
+brew install libde265
+brew install libevent
+brew install libfido2
+brew install libgcrypt
+brew install libgpg-error
+brew install libheif
+brew install libidn
+brew install libidn2
+brew install libksba
+brew install liblqr
+brew install libnghttp2
+brew install libogg
+brew install libomp
+brew install libpng
+brew install libpthread-stubs
+brew install libraw
+brew install librist
+brew install librsvg
+brew install libsamplerate
+brew install libslirp
+brew install libsndfile
+brew install libsodium
+brew install libsoxr
+brew install libssh
+brew install libssh2
+brew install libtasn1
+brew install libtiff
+brew install libtool
+brew install libunibreak
+brew install libunistring
+brew install libusb
+brew install libuv
+brew install libvidstab
+brew install libvmaf
+brew install libvorbis
+brew install libvpx
+brew install libx11
+brew install libxau
+brew install libxcb
+brew install libxdmcp
+brew install libxext
+brew install libxrender
+brew install libyaml
+brew install lima
+brew install little-cms2
+brew install llvm
+brew install llvm@15
+brew install lua
+brew install lz4
+brew install lzo
+brew install m4
+brew install make
+brew install mbedtls
+brew install mosh
+brew install mpdecimal
+brew install mpg123
+brew install mu
+brew install mysql
+brew install mysql-client
+brew install nasm
+brew install ncdu
+brew install ncurses
+brew install neofetch
+brew install netpbm
+brew install nettle
+brew install ninja
+brew install nlohmann-json
+brew install node
+brew install npth
+brew install nspr
+brew install nss
+brew install oniguruma
+brew install opencore-amr
+brew install openexr
+brew install openjdk
+brew install openjdk@11
+brew install openjpeg
+brew install openldap
+brew install openssl@1.1
+brew install openssl@3
+brew install opus
+brew install p11-kit
+brew install pango
+brew install pcre
+brew install pcre2
+brew install pinentry
+brew install pinentry-mac
+brew install pipenv
+brew install pixman
+brew install pkg-config
+brew install poppler
+brew install postgresql@14
+brew install protobuf
+brew install protobuf@21
+brew install pwgen
+brew install pycparser
+brew install python-tk@3.10
+brew install python-tk@3.11
+brew install python-tk@3.9
+brew install python@3.10
+brew install python@3.11
+brew install python@3.8
+brew install python@3.9
+brew install pyyaml
+brew install qemu
+brew install qt@5
+brew install rav1e
 brew install rbenv
+brew install re2
+brew install readline
+brew install ripgrep
+brew install rtmpdump
+brew install rubberband
 brew install ruby-build
+brew install rust-analyzer
+brew install rustup-init
+brew install sbcl
+brew install screenresolution
+brew install sdl2
+brew install shared-mime-info
+brew install shellcheck
+brew install shfmt
+brew install six
+brew install sketchybar
+brew install skhd
+brew install snappy
+brew install spdlog
+brew install speedtest
+brew install speex
+brew install spotify-tui
+brew install sqlite
+brew install srt
+brew install svt-av1
+brew install syft
+brew install tcl-tk
+brew install tea
+brew install terminal-notifier
+brew install terraform
+brew install tesseract
+brew install texinfo
+brew install theora
+brew install tidy-html5
+brew install tree
+brew install unbound
+brew install unixodbc
+brew install usbutils
+brew install vde
+brew install wakatime-cli
+brew install wallpapper
+brew install watch
+brew install webp
+brew install wget
+brew install wordnet
+brew install wxwidgets
+brew install x264
+brew install x265
+brew install xapian
+brew install xmlto
+brew install xorgproto
+brew install xvid
+brew install xz
+brew install yabai
+brew install ykman
+brew install yq
+brew install z3
+brew install zeromq
+brew install zimg
+brew install zlib
+brew install zsh-completions
+brew install zsh-syntax-highlighting
+brew install zstd

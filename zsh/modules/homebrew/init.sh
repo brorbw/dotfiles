@@ -6,25 +6,22 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	eval "$(brew shellenv)"
 fi
 
-HOMEBREW_INSTALL_FILE="$HOME/.config/brewfile"
+HOMEBREW_FILE="$HOME/.config/brewfile"
 
 function brew() {
+	/usr/local/bin/brew $@
 	case "$1" in
 		"install")
-			/usr/local/bin/brew $@ && \
-			echo "brew $@" >>$HOMEBREW_INSTALL_FILE
+			echo "brew $@" >>$HOMEBREW_FILE
 			;;
 		"uninstall")
-			/usr/local/bin/brew $@ && \
-			sed -i "/${@:(-1)}\$/d" $HOMEBREW_INSTALL_FILE
+			sed -i "/${@:(-1)}\$/d" $HOMEBREW_FILE
 			;;
 		"tap")
-			/usr/local/bin/brew $@ && \
-			echo "brew $@" >>$HOMEBREW_INSTALL_FILE
+			echo -e "brew $@\n$(cat $HOMEBREW_FILE)" >$HOMEBREW_FILE
 			;;
 		"untap")
-			/usr/local/bin/brew $@ && \
-			sed -i "/tap ${@:(-1)}\$/d" $HOMEBREW_INSTALL_FILE
+			sed -i "/tap ${@:(-1)}\$/d" $HOMEBREW_FILE
 			;;
 	esac
 }
