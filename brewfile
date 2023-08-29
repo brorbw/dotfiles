@@ -1,0 +1,64 @@
+brew tap d12frosted/emacs-plus
+brew install emacs-plus@28 --with-no-titlebar
+brew install --cask iterm2
+brew install --cask google-chrome
+brew install --cask firefox
+brew install --cask transmission
+brew install --cask discord
+brew install --cask slack
+brew install --cask keka
+brew install --cask mactex
+brew install --cask karabiner-elements
+brew install --cask gpg-suite-no-mail
+brew install --cask lulu
+brew install --cask knockknock
+brew install --cask blockblock
+brew install --cask oversight
+brew install --cask ransomwhere
+brew install --cask reikey
+brew tap homebrew/cask-fonts
+brew install --cask font-fira-code
+brew install --cask font-roboto-mono
+brew install --cask font-hack-nerd-font
+brew install bat
+brew install node
+brew install aspell
+brew install coreutils
+brew install findutils
+brew install gnu-tar
+brew install gnu-sed
+brew install gawk
+brew install gnutls
+brew install gnu-indent
+brew install gnu-getopt
+brew install grep
+brew install ncdu
+brew install shellcheck
+brew install jq
+brew install fd
+brew install gh
+brew install sbcl
+brew install editorconfig
+brew install tidy-html5
+brew install mu
+brew install isync
+brew install gnupg
+brew install gnuplot
+brew install zsh-completions
+brew install fzf
+brew install autojump
+brew install rg
+brew install docker
+brew install docker-compose
+brew install shellcheck
+brew install awscli
+brew install terraform
+brew install glslang
+brew install languagetool
+brew install smlnj
+brew install duti
+brew install bear
+brew install wakatime-cli
+brew install zsh-syntax-highlighting
+brew install rbenv
+brew install ruby-build
