@@ -28,7 +28,7 @@ yabai -m config normal_window_opacity 1.0
 if [ "$(uname -m)" == "arm64" ]; then
 	yabai -m config window_border_radius 0
 else
-	yabai -m config window_border_radius 13
+	yabai -m config window_border_radius 10
 fi
 
 yabai -m config split_ratio 0.50
@@ -39,11 +39,11 @@ yabai -m config mouse_action2 resize
 
 # general space settings
 yabai -m config layout bsp
-yabai -m config top_padding 30
-yabai -m config bottom_padding 30
-yabai -m config left_padding 30
-yabai -m config right_padding 30
-yabai -m config window_gap 30
+yabai -m config top_padding 0
+yabai -m config bottom_padding 0
+yabai -m config left_padding 0
+yabai -m config right_padding 0
+yabai -m config window_gap 0
 
 yabai -m rule --add app=Emacs title="$Doom Emacs$" manage=on
 yabai -m rule --add app=Emacs manage=off

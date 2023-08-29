@@ -274,6 +274,7 @@ alias em=open-emacs-or-emacsclient
 
 
 alias o=open
+alias ls="ls --color=always"
 
 export AWS_DEFAULT_REGION=eu-west-1
 alias av=aws-vault
