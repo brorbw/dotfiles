@@ -49,7 +49,7 @@
     :data (json-encode `(("entity_id" . ,home-assistant/entity-id)))))
 
 (defun home-assistant/project-hook ()
-  (if home-assistant/enabled
+  (if (and home-assistant/enabled (file-exists-p home-assistant/path-to-token))
       (if (file-exists-p (concat (doom-project-root) ".color"))
 	  (home-assistant/change-color
 	   (read (f-read-text (concat (doom-project-root) ".color"))))
