@@ -1,6 +1,12 @@
 # float next window
 alt - return : ~/.config/skhd/float-next.sh
 
+# Arrow Keys
+fn - h : skhd -k "left"
+fn - j : skhd -k "down"
+fn - k : skhd -k "up"
+fn - l : skhd -k "right"
+
 # focus window
 # alt - h : yabai -m window --focus west
 # alt - j : yabai -m window --focus south
