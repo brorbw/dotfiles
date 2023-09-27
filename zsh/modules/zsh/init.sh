@@ -47,9 +47,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 export ZSH_WAKATIME_BIN=/usr/local/opt/wakatime-cli/bin/wakatime-cli
 
-function zvm_config () {
-	ZVM_VI_ESCAPE_BINDKEY=fd
-}
+ZVM_VI_ESCAPE_BINDKEY=fd
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
