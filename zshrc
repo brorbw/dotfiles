@@ -1,0 +1,559 @@
+ZSH_THEME="spaceship"
+ZSH=~/.oh-my-zsh
+
+export HISTSIZE=100_000
+export SAVEHIST=50_000
+
+setopt HIST_IGNORE_SPACE
+
+if [[ "$OSTYPE"	== "darwin"* ]]; then
+  # UNLOCK KEYCHAIN FOR SSH IF MACOS
+  if [[ ! -z "$SSH_TTY" ]]; then security unlock-keychain; fi
+fi
+
+export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_INSTALL_UPGRADE=1
+export HOMEBREW_NO_ANALYTICS=1
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
+if [[ "$OSTYPE"	== "darwin"* ]]; then
+	eval "$(brew shellenv)"
+fi
+LC_CTYPE=en_US.UTF-8
+LC_ALL=en_US.UTF-8
+
+export LS_COLORS="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+HIST_STAMPS="dd.mm.yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+export ZSH_WAKATIME_BIN=/usr/local/opt/wakatime-cli/bin/wakatime-cli
+
+ZVM_VI_ESCAPE_BINDKEY=fd
+
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+	autojump
+	fzf
+	ruby
+	git
+	dotenv
+	zsh-wakatime
+	zsh-syntax-highlighting
+)
+
+if [ ! -z EMACS ]; then
+	plugins+=(zsh-vi-mode)
+fi
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+alias wakatime=wakatime-cli --no-ssl-verify
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+
+# Path stuff for macos and arch
+
+if [[ "$OSTYPE"	== "darwin"* ]]
+then
+
+	# python
+	# alias python=/usr/local/bin/python3
+	# PYTHON
+	# export PATH="$PATH:/Users/morethanthreeletters/Library/Python/3.8/bin"
+
+	# GO
+	export GOPATH=$HOME/.go
+	export GOROOT="/usr/local/opt/go/libexec"
+	export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
+	# NODE stuff
+	export PATH=$HOME/.node_modules/bin:$PATH
+
+	# SQLITE
+	export PATH="/usr/local/opt/sqlite/bin:$PATH"
+
+	# Use GNU tools on macos instead of the macos version
+	# brew install coreutils ed findutils gawk gnu-sed gnu-tar grep make
+	export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
+else
+
+	# GO
+	export GOPATH="${HOME}/.go"
+	export GOROOT="/usr/lib/go"
+	export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
+	# PYTHON & PIP
+	export PATH="$PATH:${HOME}/.local/bin"
+
+	# Just node things
+	export PATH=$HOME/.node_modules/bin:$PATH
+	export npm_config_prefix=~/.node_modules
+
+fi
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+
+function upgrade() {
+  ~/.config/scripts/upgrade_doom.sh
+	brew update && brew upgrade --formulae
+	pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip3 install -U
+	npm update -g
+	go get -u all
+}
+
+# Change default cat to bat
+alias cat="bat --paging never --theme=$(defaults read -globalDomain AppleInterfaceStyle &>/dev/null && echo default || echo GitHub)"
+export BAT_CONFIG_PATH="~/.batrc"
+
+
+# Toggle theme
+source ~/.config/scripts/toggle-theme.sh
+function tt() {
+	if [[ "$OSTYPE"	== "darwin"* ]];
+	then
+		toggle-theme >/dev/null 2>&1
+	else
+		#If on linux
+	fi
+}
+
+function cyberpunk() {
+	toggle-cyberpunk
+	emacsclient --eval "(load-theme 'cyberpunk-2077)" &
+}
+
+function update-antigen() {
+	if [[ "$OSTYPE"	== "darwin"* ]]; then
+	curl -L git.io/antigen > ~/.dotfiles/antigen.zsh
+	source ~/.dotfiles/antigen.zsh
+	else
+		curl -L git.io/antigen > ~/Projects/dotfiles/antigen.zsh
+		source ~/Projects/dotfiles/antigen.zsh
+	fi
+}
+
+
+# Run the fuck hot? Kills flash player plugin if crashed // RIP flash
+alias rtfh="ps ux | grep -E '[F]lash Player Plugin' | awk '{ print $2; }' | xargs kill"
+
+# Just because i misstype
+alias cd..="cd ../"
+
+function open-emacs-or-emacsclient () {
+	if [[ $1 == "-nw" ]];
+	then
+		emacs $@
+	else
+		if [ $(pgrep emacs) ] || [ $(pgrep Emacs) ] ; then
+			if [ -z $@ ]
+			then
+				echo "Emacs is already running and no file was specified"
+			else
+				nohup emacsclient $@ >/dev/null 2>&1 &
+				disown
+			fi
+		else
+			nohup emacs $@ >/dev/null 2>&1 &
+			disown
+		fi
+	fi
+}
+
+function restart-roc () {
+	ROC_PID=$(pgrep roc-recv)
+	if [ $ROC_PID ]; then
+		sudo kill $ROC_PID
+		echo "$ROC_PID is killed"
+		nohup roc-recv -vv -s rtp+rs8m::10001 -r rs8m::10002 >/dev/null 2>&1 &
+		disown
+		echo "roc-recv restarted"
+	else
+		echo "roc-recv process not found"
+		nohup roc-recv -vv -s rtp+rs8m::10001 -r rs8m::10002 >/dev/null 2>&1 &
+		disown
+		echo "roc-recv started"
+	fi
+}
+
+function restart-pulseaudio () {
+	PULSE_AUDIO_PID=$(pgrep pulseaudio)
+	if [ $PULSE_AUDIO_PID ]; then
+		pulseaudio -k
+		echo "$PULSE_AUDIO_PID is killed"
+		sleep 5s
+		pulseaudio --start
+		echo "pulse-audio restarted"
+	else
+		echo "pulse-audio process not found"
+		pulseaudio --start
+		echo "pulse-audio started"
+	fi
+}
+
+rwtf () {
+	PACKAGE_CONFIG=$(pwd)/package.json
+	if test -f "$PACKAGE_CONFIG"; then
+		cat $PACKAGE_CONFIG | jq '.scripts'
+	else
+		echo "No package.json found in this directive"
+	fi
+}
+
+
+# Handy shortcut
+alias e=exit
+#Linux not being mac needs open
+if [[ "$OSTYPE"	== "linux"* ]]; then
+	 alias open="xdg-open"
+fi
+
+alias em=open-emacs-or-emacsclient
+
+
+alias o=open
+
+export AWS_DEFAULT_REGION=eu-west-1
+alias av=aws-vault
+
+# Doom binaries
+export PATH=$HOME/.config/emacs/bin:$PATH
+
+# starts the keycoutner
+function start-keyCounter () {
+	KC_PID=$(pgrep keyCounter)
+	if ! [ $KC_PID ] ; then
+		keyCounter &
+		disown
+		echo "Starting keyCounter"
+	fi
+}
+
+# if [[ "$OSTYPE"	== "darwin"* ]];
+# 	then
+#   start-keyCounter
+# fi
+
+LINES=24
+function cd() {
+	builtin cd $@
+	ENTRIES=$(ls -a | wc -l)
+	if [ $ENTRIES -lt $LINES ]; then
+		ls --color=always
+	fi
+}
+
+export PATH="/usr/local/opt/docker-virtualbox/bin:$PATH"
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/docker-virtualbox/bin:$PATH"
+export PATH="/usr/local/opt/sqlite/bin:$PATH"
+export PATH="$HOME/.rtags/bin:$PATH"
+export PATH=/usr/local/smlnj/bin:"$PATH"
+#source /tmp/docker-virtualbox.env
+
+# if [[ $(hostname) == "baldr.nobad.coffee" ]]; then
+# 	 alias docker='lima docker'
+# 	 alias docker-compose='lima docker compose'
+# fi
+
+if [[ "$OSTYPE"	== "darwin"* ]]; then
+	if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+else
+	export PATH="$HOME/.rbenv/bin:$PATH"
+fi
+export GPG_TTY=$(tty)
+
+eval "$(direnv hook zsh)"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export PATH=$PATH:/Users/void/.spicetify
+
+alias mountefi="$HOME/Projects/MountEFI/MountEFI.command"
+alias add-repos="$HOME/.config/scripts/add-repos-as-projects.sh"
+alias org="cd ~/Library/Mobile\ Documents/iCloud~com~appsonthemove~beorg/Documents/org"
+alias brew-upgrade='brew outdated -q | grep -v virtualbox | xargs brew upgrade'
+function clearDNS () {
+	sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+}
+
+function pwoff () {
+	sudo shutdown -h now
+}
+
+function myip () {
+	curl https://icanhazip.com
+}
+
+function initUE () {
+	source ~/.config/scripts/ue-fix-build-stuff.sh
+}
+
+
+function vdc-unlock() {
+	cd ~/clearhaus/pci-procesr-cluster > /dev/null
+	git-crypt unlock
+	VALUE=$(grep vd_http_basic_auth_username vars-test-secrets.tfvars | sed -r 's/[^"]+"([^"]+)"$/\1/')
+	export VD_HTTP_BASIC_AUTH_USERNAME="$VALUE"
+	VALUE=$(grep vd_http_basic_auth_password vars-test-secrets.tfvars | sed -r 's/[^"]+"([^"]+)"$/\1/')
+	export VD_HTTP_BASIC_AUTH_PASSWORD="$VALUE"
+	VALUE=$(grep vd_mle_key_id vars-test-secrets.tfvars | sed -r 's/[^"]+"([^"]+)"$/\1/')
+	export VD_MLE_KEY_ID="$VALUE"
+	cd - > /dev/null
+}
+
+function focus_base() {
+	if [ -z $1 ];then
+		FOCUS_TIME=25
+	else
+		FOCUS_TIME=$1
+	fi
+	pkill Messenger
+	pkill Slack
+	/Applications/SelfControl.app/Contents/MacOS/selfcontrol-cli\
+		start\
+		--blocklist ~/.config/SelfControl/blocklist.selfcontrol\
+		--enddate $(date -d "+$FOCUS_TIME minute" -u +"%Y-%m-%dT%H:%M:%S%z") >/dev/null 2>&1
+	enable_dnd
+at now +"$FOCUS_TIME" minutes <<END
+defaults -currentHost write ~/Library/Preferences/ByHost/com.apple.notificationcenterui doNotDisturb -boolean false
+killall NotificationCenter
+END
+}
+
+function focus {
+	if [[ "$1" != "status" ]]; then
+		focus_base $@
+	fi
+	focus_status
+}
+
+RED="\033[0;31m"
+GREEN="\033[0;32m"
+COLOR_OFF="\033[0m"
+
+function focus_status() {
+	echo "FOCUS STATE:"
+	OUTPUT=""
+	OUTPUT="$OUTPUT$(_get_messenger_focus_status)\n"
+	OUTPUT="$OUTPUT$(_get_slack_focus_status)\n"
+	OUTPUT="$OUTPUT$(_get_selfcontrol_focus_status)\n"
+	OUTPUT="$OUTPUT$(_get_dnd_focus_status)\n"
+	OUTPUT="$OUTPUT$(_get_dnd_unload_task_loaded_status)\n"
+	echo "$OUTPUT" | column -t -s$'\t'
+	echo "\n"$(_time_until_focus_end)
+}
+
+alias fs=focus_status
+
+function _time_until_focus_end {
+	START_DATE=$(date -u +"%Y-%m-%dT%H:%M:%S")
+	END_DATE=$(selfcontrol print-settings 2>&1 | grep BlockEndDate | cut -d "\"" -f 2 | cut -d " " -f 1-2 | sed 's/ /T/')
+
+	START_TIME=$(date -d "${START_DATE}" +%s)
+	END_TIME=$(date -d "${END_DATE}" +%s)
+	DIFF_SECONDS="$(($END_TIME-$START_TIME))"
+	DIFF_TIME=$(gdate -d@${DIFF_SECONDS} -u +"%HH %MM")
+	if [[ $(selfcontrol is-running 2>&1 | cut -d ' ' -f 4) == NO ]];then DIFF_TIME=0; fi
+	echo Time until dnd ends:"\t"$DIFF_TIME
+}
+
+function _get_dnd_unload_task_loaded_status {
+	echo DND disable job:"\t"$([[ $(atq | wc -l) -gt 0 ]] && echo ${GREEN}LOADED${COLOR_OFF} || echo ${RED}NOT LOADED${COLOR_OFF})
+}
+
+function _get_messenger_focus_status {
+	echo Messenger:"\t"$(pgrep -q Messenger && echo ${RED}OPEN${COLOR_OFF} || echo ${GREEN}CLOSED${COLOR_OFF})
+}
+
+function _get_slack_focus_status {
+	echo Slack:"\t"$(pgrep -q Slack && echo ${RED}OPEN${COLOR_OFF} || echo ${GREEN}CLOSED${COLOR_OFF})
+}
+
+function _get_selfcontrol_focus_status {
+	echo SelfControl:"\t"$([[ $(selfcontrol is-running 2>&1 | cut -d ' ' -f 4) == YES ]]&&\
+	echo ${GREEN}RUNNING${COLOR_OFF} || echo ${RED}STOPPED${COLOR_OFF})
+}
+
+function _get_dnd_focus_status {
+	echo DND:"\t"$([[ $(defaults -currentHost read ~/Library/Preferences/ByHost/com.apple.notificationcenterui doNotDisturb) == 1 ]] &&\
+	echo ${GREEN}EABLED${COLOR_OFF} || echo ${RED}STOPPED${COLOR_OFF})
+}
+
+function enable_dnd {
+	defaults -currentHost write ~/Library/Preferences/ByHost/com.apple.notificationcenterui doNotDisturb -boolean true
+	defaults -currentHost write ~/Library/Preferences/ByHost/com.apple.notificationcenterui doNotDisturbDate -date "`date -u +\"%Y-%m-%d %H:%M:%S +000\"`"
+	killall NotificationCenter
+}
+
+function disable_dnd {
+	defaults -currentHost write ~/Library/Preferences/ByHost/com.apple.notificationcenterui doNotDisturb -boolean false
+	killall NotificationCenter
+}
+
+function xcode_schemes_list {
+	xcodebuild -list -workspace $(find . -depth 1 -name '*.xcworkspace')
+}
+
+function xcode_scheme_build {
+	xcodebuild -scheme $1 build
+}
+
+alias xsl=xcode_schemes_list
+alias xsb=xcode_scheme_build
+alias temp="~/.config/scripts/get-temp-at-desk.sh"
+alias power="~/.config/scripts/get-power.sh"
+# alias unreal=/Users/nah/Projects/UnrealEngine/Engine/Binaries/Mac/UnrealEditorServices.app/Contents/MacOS/UnrealEditorServices
+alias unreal="open -a /Users/nah/Projects/UnrealEngine/Engine/Binaries/Mac/UnrealEditorServices.app ."
+
+if [[ -f ~/.airpodsbssid ]]; then
+	alias cap="BluetoothConnector --connect $(cat ~/.airpodsbssid) --notify"
+fi
+
+#  _____ ___ ___ ___    _   ___ ___  ___ __  __
+# |_   _| __| _ \ _ \  /_\ | __/ _ \| _ \  \/  |
+#   | | | _||   /   / / _ \| _| (_) |   / |\/| |
+#   |_| |___|_|_\_|_\/_/ \_\_| \___/|_|_\_|  |_|
+alias tf='terraform'
+alias tfa='tf apply'
+alias tfaa='tf apply -auto-approve'
+alias tfi='tf init'
+alias tfp='tf plan'
+alias tfr='tf refresh'
+alias tfv='tf validate'
+alias tfw='tf workspace'
+alias tfwl='tfw list'
+alias tfws='tfw select'
+
+function tfvars() {
+	readonly WORKSPACE=$(terraform workspace show)
+	readonly ENVIRONMENT=$(echo $WORKSPACE | sed 's/[0-9]*$//g')
+
+	if [[ -e "vars-$WORKSPACE.tfvars" ]]; then
+		readonly VAR_FILE="-var-file vars-$WORKSPACE.tfvars"
+	elif [[ -e "../vars-$WORKSPACE.tfvars" ]]; then
+		readonly VAR_FILE="-var-file ../vars-$WORKSPACE.tfvars"
+	elif [[ -e "../vars-$ENVIRONMENT.tfvars" ]]; then
+		readonly VAR_FILE="-var-file ../vars-$ENVIRONMENT.tfvars"
+	fi
+
+	if [[ -e "vars-$WORKSPACE-secrets.tfvars" ]]; then
+		readonly SECRET_FILE="-var-file vars-$WORKSPACE-secrets.tfvars"
+	elif [[ -e "../vars-$WORKSPACE-secrets.tfvars" ]]; then
+		readonly SECRET_FILE="-var-file ../vars-$WORKSPACE-secrets.tfvars"
+	elif [[ -e "../vars-$ENVIRONMENT-secrets.tfvars" ]]; then
+		readonly SECRET_FILE="-var-file ../vars-$ENVIRONMENT-secrets.tfvars"
+	fi
+
+	echo "$ terraform $1 $VAR_FILE $SECRET_FILE ${@:2} # workspace=$WORKSPACE"
+	eval $(echo terraform $1 $VAR_FILE $SECRET_FILE ${@:2})
+}
+
+alias tfva='tfvars apply'
+# alias tfvaaa='tfvars apply -auto-approve'
+alias tfvr='tfvars refresh'
+
+export PATH_TO_TOOLCHAIN="$HOME/clearhaus/toolchain"
+export PATH="$PATH:$HOME/clearhaus/toolchain/bin"
+
+unlock-aws-pci-stag() {
+	eval $(op signin)
+	aws_pci_stag_credentials=$(op item get aws-pci-stag --format json 2>/dev/null)
+	export AWS_REGION=$(echo $aws_pci_stag_credentials | jq --raw-output '.fields[] | select(."label" == "AWS_REGION").value')
+	export AWS_ACCESS_KEY_ID=$(echo $aws_pci_stag_credentials | jq --raw-output '.fields[] | select(."label" == "AWS_ACCESS_KEY_ID").value')
+	export AWS_SECRET_ACCESS_KEY=$(echo $aws_pci_stag_credentials | jq --raw-output '.fields[] | select(."label" == "AWS_SECRET_ACCESS_KEY").value')
+}
+
+unlock-aws-pci-prod() {
+	eval $(op signin)
+	aws_pci_prod_credentials=$(op item get aws-pci-prod --format json 2>/dev/null)
+	export AWS_REGION=$(echo $aws_pci_prod_credentials | jq --raw-output '.fields[] | select(."label" == "AWS_REGION").value')
+	export AWS_ACCESS_KEY_ID=$(echo $aws_pci_prod_credentials | jq --raw-output '.fields[] | select(."label" == "AWS_ACCESS_KEY_ID").value')
+	export AWS_SECRET_ACCESS_KEY=$(echo $aws_pci_prod_credentials | jq --raw-output '.fields[] | select(."label" == "AWS_SECRET_ACCESS_KEY").value')
+}
+
+print-colors() {
+	T='gYw'   # The test text
+
+	echo -e "\n                 40m     41m     42m     43m     44m     45m     46m     47m";
+
+	for FGs in '    m' '   1m' '  30m' '1;30m' '  31m' '1;31m' '  32m' \
+		'1;32m' '  33m' '1;33m' '  34m' '1;34m' '  35m' '1;35m' \
+		'  36m' '1;36m' '  37m' '1;37m';
+	do FG=${FGs// /}
+		 echo -en " $FGs \033[$FG  $T  "
+		 for BG in 40m 41m 42m 43m 44m 45m 46m 47m;
+		 do echo -en "$EINS \033[$FG\033[$BG  $T  \033[0m";
+		 done
+		 echo;
+	done
+	echo
+}
+
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export PATH=$PATH:/Users/no/.spicetify
+
+if [ "$(uname -m)" = "arm64" ]; then
+	export DOCKER_DEFAULT_PLATFORM=linux/amd64
+	export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+fi
