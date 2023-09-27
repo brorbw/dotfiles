@@ -28,7 +28,7 @@
       (global-wakatime-mode 1)))
 
 (if (me/is-arm)
-    (setq rbenv-executable "/opt/homebrew/opt/rbenv")
+    (setq rbenv-executable "/opt/homebrew/opt/rbenv/bin/rbenv")
   (setq rbenv-executable "/usr/local/opt/rbenv/bin/rbenv"))
 
 
