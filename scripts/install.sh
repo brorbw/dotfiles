@@ -127,9 +127,11 @@ curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-cli/master/inst
 git clone https://github.com/spicetify/spicetify-themes.git /tmp
 cp /tmp/spicetify-themes/* ~/.config/spicetify/Themes/
 
+git config --global commit.gpgsign true
 
 echo "Remeber to set waka api key or emacs will bug you"
 echo "wakatime --config-write api_key=<API_KEY>"
+echo "wakatime --config-write api_url=<WAKA_API_URL>"
 
 if $AMD_HACKINTOSH; then
 	files_list=(MMXCore FastCore TextModel libiomp5.dylib)
