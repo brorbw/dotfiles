@@ -1,3 +1,10 @@
+brew tap
+brew tap
+brew tap
+brew tap homebrew/cask-versions
+brew tap
+brew tap
+brew tap
 brew tap d12frosted/emacs-plus
 brew tap homebrew/cask-fonts
 brew install emacs-plus@28 --with-no-titlebar
@@ -79,13 +86,8 @@ brew install dfu-util
 brew install direnv
 brew install docbook
 brew install docbook-xsl
-brew install docker
 brew install docker-completion
-brew install docker-compose
 brew install docker-credential-helper
-brew install docker-machine
-brew install docker-machine-nfs-generic
-brew install docker-virtualbox
 brew install docutils
 brew install dotnet
 brew install duti
@@ -207,7 +209,6 @@ brew install libxdmcp
 brew install libxext
 brew install libxrender
 brew install libyaml
-brew install lima
 brew install little-cms2
 brew install llvm
 brew install llvm@15
@@ -335,3 +336,45 @@ brew install zlib
 brew install zsh-completions
 brew install zsh-syntax-highlighting
 brew install zstd
+brew install Casks/virtualbox.rb
+brew install orbstack
+brew install orbstack
+brew install qemu
+brew install --build-from-source ./rancher-machine.rb
+brew install --build-from-source ./rancher-machine.rb
+brew install --build-from-source ./rancher-machine.rb
+brew install ./rancher-machine.rb
+brew install ./rancher-machine.rb
+brew install ./rancher-machine.rb
+brew install --debug --verbose --build-from-source ./rancher-machine.rb
+brew install ./rancher-machine.rb
+brew install --verbose --debug ./rancher-machine.rb
+brew install --verbose --debug ./rancher-machine.rb
+brew install --verbose --debug ./rancher-machine.rb
+brew install --verbose --debug ./rancher-machine.rb
+brew install --verbose --debug ./rancher-machine.rb
+brew install --verbose --debug ./rancher-machine.rb
+brew install --debug ./rancher-machine.rb
+brew install --debug ./rancher-machine.rb
+brew install --debug ./docker-virtualbox.rb
+brew install --debug ./docker-virtualbox.rb
+brew install --debug ./docker-virtualbox.rb
+brew install --debug ./docker-virtualbox.rb
+brew install ./docker-virtualbox.rb
+brew install ./docker-virtualbox.rb
+brew install ./docker-virtualbox.rb
+brew install --clean
+brew install svn
+brew install git git-svn git-bzr git-cvs
+brew install git-svn
+brew install git-bzr
+brew install git-cvs
+brew install --cask virtualbox6
+brew install Casks/virtualbox.rb
+brew install gxfutil
+brew install --cask intel-power-gadget
+brew install --cask docker
+brew install --cask docker
+brew install --cask docker
+brew install bash
+brew install utm
