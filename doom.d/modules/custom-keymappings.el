@@ -333,14 +333,14 @@
  :desc "Room temp"            "t" #'home-assistant/temperature)
 
 (defun me/focus-start ()
-	 (interactive)
-	 (start-process-shell-command "start focus" nil "zsh -c \"source ~/.config/zshrc; focus_base\""))
+  (interactive)
+  (start-process-shell-command "start focus" nil "zsh -c \"source ~/.zshrc; focus_base\""))
 
 (defun me/focus-status ()
-	 (interactive)
-	 (message "%s"
-		  (ansi-color-apply
-		   (shell-command-to-string "zsh -c \"source ~/.config/zshrc; focus_status\""))))
+  (interactive)
+  (message "%s"
+	   (ansi-color-apply
+	    (shell-command-to-string "zsh -c \"source ~/.zshrc; focus_status\""))))
 
 (defun me/wakatime-today ()
   (interactive)
@@ -348,7 +348,7 @@
    (concat
     (propertize "Time code today: " 'face 'bold)
     (replace-regexp-in-string "\n" ""
-			      (shell-command-to-string "zsh -c \"source ~/.config/zshrc; wakatime-cli --today\"")))))
+			      (shell-command-to-string "zsh -c \"source ~/.zshrc; wakatime-cli --today\"")))))
 
 ;;; chatGPT
 (map!
