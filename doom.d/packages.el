@@ -38,6 +38,7 @@
 (package! nginx-mode)
 
 (package! git-link :recipe (:host github :repo "sshaw/git-link"))
+(package! ue)
 ;; (package! blamer :recipe (:host github :repo "artawower/blamer.el"))
 
 ;; To install a package directly from a remote git repo, you must specify a
