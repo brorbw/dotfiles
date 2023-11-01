@@ -99,7 +99,7 @@
 	    ;; include *Code-Review* buffer into current workspace
 	    (persp-add-buffer (current-buffer))))
 
-(setq home-assistant/enabled t)
+(setq home-assistant/enabled nil)
 
 ;; Don't insert space between code fence and language
 (setq-default markdown-spaces-after-code-fence 0)
