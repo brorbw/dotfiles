@@ -24,7 +24,6 @@ alias wakatime=wakatime-cli --no-ssl-verify
 
 
 # Path stuff for macos and arch
-
 if [[ "$OSTYPE"	== "darwin"* ]]
 then
 
