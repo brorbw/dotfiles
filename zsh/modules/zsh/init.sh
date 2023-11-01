@@ -61,15 +61,19 @@ plugins=(
 	git
 	dotenv
 	zsh-wakatime
+	zsh-autosuggestions
 	zsh-syntax-highlighting
+	fast-syntax-highlighting
+	# zsh-autocomplete
+	zsh-vi-mode
 )
 
-if [ ! -z EMACS ]; then
+if [ $EMACS ]; then
 	plugins+=(zsh-vi-mode)
 fi
-
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
+
+source $ZSH/oh-my-zsh.sh
