@@ -74,13 +74,6 @@ fi
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-
 function upgrade() {
   ~/.config/scripts/upgrade_doom.sh
 	brew update && brew upgrade --formulae
@@ -101,10 +94,6 @@ function cyberpunk() {
 	emacsclient --eval "(load-theme 'cyberpunk-2077)" &
 }
 
-# Run the fuck hot? Kills flash player plugin if crashed // RIP flash
-alias rtfh="ps ux | grep -E '[F]lash Player Plugin' | awk '{ print $2; }' | xargs kill"
-
-# Just because i misstype
 alias cd..="cd ../"
 
 function open-emacs-or-emacsclient () {
@@ -182,25 +171,9 @@ alias o=open
 alias ls="ls --color=always"
 
 export AWS_DEFAULT_REGION=eu-west-1
-alias av=aws-vault
 
 # Doom binaries
-export PATH=$HOME/.config/emacs/bin:$PATH
-
-# starts the keycoutner
-function start-keyCounter () {
-	KC_PID=$(pgrep keyCounter)
-	if ! [ $KC_PID ] ; then
-		keyCounter &
-		disown
-		echo "Starting keyCounter"
-	fi
-}
-
-# if [[ "$OSTYPE"	== "darwin"* ]];
-# 	then
-#   start-keyCounter
-# fi
+export PATH=$HOME/.emacs.d/bin:$PATH
 
 LINES=24
 function cd() {
@@ -219,12 +192,7 @@ export PATH="/usr/local/opt/docker-virtualbox/bin:$PATH"
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
 export PATH="$HOME/.rtags/bin:$PATH"
 export PATH=/usr/local/smlnj/bin:"$PATH"
-#source /tmp/docker-virtualbox.env
-
-# if [[ $(hostname) == "baldr.nobad.coffee" ]]; then
-# 	 alias docker='lima docker'
-# 	 alias docker-compose='lima docker compose'
-# fi
+export PATH="$PATH:/Users/nah/.dotnet/tools"
 
 if [[ "$OSTYPE"	== "darwin"* ]]; then
 	if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
@@ -258,7 +226,7 @@ function initUE () {
 }
 
 function xcode_schemes_list {
-	xcodebuild -list -workspace $(find . -depth 1 -name '*.xcworkspace')
+	xcodebuild -list -workspace "$(find . -depth 1 -name '*.xcworkspace')"
 }
 
 function xcode_scheme_build {
@@ -295,7 +263,6 @@ function print-colors() {
 }
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-export PATH=$PATH:/Users/no/.spicetify
 
 if [ "$(uname -m)" = "arm64" ]; then
 	export DOCKER_DEFAULT_PLATFORM=linux/amd64
