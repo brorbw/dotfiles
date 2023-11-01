@@ -51,7 +51,7 @@
 ;; not formatting on save in c-mode
 (setq +format-on-save-enabled-modes
       '(not c-mode
-	    ruby-mode))
+	ruby-mode))
 
 ;; (setq lsp-clients-clangd-args '("-j=3"
 ;;                                 "--background-index"
