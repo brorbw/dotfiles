@@ -1,12 +1,5 @@
-brew tap
-brew tap list
-brew tap
-brew tap
-brew tap
+brew tap FelixKratz/formulae
 brew tap homebrew/cask-versions
-brew tap
-brew tap
-brew tap
 brew tap d12frosted/emacs-plus
 brew tap homebrew/cask-fonts
 brew install emacs-plus@28 --with-no-titlebar
@@ -338,45 +331,16 @@ brew install zlib
 brew install zsh-completions
 brew install zsh-syntax-highlighting
 brew install zstd
-brew install Casks/virtualbox.rb
 brew install orbstack
 brew install orbstack
 brew install qemu
-brew install --build-from-source ./rancher-machine.rb
-brew install --build-from-source ./rancher-machine.rb
-brew install --build-from-source ./rancher-machine.rb
-brew install ./rancher-machine.rb
-brew install ./rancher-machine.rb
-brew install ./rancher-machine.rb
-brew install --debug --verbose --build-from-source ./rancher-machine.rb
-brew install ./rancher-machine.rb
-brew install --verbose --debug ./rancher-machine.rb
-brew install --verbose --debug ./rancher-machine.rb
-brew install --verbose --debug ./rancher-machine.rb
-brew install --verbose --debug ./rancher-machine.rb
-brew install --verbose --debug ./rancher-machine.rb
-brew install --verbose --debug ./rancher-machine.rb
-brew install --debug ./rancher-machine.rb
-brew install --debug ./rancher-machine.rb
-brew install --debug ./docker-virtualbox.rb
-brew install --debug ./docker-virtualbox.rb
-brew install --debug ./docker-virtualbox.rb
-brew install --debug ./docker-virtualbox.rb
-brew install ./docker-virtualbox.rb
-brew install ./docker-virtualbox.rb
-brew install ./docker-virtualbox.rb
-brew install --clean
 brew install svn
 brew install git git-svn git-bzr git-cvs
 brew install git-svn
 brew install git-bzr
 brew install git-cvs
-brew install --cask virtualbox6
-brew install Casks/virtualbox.rb
 brew install gxfutil
 brew install --cask intel-power-gadget
-brew install --cask docker
-brew install --cask docker
 brew install --cask docker
 brew install bash
 brew install utm
@@ -387,3 +351,4 @@ brew install lulu
 brew install -cask lulu
 brew install --cask lulu
 brew install xcpretty
+brew install borders
