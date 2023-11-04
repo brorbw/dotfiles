@@ -6,7 +6,7 @@ fi
 
 # First we create the "good" compile_commands.json
 $HOME/Projects/UnrealEngine/Engine/Build/BatchFiles/Mac/GenerateProjectFiles.sh \
-	-project="$PWD/$(basename $PWD).uproject" -game -engine -CMakefile
+	-project="$PWD/$(basename $PWD).uproject" -game -CMakefile
 
 cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .
 
@@ -15,7 +15,7 @@ rm Makefile
 
 # Create a simple makefile
 $HOME/Projects/UnrealEngine/Engine/Build/BatchFiles/Mac/GenerateProjectFiles.sh \
-	-project="$PWD/$(basename $PWD).uproject" -game -engine -Makefile
+	-project="$PWD/$(basename $PWD).uproject" -game -Makefile
 
 # Correct the the makefile becase we are _not_ on Linux
 
@@ -25,7 +25,7 @@ sed -i -E "s/PROJECTBUILD/BUILD/g" Makefile
 
 # Lastly we generate xcode project files for use with xcodebuild
 $HOME/Projects/UnrealEngine/Engine/Build/BatchFiles/Mac/GenerateProjectFiles.sh \
-	-project="$PWD/$(basename $PWD).uproject" -game -engine -XCodeProjectFiles
+	-project="$PWD/$(basename $PWD).uproject" -game -XCodeProjectFiles
 
 # We are all set now
 
