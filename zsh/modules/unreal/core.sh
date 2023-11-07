@@ -108,6 +108,11 @@ function determineWhatToInit {
 	fi
 }
 
+function cookProject {
+	PROJECT_PATH="$PWD/$(basename $PWD)"
+	/Users/nah/Projects/UnrealEngine/Engine/Build/BatchFiles/RunUAT.sh BuildCookRun -platform=Mac -project="${PROJECT_PATH}.uproject" -build -cook -stage -paK
+}
+
 function _unreal {
 	command=$1
 	case $command in
@@ -121,6 +126,10 @@ function _unreal {
 		"init" | 'i')
 			shift 1
 			determineWhatToInit "$@"
+			;;
+		"cook")
+			shift 1
+			cookProject
 			;;
 		"clean")
 			cleanUnrealEngineBuild
