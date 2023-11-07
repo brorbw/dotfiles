@@ -340,7 +340,6 @@ brew install git-svn
 brew install git-bzr
 brew install git-cvs
 brew install gxfutil
-brew install --cask intel-power-gadget
 brew install --cask docker
 brew install bash
 brew install utm
