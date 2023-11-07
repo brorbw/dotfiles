@@ -84,8 +84,7 @@ function buildUnrealGame {
 	isProject
 	echo "Building Unreal Project"
 	XCODE_WORKSPACE_FILE=$(find . -name *\(Mac\)* -maxdepth 1 || find . -name *.xcworkspace -maxdepth 1) > /dev/null
-	PROJECT_NAME="$($PWD/$(basename $PWD)).uproject"
-	xcodebuild -workspace $XCODE_WORKSPACE_FILE -scheme "$PROJECT_NAME" build
+	xcodebuild -workspace $XCODE_WORKSPACE_FILE -scheme "$1" build
 }
 
 function xcodeListTargets {
