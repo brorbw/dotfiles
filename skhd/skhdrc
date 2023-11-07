@@ -217,6 +217,8 @@ ctrl + cmd - b: zsh -c "source ~/.zshrc; cyberpunk"
 
 ctrl + cmd - g: open "https://github.com/clearhaus/issues-pci/issues"
 
+ctrl + cmd - d : open -a "Mission Control"
+
 ctrl + cmd - t: defaults write com.googlecode.iterm2 OpenFileInNewWindows true; \
 open -a iTerm ~; \
 defaults write com.googlecode.iterm2 OpenFileInNewWindows true
