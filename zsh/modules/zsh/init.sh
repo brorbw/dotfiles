@@ -3,8 +3,8 @@
 ZSH_THEME="spaceship"
 ZSH=~/.oh-my-zsh
 
-export HISTSIZE=100_000
-export SAVEHIST=50_000
+export HISTSIZE=10_000_000
+export SAVEHIST=10_000_000
 
 setopt HIST_IGNORE_SPACE
 
