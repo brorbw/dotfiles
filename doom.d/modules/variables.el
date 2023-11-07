@@ -127,3 +127,5 @@
    :nv "gzL" #'evil-lion-right))
 
 (setq chat-bot-prompt "GPT > ")
+
+(setq sh-indentation 2)
