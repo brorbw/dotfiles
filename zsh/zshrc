@@ -9,6 +9,7 @@ load-module alias
 load-module clearhaus
 load-module do-not-disturb
 load-module terraform
+load-module unreal
 
 if [[ "$OSTYPE"	== "darwin"* ]]; then
   # UNLOCK KEYCHAIN FOR SSH IF MACOS
@@ -220,24 +221,9 @@ function myip () {
 	curl https://icanhazip.com
 }
 
-function initUE () {
-	source ~/.config/scripts/ue-fix-build-stuff.sh
-}
 
-function xcode_schemes_list {
-	xcodebuild -list -workspace "$(find . -depth 1 -name '*.xcworkspace')"
-}
-
-function xcode_scheme_build {
-	xcodebuild -scheme $1 build
-}
-
-alias xsl=xcode_schemes_list
-alias xsb=xcode_scheme_build
 alias temp="~/.config/scripts/get-temp-at-desk.sh"
 alias power="~/.config/scripts/get-power.sh"
-# alias unreal=/Users/nah/Projects/UnrealEngine/Engine/Binaries/Mac/UnrealEditorServices.app/Contents/MacOS/UnrealEditorServices
-alias unreal="open -a /Users/nah/Projects/UnrealEngine/Engine/Binaries/Mac/UnrealEditorServices.app ."
 
 if [[ -f ~/.airpodsbssid ]]; then
 	alias cap="BluetoothConnector --connect $(cat ~/.airpodsbssid) --notify"
