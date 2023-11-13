@@ -1,3 +1,11 @@
+function UnrealPath {
+	if [[ "$OSTYPE"	== "darwin"* ]]; then
+		echo "$HOME/Projects/UnrealEngine/Engine/Build/BatchFiles/Mac"
+	else
+		echo "$HOME/Projects/UnrealEngine/Engine/Build/BatchFiles/Linux"
+	fi
+}
+
 function isProject {
 	if [[ -z $PWD/$(basename $PWD).uproject ]]; then
 		echo "No project file found"
@@ -52,7 +60,7 @@ function initUnrealProject {
 	echo "---------------------------\nInitializing Unreal Project\n---------------------------\n"
 
 	# First we create the "good" compile_commands.json
-	$HOME/Projects/UnrealEngine/Engine/Build/BatchFiles/Mac/GenerateProjectFiles.sh \
+	$(UnrealPath)/GenerateProjectFiles.sh \
 		-project="$PWD/$(basename $PWD).uproject" -game -CMakefile
 
 	cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .
@@ -60,21 +68,22 @@ function initUnrealProject {
 	rm Makefile
 
 	# Create a simple makefile
-	$HOME/Projects/UnrealEngine/Engine/Build/BatchFiles/Mac/GenerateProjectFiles.sh \
+	$(UnrealPath)/GenerateProjectFiles.sh \
 		-project="$PWD/$(basename $PWD).uproject" -game -Makefile
 
 	# Correct the the makefile becase we are _not_ on Linux
 
-	sed -i -E "s/^PROJECT.*//g" Makefile
-	sed -i -E "s/Linux/Mac/g" Makefile
-	sed -i -E "s/PROJECTBUILD/BUILD/g" Makefile
+	if [[ "$OSTYPE"	== "darwin"* ]]; then
+		sed -i -E "s/^PROJECT.*//g" Makefile
+		sed -i -E "s/Linux/Mac/g" Makefile
+		sed -i -E "s/PROJECTBUILD/BUILD/g" Makefile
 
-	# Lastly we generate xcode project files for use with xcodebuild
-	$HOME/Projects/UnrealEngine/Engine/Build/BatchFiles/Mac/GenerateProjectFiles.sh \
-		-project="$PWD/$(basename $PWD).uproject" -game -XCodeProjectFiles
+		# Lastly we generate xcode project files for use with xcodebuild
+		$(UnrealPath)/GenerateProjectFiles.sh \
+			-project="$PWD/$(basename $PWD).uproject" -game -XCodeProjectFiles
+	fi
 
 	# We are all set now
-
 	echo "Use the command:"
 	echo "make $(basename $PWD)Editor"
 	echo "to get hotloading"
