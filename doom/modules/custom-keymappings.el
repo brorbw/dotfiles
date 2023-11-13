@@ -315,12 +315,12 @@
     (if writeroom-mode
 	(set-window-configuration +zen--last-wconf)
       (setq +zen--last-wconf (current-window-configuration)))
-      (call-interactively #'+zen/toggle)))
+    (call-interactively #'+zen/toggle)))
 
 (map!
-  :leader
-  :prefix "t"
-  :desc "Toggle better global zen" "Z" #'me/better-global-zen)
+ :leader
+ :prefix "t"
+ :desc "Toggle better global zen" "Z" #'me/better-global-zen)
 
 (map!
  :leader
@@ -348,7 +348,7 @@
    (concat
     (propertize "Time code today: " 'face 'bold)
     (replace-regexp-in-string "\n" ""
-			      (shell-command-to-string "zsh -c \"source ~/.zshrc; wakatime-cli --today\"")))))
+			      (shell-command-to-string "zsh -c \"source ~/.zshrc; /home/unreal/.wakatime/wakatime-cli --today\"")))))
 
 ;;; chatGPT
 (map!

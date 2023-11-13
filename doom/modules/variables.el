@@ -7,7 +7,9 @@
 (global-whitespace-mode)
 (setq whitespace-line-column 150)
 
-;; Probably git stuff
+(menu-bar-mode nil)
+
+;; probably git stuff
 (setq auth-sources '("~/.authinfo.gpg"))
 (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
 
@@ -25,6 +27,13 @@
       (if (me/is-arm)
 	  (setq wakatime-cli-path "/opt/homebrew/opt/wakatime-cli/bin/wakatime-cli")
 	(setq wakatime-cli-path "/usr/local/bin/wakatime-cli"))
+      (global-wakatime-mode 1)))
+
+(if (eq system-type 'gnu/linux)
+    (use-package! wakatime-mode
+      :hook doom-first-buffer
+      :config
+      (setq wakatime-cli-path "/home/unreal/.wakatime/wakatime-cli-linux-amd64")
       (global-wakatime-mode 1)))
 
 (if (me/is-arm)

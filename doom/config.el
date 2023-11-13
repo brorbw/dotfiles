@@ -23,8 +23,8 @@
 (if (eq system-type 'darwin)
     (setq doom-font (font-spec :family "Roboto Mono" :size 12)
           doom-variable-pitch-font (font-spec :family "Roboto Mono" :size 12))
-  (setq doom-font (font-spec :family "monospace" :size 12)
-        doom-variable-pitch-font (font-spec :family "monospace" :size 10)))
+  (setq doom-font (font-spec :family "Roboto Mono" :size 14)
+        doom-variable-pitch-font (font-spec :family "Roboto Mono" :size 12)))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
