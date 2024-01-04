@@ -1,6 +1,6 @@
 ;;; $DOOMDIR/modules/variables.el -*- lexical-binding: t; -*-
 
-;; autofill in comments
+;; Autofill in comments
 (auto-fill-mode 1)
 (setq comment-auto-fill-only-comments t)
 (global-subword-mode)
@@ -8,8 +8,10 @@
 (setq whitespace-line-column 150)
 
 (menu-bar-mode nil)
+;; Window decoration
+(add-to-list 'default-frame-alist '(undecorated-round . t))
 
-;; probably git stuff
+;; Probably git stuff
 (setq auth-sources '("~/.authinfo.gpg"))
 (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
 
