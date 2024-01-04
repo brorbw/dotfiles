@@ -23,20 +23,21 @@ sketchybar --default icon.font="Hack Nerd Font:Bold:15.0"  \
 										 icon.padding_left=4                   \
 										 icon.padding_right=4
 
-SPACE_ICONS=("•" "•" "3" "•" "•" "•" "•" "•" "•" "•")
+SPACE_ICONS=("一" "二" "三" "四" "五" "六" "七" "八" "九" "十")
 for i in "${!SPACE_ICONS[@]}"
 do
 	sid=$(($i+1))
 	sketchybar --add space space.$sid left                                 \
 						 --set space.$sid associated_space=$sid                      \
-															icon="•"                                   \
+						 			 				icon.font="Hack Nerd Font:Bold:12.0"       \
+															icon="${SPACE_ICONS[$i]}"                  \
 															background.color=0xffc678dd                \
 															background.corner_radius=3                 \
-															background.height=15                       \
+															background.height=18                       \
 															background.drawing=off                     \
 															label.drawing=off                          \
-															icon.padding_left=2                        \
-															icon.padding_right=5                       \
+															icon.padding_left=3                        \
+															icon.padding_right=3                       \
 															script="$PLUGIN_DIR/space.sh"              \
 															click_script="yabai -m space --focus $sid"
 done
@@ -45,9 +46,14 @@ sketchybar --add item front_app center                               \
 																 icon.drawing=off                  \
 					 --subscribe front_app front_app_switched
 
+sketchybar --add item utc-clock right                              \
+					 --set utc-clock update_freq=1                        \
+           icon=UTC                                \
+           script="$PLUGIN_DIR/utc-clock.sh"         \
+
 sketchybar --add item clock right                              \
 					 --set clock update_freq=1                        \
-           icon=                                \
+           icon=                               \
            script="$PLUGIN_DIR/clock.sh"         \
 
 if [[ ! "$(uname -m)" = "arm64" ]]; then
@@ -55,6 +61,11 @@ sketchybar --add item temp right \
 					 --set temp update_freq=5 \
 					 icon=󰏈 \
 					 script="$PLUGIN_DIR/temp-at-desk.sh"
+
+sketchybar --add item out_temp right \
+					 --set out_temp update_freq=600 \
+					 icon=󰏈 \
+					 script="$PLUGIN_DIR/temp-outside.sh"
 fi
 
 if [[ "$(uname -m)" = "arm64" ]]; then
