@@ -92,8 +92,8 @@ function initUnrealProject {
 function buildUnrealGame {
 	isProject
 	echo "Building Unreal Project"
-	XCODE_WORKSPACE_FILE=$(find . -name *\(Mac\)* -maxdepth 1 || find . -name *.xcworkspace -maxdepth 1) > /dev/null
-	xcodebuild -workspace $XCODE_WORKSPACE_FILE -scheme "$1" build
+	$HOME/Projects/UnrealEngine/Engine/Build/BatchFiles/Mac/Build.sh -ForceHotReload \
+		$1 Mac Development -Project="$PWD/$(basename $PWD).uproject" -IgnoreJunk
 }
 
 function xcodeListTargets {
@@ -117,9 +117,13 @@ function determineWhatToInit {
 	fi
 }
 
+# Cook command from unreal
+# "/Users/nah/Projects/UnrealEngine/Engine/Build/BatchFiles/RunUAT.command"  -ScriptsForProject="/Users/nah/Documents/Unreal Projects/ThirdPersonMP/ThirdPersonMP.uproject" Turnkey -command=VerifySdk -platform=Mac -UpdateIfNeeded -project="/Users/nah/Documents/Unreal Projects/ThirdPersonMP/ThirdPersonMP.uproject" BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -cook  -project="/Users/nah/Documents/Unreal Projects/ThirdPersonMP/ThirdPersonMP.uproject" -target=ThirdPersonMP  -unrealexe="/Users/nah/Projects/UnrealEngine/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor" -platform=Mac -skipstage -nocompile -nocompileuat
+# Package
+# "/Users/nah/Projects/UnrealEngine/Engine/Build/BatchFiles/RunUAT.command"  -ScriptsForProject="/Users/nah/Documents/Unreal Projects/ThirdPersonMP/ThirdPersonMP.uproject" Turnkey -command=VerifySdk -platform=Mac -UpdateIfNeeded -project="/Users/nah/Documents/Unreal Projects/ThirdPersonMP/ThirdPersonMP.uproject" BuildCookRun -nop4 -utf8output -nocompileeditor -skipbuildeditor -cook  -project="/Users/nah/Documents/Unreal Projects/ThirdPersonMP/ThirdPersonMP.uproject" -target=ThirdPersonMP  -unrealexe="/Users/nah/Projects/UnrealEngine/Engine/Binaries/Mac/UnrealEditor.app/Contents/MacOS/UnrealEditor" -platform=Mac -stage -archive -package -build -pak -compressed -prereqs -archivedirectory="/Users/nah/Desktop/TestExport" -clientconfig=Debug -nocompile -nocompileuat
 function cookProject {
 	PROJECT_PATH="$PWD/$(basename $PWD)"
-	/Users/nah/Projects/UnrealEngine/Engine/Build/BatchFiles/RunUAT.sh BuildCookRun -platform=Mac -project="${PROJECT_PATH}.uproject" -build -cook -stage -paK
+	/Users/nah/Projects/UnrealEngine/Engine/Build/BatchFiles/RunUAT.sh BuildCookRun -platform=Mac -project="${PROJECT_PATH}.uproject" -archivedirectory="/Users/nah/Desktop/TestExport" -build -cook -stage -pak
 }
 
 function _unreal {
