@@ -366,3 +366,19 @@
  :prefix "o"
  :desc "chatgpt"
  "c" #'chat)
+
+(map!
+ :leader
+ :prefix "U"
+ :desc "build"
+ "B" #'unreal/build)
+
+(defun unreal/build ()
+  (interactive)
+  (with-output-to-temp-buffer "*ue-build*"
+    (pop-to-buffer "*ue-build*")
+    (setq-local process-connection-type nil)
+    (projectile-run-async-shell-command-in-root (concat "zsh -c \"source ~/.zshrc;" "unreal" " " "build" " " (doom-project-name) "Editor" "\"" ) "*ue-build*")
+    (evil-escape)
+    (setq-local buffer-read-only t)
+    (read-only-mode 1)))
