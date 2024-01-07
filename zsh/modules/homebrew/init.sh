@@ -7,9 +7,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 HOMEBREW_FILE="$HOME/.config/brewfile"
-
 function brew() {
-	/usr/local/bin/brew $@
+  $(sh -c "which brew") "$@"
 	case "$1" in
 		"install")
 			echo "brew $@" >>$HOMEBREW_FILE
