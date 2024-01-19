@@ -58,7 +58,7 @@ then
 
 	# GO
 	export GOPATH=$HOME/.go
-	export GOROOT="/usr/local/opt/go/libexec"
+	export GOROOT="$(brew --prefix go)/libexec"
 	export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
 	# NODE stuff
