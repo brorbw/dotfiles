@@ -140,3 +140,6 @@
 (setq chat-bot-prompt "GPT > ")
 
 (setq sh-indentation 2)
+(setq read-file-name-completion-ignore-case t
+      read-buffer-completion-ignore-case t
+      completion-ignore-case t)
