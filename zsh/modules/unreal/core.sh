@@ -148,7 +148,7 @@ function _unreal {
 			cleanUnrealEngineBuild
 			;;
 		"open")
-			open -a /Users/nah/Projects/UnrealEngine/Engine/Binaries/Mac/UnrealEditorServices.app .
+			open -a /Volumes/Unreal/UnrealEngine/Engine/Binaries/Mac/UnrealEditorServices.app .
 			;;
 		*)
 			echo "Unknown command"
