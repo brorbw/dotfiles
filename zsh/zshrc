@@ -21,7 +21,7 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 if [[ "$OSTYPE"	== "darwin"* ]]
 then
 	# Doom binaries
-	export PATH=$HOME/.emacs.d/bin:$PATH
+	export PATH=$HOME/.config/emacs/bin/:$PATH
 	alias wakatime=wakatime-cli --no-ssl-verify
 	# Change default cat to bat
 	alias cat="bat --paging never --theme=$(defaults read -globalDomain AppleInterfaceStyle &>/dev/null && echo default || echo GitHub)"
